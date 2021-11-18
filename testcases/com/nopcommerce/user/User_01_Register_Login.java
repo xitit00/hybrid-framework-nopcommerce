@@ -17,7 +17,7 @@ public class User_01_Register_Login {
 	}
 
 	@Test
-	public void TC_0() {
+	public void TC_02() {
 		
 		
 	}

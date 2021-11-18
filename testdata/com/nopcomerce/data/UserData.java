@@ -1,5 +1,10 @@
 package com.nopcomerce.data;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Vector;
+
 public class UserData {
 
 	// class này chứa subclass quản lý data test cho những classes trong
@@ -10,7 +15,13 @@ public class UserData {
 	// đủ
 
 	public class Login {
+		
+		List<String> listString = new ArrayList<String>();
+		
+		List<String> vector = new Vector<>();
+		List<String> linkedList = new LinkedList<>();
 
+		ArrayList<String> arrList = new ArrayList<String>();
 	}
 
 	public class Register {
