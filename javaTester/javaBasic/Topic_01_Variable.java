@@ -1,8 +1,8 @@
 package javaBasic;
 
-public class Topic_01_Data_Type {
+public class Topic_01_Variable {
 	
-	public Topic_01_Data_Type() {
+	public Topic_01_Variable() {
 		
 		
 	}
@@ -18,13 +18,13 @@ public class Topic_01_Data_Type {
 
 		System.out.println(studentNumber);
 		
-		System.out.println(Topic_01_Data_Type.studentNumber);
+		System.out.println(Topic_01_Variable.studentNumber);
 		
 		// change var studentName to static to implement in static method
 		//System.out.println(studentName);
 		
 		// new class which include not static variable to implement in static method 
-		Topic_01_Data_Type topic = new Topic_01_Data_Type();
+		Topic_01_Variable topic = new Topic_01_Variable();
 		System.out.println(topic.studentName);
 
 	}
