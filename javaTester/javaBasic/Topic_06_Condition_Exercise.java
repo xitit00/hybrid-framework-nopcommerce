@@ -106,6 +106,79 @@ public class Topic_06_Condition_Exercise {
 		
 	}
 	
+	//@Test
+	public void TC_05() {
+		
+		int a = scan.nextInt();
+		
+		
+		if (10 < a && a < 100) {
+			
+			System.out.println(a + " nam trong khoang xxx");
+		}
+		else {
+			
+			System.out.println(a + " nam ngoai khoang xxx");
+		}
+		
+	}
+	
+	//@Test
+	public void TC_06() {
+		
+//		0 < 5	  :D
+//		5 < 7.5   :C
+//		7.5 < 8.5 :B
+//		8.5 - 10  :A
+		
+		float point = scan.nextFloat();
+		
+		
+		if (point <= 10 && point >= 8.5) {
+			
+			System.out.println("He so A");
+		}
+		else if (point < 8.5 && point >= 7.5) {
+			
+			System.out.println("He so B");
+			
+		}else if (point < 7.5 && point >= 5) {
+			
+			System.out.println("He so C");
+
+		}
+		else if (point < 5 && point >= 0) {
+			
+			System.out.println("He so D");
+
+		}
+		else {
+			
+			System.out.println("Vui long nhap lai");
+		}
+		
+	}
+	
+	@Test
+	public void TC_07() {
+
+		int month = scan.nextInt();
+
+		if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+
+			System.out.println("Thang co 31 ngay");
+			
+		} else if (month == 2) {
+
+			System.out.println("Thang co 28 ngay");
+
+		} else {
+
+			System.out.println("Thang co 30 ngay");
+		}
+
+	}
+	
 	
 	
 	
