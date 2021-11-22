@@ -1,7 +1,7 @@
 package javaBasic;
 
 
-public class Topic_06_Reference_Casting {
+public class Topic_05_Reference_Casting {
 	
 	public String stdName;
 	
@@ -25,8 +25,8 @@ public class Topic_06_Reference_Casting {
 		// TODO Auto-generated method stub
 
 	
-		Topic_06_Reference_Casting firstStd = new Topic_06_Reference_Casting();
-		Topic_06_Reference_Casting secondStd = new Topic_06_Reference_Casting();
+		Topic_05_Reference_Casting firstStd = new Topic_05_Reference_Casting();
+		Topic_05_Reference_Casting secondStd = new Topic_05_Reference_Casting();
 
 		firstStd.setStdName("ABC"); 
 		secondStd.setStdName("DEF");;
