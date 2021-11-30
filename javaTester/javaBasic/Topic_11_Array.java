@@ -3,6 +3,7 @@ package javaBasic;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Topic_11_Array {
 	
 	// Thuộc tính / Biến 
@@ -28,17 +29,24 @@ public class Topic_11_Array {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Topic_11_Array students[] = new Topic_11_Array[3];
+//		Topic_11_Array students[] = new Topic_11_Array[3];
+//		
+//		students[0] = new Topic_11_Array("A", 23);
+//		students[1] = new Topic_11_Array("B", 24);
+//		students[2] = new Topic_11_Array("C", 25);
+//		
+//		
+//		for (Topic_11_Array std : students) {
+//			
+//			std.display();
+//		}
 		
-		students[0] = new Topic_11_Array("A", 23);
-		students[1] = new Topic_11_Array("B", 24);
-		students[2] = new Topic_11_Array("C", 25);
-		
-		
-		for (Topic_11_Array std : students) {
-			
-			std.display();
-		}
+		TC_02();
+		TC_03();
+		TC_04();
+		TC_05();
+		TC_06();
+		TC_07();
 	}
 
 	public void TC_01() {
@@ -96,6 +104,96 @@ public class Topic_11_Array {
 
 		// List
 		List<String> listName = new ArrayList();
+	}
+	
+	public static void TC_02() {
+		
+		int arrNum[] = {99,7,11,8,9};
+		int n = 0;
+		for (int i = 0; i < arrNum.length; i++) {
+			
+			if (arrNum[i] > n) {
+				
+				n = arrNum[i];
+			}
+		}
+		
+		System.out.println(n);
+	}
+	
+	public static void TC_03() {
+		
+		int arrNum[] = {99,7,11,8,9};
+		int totalNum = 0;
+		totalNum = arrNum[0] + arrNum[arrNum.length - 1];
+		
+		System.out.println(totalNum);
+	}
+	
+	public static void TC_04() {
+		
+		int arrNum[] = {2,7,6,8,9,17,16,20};
+		for (int i = 0; i < arrNum.length; i++) {
+			
+			if (arrNum[i] % 2 == 0) {
+				
+				System.out.println(arrNum[i]);
+			}
+		}
+		
+		
+	}
+	
+	public static void TC_05() {
+
+		int arrNum[] = { 3, -7, 2, 5, 9, -6, 10, 12 };
+		int totalSum = 0;
+		for (int i = 0; i < arrNum.length; i++) {
+
+			if (arrNum[i] % 2 == 1 && arrNum[i] > 0) {
+
+				totalSum += arrNum[i];
+				
+			}
+		}
+		
+		System.out.println(totalSum);
+
+	}
+	
+	public static void TC_06() {
+
+		int arrNum[] = { 3, -7, 2, 5, 9, -6, 10, 12 };
+	
+		for (int i = 0; i < arrNum.length; i++) {
+
+			if (arrNum[i] >= 0 && arrNum[i] <= 10) {
+
+				System.out.println(arrNum[i]);
+			}
+		}
+		
+		
+
+	}
+	
+	public static void TC_07() {
+
+		int arrNum[] = { 3, 5, 7, 30, 10, 5, 8, 23 ,0 , -5 };
+		int tong = 0;
+		float tb = 0;
+		for (int i = 0; i < arrNum.length; i++) {
+
+				tong += arrNum[i];
+				tb = tong / arrNum.length;
+				
+				
+
+		}
+		
+		System.out.println("Tong cac pt: " + tong);
+		System.out.println("Tb cong: " + tb);
+
 	}
 
 }
