@@ -4,18 +4,26 @@
 
 <suite parallel="false" name="NopCommerce">
 
+	 <test name="Run On Firefox">
+	
+		<classes>
+			<class name="com.nopcommerce.user.Level_02_Apply_BasePage" />
+		</classes>
+		
+	</test>
 
 	<!-- // test name là mình chạy nó trên môi trường nào -->
-	<test name="Run On Firefox">
+	
+	<!-- <test name="Run On Firefox">
 	
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="javaBasic.Topic_07_Switch_Case" />
+			<class name="com.nopcommerce.user.Level_02_Apply_BasePage.java" />
 		</classes>
 		
-	</test> <!-- Test -->
+	</test>  -->
 
-	<test name="Run On Chrome">
+	<!-- <test name="Run On Chrome">
 
 		<parameter name="browser" value="chrome" />
 		<classes>
@@ -31,6 +39,6 @@
 			<class name="javaBasic.Topic_07_Switch_Case" />
 		</classes>
 
-	</test>
+	</test> -->
 
 </suite> <!-- Suite -->

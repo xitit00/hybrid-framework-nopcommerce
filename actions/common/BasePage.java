@@ -16,6 +16,15 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
+	
+	
+	// hàm constructor
+	
+	public static BasePage getBasePageObject() {
+		
+		BasePage b = new BasePage();
+		return b;
+	}
 
 	// các hàm dùng chung để tương tác với pageObjects
 	// common class
@@ -148,17 +157,16 @@ public class BasePage {
 	
 	//Web Element
 	
-	public By getByXpath(String xpathLocator) {
+	private By getByXpath(String xpathLocator) {
 		
 		return By.xpath(xpathLocator);
 	}
-	
-	public WebElement getWebElement(WebDriver driver, String xpathLocator) {
+	private WebElement getWebElement(WebDriver driver, String xpathLocator) {
 		
 		return driver.findElement(getByXpath(xpathLocator));
 	} 
 	
-	public List<WebElement> getListWebElement(WebDriver driver, String xpathLocator) {
+	private List<WebElement> getListWebElement(WebDriver driver, String xpathLocator) {
 		
 		return driver.findElements(getByXpath(xpathLocator));
 	}

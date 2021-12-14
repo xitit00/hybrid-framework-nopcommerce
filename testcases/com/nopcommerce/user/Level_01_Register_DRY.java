@@ -11,7 +11,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class User_01_Register_Login {
+public class Level_01_Register_DRY {
 	
 	WebDriver driver;
 	String projectPath = System.getProperty("user.dir");
@@ -53,14 +53,16 @@ public class User_01_Register_Login {
 		
 		driver.navigate().refresh();
 		
+		driver.findElement(By.cssSelector("input#FirstName")).sendKeys("anh");
+		driver.findElement(By.cssSelector("input#LastName")).sendKeys("BTC");
 		driver.findElement(By.cssSelector("input#Email")).sendKeys("1234.345");
-		driver.findElement(By.cssSelector("button#register-button")).click();
+		driver.findElement(By.cssSelector("input#Password")).sendKeys("123456");
+		driver.findElement(By.cssSelector("input#ConfirmPassword")).sendKeys("123456");
 		
-		Assert.assertEquals(driver.findElement(By.cssSelector("span#FirstName-error")).getText(), "First name is required.");
-		Assert.assertEquals(driver.findElement(By.cssSelector("span#LastName-error")).getText(), "Last name is required.");
+		
+		driver.findElement(By.cssSelector("button#register-button")).click();
+
 		Assert.assertEquals(driver.findElement(By.cssSelector("span#Email-error")).getText(), "Wrong email");
-		Assert.assertEquals(driver.findElement(By.cssSelector("span#Password-error")).getText(), "Password is required.");
-		Assert.assertEquals(driver.findElement(By.cssSelector("span#ConfirmPassword-error")).getText(), "Password is required.");
 		
 	}
 	
