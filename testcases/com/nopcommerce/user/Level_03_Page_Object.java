@@ -27,8 +27,8 @@ public class Level_03_Page_Object {
 	String password = "123456";
 	
 	
-	HomePageObject homePageObject;
-	RegisterPageObject registerPageObject;
+	private HomePageObject homePageObject;
+	private RegisterPageObject registerPageObject;
 	
 	@BeforeClass
 	public void beforeClass() {
@@ -40,13 +40,13 @@ public class Level_03_Page_Object {
 		driver = new FirefoxDriver();
 		
 	
-		// khoi tao homePageObject
+		// khoi tao homePageObject = cach gan ngc lai doi tuong class da dc khoi tao truoc ben trong class , sau do set gia tri 
+		// cho driver
 		homePageObject = HomePageObject.getHomePageObject();
 		homePageObject.setDriver(driver);
 		
-		// khoi tao registerPageObject
-		registerPageObject = new RegisterPageObject();
-		registerPageObject.setDriver(driver);		
+		// khoi tao registerPageObject = cach override ham constructor
+		registerPageObject = new RegisterPageObject(driver);
 		
 		// Set timeout tim element
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -58,7 +58,7 @@ public class Level_03_Page_Object {
 	}
 
 	@Test
-	public void TC_01_Register_Empty_Data() {
+	public void Register_01_Empty_Data() {
 		
 
 		//Click to register link
@@ -77,7 +77,7 @@ public class Level_03_Page_Object {
 	}
 
 	@Test
-	public void TC_02_Register_Invalid_Email() {
+	public void Register_02_Invalid_Email() {
 		
 		//Click to register link
 		homePageObject.clickToRegisterLink();;
@@ -98,7 +98,7 @@ public class Level_03_Page_Object {
 	}
 	
 	@Test
-	public void TC_03_Register_Success() {
+	public void Register_03_Success() {
 		
 		
 		//Click to register link
@@ -122,7 +122,7 @@ public class Level_03_Page_Object {
 		
 	}
 	@Test
-	public void TC_04_Register_Existing_Email() {
+	public void Register_04_Existing_Email() {
 		
 		//Click to register link
 		homePageObject.clickToRegisterLink();;
@@ -143,7 +143,7 @@ public class Level_03_Page_Object {
 		
 	}
 	@Test
-	public void TC_05_Register_Password_6_Than_Chars() {
+	public void Register_05__Password_6_Than_Chars() {
 		
 
 		//Click to register link
@@ -165,7 +165,7 @@ public class Level_03_Page_Object {
 		
 	}
 	@Test
-	public void TC_06_Register_Invalid_Confirm_Password() {
+	public void Register_06__Invalid_Confirm_Password() {
 		
 		//Click to register link
 		homePageObject.clickToRegisterLink();;

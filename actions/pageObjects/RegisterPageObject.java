@@ -9,7 +9,10 @@ public class RegisterPageObject extends BasePage {
 	
 	private WebDriver driver;
 	
-	public void setDriver(WebDriver driver) {
+	
+	// hàm constructor : khi class này đc gọi thì hàm này sẽ đc gọi vào đầu tiên , truyền tham số driver vào map trước , sau đó mới 
+	// chạy đến những hàm bên dưới thì lúc này driver đã map đã có giá trị r nhé.
+	public RegisterPageObject(WebDriver driver) {
 		
 		this.driver = driver;
 	}
