@@ -15,16 +15,15 @@ import common.BasePage;
 import pageObjects.HomePageObject;
 import pageObjects.RegisterPageObject;
 
-public class Level_03_Page_Object {
+public class Level_03_Page_Object_01_Register {
 	
-	WebDriver driver;
-	String projectPath = System.getProperty("user.dir");
-	String email;
-	BasePage basePage;
+	private WebDriver driver;
+	private String projectPath = System.getProperty("user.dir");
+	private String email;
 	
-	String firstName = "anh";
-	String lastName = "BTC";
-	String password = "123456";
+	private String firstName = "anh";
+	private String lastName = "BTC";
+	private String password = "123456";
 	
 	
 	private HomePageObject homePageObject;
