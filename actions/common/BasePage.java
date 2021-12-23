@@ -188,10 +188,16 @@ public class BasePage {
 	
 	// Default Dropdown
 	
-	public void selectItemInDefaultDropdown(WebDriver driver, String xpathLocator, String textItem) {
+	public void selectItemByValueInDefaultDropdown(WebDriver driver, String xpathLocator, String textItem) {
 		
 		Select select = new Select(getWebElement(driver, xpathLocator));
 		select.selectByValue(textItem);
+	}
+	
+	public void selectItemByTextInDefaultDropdown(WebDriver driver, String xpathLocator, String textItem) {
+		
+		Select select = new Select(getWebElement(driver, xpathLocator));
+		select.selectByVisibleText(textItem);
 	}
 	
 	public String getSelectedItemDefaultDropdown(WebDriver driver, String xpathLocator) {

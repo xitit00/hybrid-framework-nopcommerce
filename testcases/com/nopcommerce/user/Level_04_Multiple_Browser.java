@@ -3,23 +3,24 @@ package com.nopcommerce.user;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import common.BasePage;
+import common.BaseTest;
 import pageObjects.HomePageObject;
 import pageObjects.LoginPageObject;
 import pageObjects.RegisterPageObject;
 
-public class Level_03_Page_Object_02_Login {
+public class Level_04_Multiple_Browser extends BaseTest {
 	
 	private WebDriver driver;
-	private String projectPath = System.getProperty("user.dir");
 	private String emailExisting;
 	private String emailInvalid = "anh.1234";
 	private String emailNotFound;
@@ -33,14 +34,11 @@ public class Level_03_Page_Object_02_Login {
 	private HomePageObject homePageObject;
 	private RegisterPageObject registerPageObject;
 	
+	@Parameters("browser")
 	@BeforeClass
-	public void beforeClass() {
-		
-		// Mo trinh duyet Firefox
-		System.setProperty("webdriver.gecko.driver", projectPath + "/browserDrivers/geckodriver");
-		
-		// Driver sau khi khoi tao thi se co 1 cai ID dc gen ra , dung de gan vao method cua BasePage se ko bi error
-		driver = new FirefoxDriver();
+	public void beforeClass(String browserName) {
+
+		driver = getBrowserDriver(browserName);
 		
 		// Set timeout tim element
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -83,6 +81,7 @@ public class Level_03_Page_Object_02_Login {
 		
 		
 	}
+	
 
 	@Test
 	public void Login_01_Empty_Data() {
@@ -139,6 +138,7 @@ public class Level_03_Page_Object_02_Login {
 		Assert.assertEquals(loginPageObject.getErrMessageUnsuccessful(), "Login was unsuccessful. Please correct the errors and try again.\nNo customer account found");
 		
 	}
+	
 	@Test
 	public void Login_04_Existing_Email_And_Empty_Password() {
 		
@@ -159,6 +159,7 @@ public class Level_03_Page_Object_02_Login {
 		Assert.assertEquals(loginPageObject.getErrMessageUnsuccessful(), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
 		
 	}
+	
 	@Test
 	public void Login_05_Existings_Email_And_Wrong_Password() {
 		

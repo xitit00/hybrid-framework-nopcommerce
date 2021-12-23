@@ -54,6 +54,12 @@ public class RegisterPageObject extends BasePage {
 		clickToElement(driver, RegisterPageUI.LOG_OUT);
 	}
 	
+	public void clickToLogoutByJS() {
+		
+		waitForElementClickable(driver,RegisterPageUI.LOG_OUT);
+		clickToElementByJS(driver, RegisterPageUI.LOG_OUT);
+	}
+	
 	public String getTextFirstNameErr() {
 		
 		return getElementText(driver, RegisterPageUI.FIST_NAME_ERR_MESSAGE);
