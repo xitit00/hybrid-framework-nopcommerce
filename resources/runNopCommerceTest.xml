@@ -7,7 +7,7 @@
 	 <!-- <test name="Run On Firefox">
 	
 		<classes>
-			<class name="com.nopcommerce.user.Level_04_Multiple_Browser" />
+			<class name="com.nopcommerce.user.Level_05_Page_Factory" />
 		</classes>
 		
 	</test> -->
@@ -40,5 +40,51 @@
 		</classes>
 
 	</test>
+	
+	<!-- //test Headless  -->
+<!--  	<test name="Run On H_Firefox">
+	
+		<parameter name="browser" value="h_firefox" />
+		<classes>
+			<class name="com.nopcommerce.user.Level_04_Multiple_Browser" />
+		</classes>
+		
+	</test> -->
+
+	<!-- <test name="Run On H_Chrome">
+
+		<parameter name="browser" value="h_chrome" />
+		<classes>
+			<class name="com.nopcommerce.user.Level_04_Multiple_Browser" />
+		</classes>
+
+	</test> -->
+	
+<!-- 	<test name="Run On Safari">
+	
+		<parameter name="browser" value="safari" />
+		<classes>
+			<class name="com.nopcommerce.user.Level_04_Multiple_Browser" />
+		</classes>
+		
+	</test> -->
+	
+	<!-- <test name="Run On CocCoc">
+	
+		<parameter name="browser" value="coccoc" />
+		<classes>
+			<class name="com.nopcommerce.user.Level_04_Multiple_Browser" />
+		</classes>
+		
+	</test> -->
+	
+	<!-- <test name="Run On Opera">
+	
+		<parameter name="browser" value="opera" />
+		<classes>
+			<class name="com.nopcommerce.user.Level_04_Multiple_Browser" />
+		</classes>
+		
+	</test> -->
 
 </suite> <!-- Suite -->

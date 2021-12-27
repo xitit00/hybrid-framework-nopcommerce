@@ -488,4 +488,44 @@ public class BasePage {
 		
 	}
 	
+	// Học cho biết pageFactory
+	// override method waitForElement , click  pageFactory
+	
+	public void waitForElementClickableByElement(WebDriver driver, WebElement element) {
+		
+		WebDriverWait explicitWait = new WebDriverWait(driver,30);
+		explicitWait.until(ExpectedConditions.elementToBeClickable(element));
+		
+	}
+	
+	public void clickToElementByElement(WebElement element) {
+		
+		// k cần findElement vì FindBy đã giúp mình findElement r.
+		element.click();
+	}
+	
+	public void waitForElementVisibleByElement(WebDriver driver, WebElement element) {
+		
+		WebDriverWait explicitWait = new WebDriverWait(driver,30);
+		explicitWait.until(ExpectedConditions.visibilityOf(element));
+		
+	}
+	
+	public boolean isElementDisplayedByElement(WebElement element) {
+		
+		return element.isDisplayed();
+	}
+	
+	
+	public String getElementTextByElement(WebElement element) {
+		
+		return element.getText();
+	}
+	
+	public void sendkeyToElementByElement(WebElement element, String textValue) {
+		
+		element.clear();
+		element.sendKeys(textValue);
+		
+	}
 }
