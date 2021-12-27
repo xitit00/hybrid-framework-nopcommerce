@@ -14,11 +14,12 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import common.BaseTest;
-import pageFactory.HomePageObject;
-import pageFactory.LoginPageObject;
-import pageFactory.RegisterPageObject;
+import pageObjects.HomePageObject;
+import pageObjects.LoginPageObject;
+import pageObjects.PageGeneratorManager;
+import pageObjects.RegisterPageObject;
 
-public class Level_05_Page_Factory extends BaseTest {
+public class Level_06_Page_Generator_Manager_III extends BaseTest {
 	
 	private WebDriver driver;
 	private String emailExisting;
@@ -34,12 +35,10 @@ public class Level_05_Page_Factory extends BaseTest {
 	private HomePageObject homePageObject;
 	private RegisterPageObject registerPageObject;
 	
-
-	@Parameters ("browser")
+	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
 
-		// run multiple browser and return driver from BaseTest
 		driver = getBrowserDriver(browserName);
 		
 		// Set timeout tim element
@@ -52,13 +51,11 @@ public class Level_05_Page_Factory extends BaseTest {
 		emailNotFound = "anhBTC" + generateFakeNumber() + "@mail.com";
 
 		// open URL -> Home : khoi tao Home 
-		homePageObject = new HomePageObject(driver);
-		
-		//Click to register link
-		homePageObject.clickToRegisterLink();
+		homePageObject = PageGeneratorManager.getHomePage();
+		homePageObject.setDriver(driver);		
 		
 		//Home click Register Link -> qua trang Register -> khởi tạo Register
-		registerPageObject = new RegisterPageObject(driver);
+		registerPageObject = homePageObject.clickToRegisterLink();
 		
 		//Input to required fields
 		registerPageObject.inputFirstName(firstName);
@@ -77,7 +74,9 @@ public class Level_05_Page_Factory extends BaseTest {
 		registerPageObject.clickToLogout();
 
 		//Register click log out to Home -> qua trang Home -> khởi tạo Home
-		homePageObject = new HomePageObject(driver);
+		homePageObject = PageGeneratorManager.getHomePage();
+		homePageObject.setDriver(driver);
+		
 		
 	}
 	
@@ -86,9 +85,7 @@ public class Level_05_Page_Factory extends BaseTest {
 	public void Login_01_Empty_Data() {
 		
 		//Click to login link
-		homePageObject.clickToLoginLink();
-		
-		loginPageObject = new LoginPageObject(driver);
+		loginPageObject = homePageObject.clickToLoginLink();
 		
 		//Click to login button
 		loginPageObject.clickToLoginButton();
@@ -100,11 +97,8 @@ public class Level_05_Page_Factory extends BaseTest {
 	@Test
 	public void Login_02_Invalid_Email() {
 		
-		//Click to login link
-		homePageObject.clickToLoginLink();
-		
 		//Home click Login Link -> qua trang Login -> khởi tạo login lại 
-		loginPageObject = new LoginPageObject(driver);
+		loginPageObject = homePageObject.clickToLoginLink();
 		
 		//Input to required fields
 		loginPageObject.inputEmail(emailInvalid);
@@ -120,11 +114,8 @@ public class Level_05_Page_Factory extends BaseTest {
 	@Test
 	public void Login_03_Email_Not_Found() {
 		
-		//Click to login link
-		homePageObject.clickToLoginLink();
-		
 		//Home click Login Link -> qua trang Login -> khởi tạo login lại 
-		loginPageObject = new LoginPageObject(driver);
+		loginPageObject = homePageObject.clickToLoginLink();
 		
 		//Input to required fields
 		loginPageObject.inputEmail(emailNotFound);
@@ -140,11 +131,8 @@ public class Level_05_Page_Factory extends BaseTest {
 	@Test
 	public void Login_04_Existing_Email_And_Empty_Password() {
 		
-		//Click to login link
-		homePageObject.clickToLoginLink();
-		
 		//Home click Login Link -> qua trang Login -> khởi tạo login lại 
-		loginPageObject = new LoginPageObject(driver);
+		loginPageObject = homePageObject.clickToLoginLink();
 		
 		//Input to required fields
 		loginPageObject.inputEmail(emailExisting);
@@ -161,11 +149,8 @@ public class Level_05_Page_Factory extends BaseTest {
 	@Test
 	public void Login_05_Existings_Email_And_Wrong_Password() {
 		
-		//Click to login link
-		homePageObject.clickToLoginLink();
-		
 		//Home click Login Link -> qua trang Login -> khởi tạo login lại 
-		loginPageObject = new LoginPageObject(driver);
+		loginPageObject = homePageObject.clickToLoginLink();
 		
 		//Input to required fields
 		loginPageObject.inputEmail(emailExisting);
@@ -182,12 +167,9 @@ public class Level_05_Page_Factory extends BaseTest {
 	
 	@Test
 	public void Login_06_Email_Password_Successfully() {
-		
-		// Click to login link
-		homePageObject.clickToLoginLink();
 
 		// Home click Login Link -> qua trang Login -> khởi tạo login lại
-		loginPageObject = new LoginPageObject(driver);
+		loginPageObject = homePageObject.clickToLoginLink();
 		
 		// Input to required fields
 		loginPageObject.inputEmail(emailExisting);
@@ -197,20 +179,17 @@ public class Level_05_Page_Factory extends BaseTest {
 		loginPageObject.clickToLoginButton();
 		
 		//Login Sucessfull -> Home
-		homePageObject = new HomePageObject(driver);
+		homePageObject = PageGeneratorManager.getHomePage();
+		homePageObject.setDriver(driver);
 		
 		//verify err confirm password
 		Assert.assertTrue(homePageObject.checkDisplayMyAccount());
+		Assert.assertTrue(homePageObject.checkDisplayLogout());
 		
 		
 	}
 	
-	public int generateFakeNumber() {
-		
-		Random random = new Random();
-		return random.nextInt(99999);
-	}
-	
+
 	public void sleepInSecond(long timeoutInSec){
 		
 		try {

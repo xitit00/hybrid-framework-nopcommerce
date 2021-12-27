@@ -14,11 +14,11 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import common.BaseTest;
-import pageFactory.HomePageObject;
-import pageFactory.LoginPageObject;
-import pageFactory.RegisterPageObject;
+import pageObjects.HomePageObject;
+import pageObjects.LoginPageObject;
+import pageObjects.RegisterPageObject;
 
-public class Level_05_Page_Factory extends BaseTest {
+public class Level_06_Page_Generator_Manager_II extends BaseTest {
 	
 	private WebDriver driver;
 	private String emailExisting;
@@ -34,12 +34,10 @@ public class Level_05_Page_Factory extends BaseTest {
 	private HomePageObject homePageObject;
 	private RegisterPageObject registerPageObject;
 	
-
-	@Parameters ("browser")
+	@Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
 
-		// run multiple browser and return driver from BaseTest
 		driver = getBrowserDriver(browserName);
 		
 		// Set timeout tim element
@@ -52,7 +50,8 @@ public class Level_05_Page_Factory extends BaseTest {
 		emailNotFound = "anhBTC" + generateFakeNumber() + "@mail.com";
 
 		// open URL -> Home : khoi tao Home 
-		homePageObject = new HomePageObject(driver);
+		homePageObject = HomePageObject.getHomePageObject();
+		homePageObject.setDriver(driver);
 		
 		//Click to register link
 		homePageObject.clickToRegisterLink();
@@ -77,7 +76,9 @@ public class Level_05_Page_Factory extends BaseTest {
 		registerPageObject.clickToLogout();
 
 		//Register click log out to Home -> qua trang Home -> khởi tạo Home
-		homePageObject = new HomePageObject(driver);
+		homePageObject = HomePageObject.getHomePageObject();
+		homePageObject.setDriver(driver);
+		
 		
 	}
 	
@@ -85,6 +86,7 @@ public class Level_05_Page_Factory extends BaseTest {
 	@Test
 	public void Login_01_Empty_Data() {
 		
+
 		//Click to login link
 		homePageObject.clickToLoginLink();
 		
@@ -197,10 +199,12 @@ public class Level_05_Page_Factory extends BaseTest {
 		loginPageObject.clickToLoginButton();
 		
 		//Login Sucessfull -> Home
-		homePageObject = new HomePageObject(driver);
+		homePageObject = HomePageObject.getHomePageObject();
+		homePageObject.setDriver(driver);
 		
 		//verify err confirm password
 		Assert.assertTrue(homePageObject.checkDisplayMyAccount());
+		Assert.assertTrue(homePageObject.checkDisplayLogout());
 		
 		
 	}

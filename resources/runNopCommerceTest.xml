@@ -4,17 +4,18 @@
 
 <suite parallel="false" name="NopCommerce">
 
-	 <!-- <test name="Run On Firefox">
+	<test name="Run On Firefox">
 	
+		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.user.Level_05_Page_Factory" />
+			<class name="com.nopcommerce.user.Level_06_Page_Generator_Manager_III" />
 		</classes>
 		
-	</test> -->
+	</test>
 
 	<!-- // test name là mình chạy nó trên môi trường nào -->
 	
-	<test name="Run On Firefox">
+	<!-- <test name="Run On Firefox">
 	
 		<parameter name="browser" value="firefox" />
 		<classes>
@@ -39,7 +40,7 @@
 			<class name="com.nopcommerce.user.Level_04_Multiple_Browser" />
 		</classes>
 
-	</test>
+	</test> -->
 	
 	<!-- //test Headless  -->
 <!--  	<test name="Run On H_Firefox">

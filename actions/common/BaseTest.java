@@ -1,5 +1,7 @@
 package common;
 
+import java.util.Random;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -18,7 +20,7 @@ public class BaseTest {
 	private String projectPath = System.getProperty("user.dir");
 	private WebDriver driverBaseTest;
 	
-	public WebDriver getBrowserDriver(String browserName) {
+	protected WebDriver getBrowserDriver(String browserName) {
 		
 		switch (browserName) {
 		
@@ -104,6 +106,12 @@ public class BaseTest {
 		}
 		
 		return driverBaseTest;
+	}
+	
+	protected int generateFakeNumber() {
+		
+		Random random = new Random();
+		return random.nextInt(99999);
 	}
 	
 	

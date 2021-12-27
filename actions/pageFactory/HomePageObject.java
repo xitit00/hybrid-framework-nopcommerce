@@ -8,6 +8,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 import common.BasePage;
+import pageObjects.RegisterPageObject;
 import pageUIs.HomePageUI;
 
 public class HomePageObject extends BasePage {
@@ -43,6 +44,7 @@ public class HomePageObject extends BasePage {
 		
 		waitForElementClickableByElement(driver,registerLink);
 		clickToElementByElement(registerLink);
+	
 	}
 
 	public void clickToLoginLink() {
