@@ -17,11 +17,15 @@ public class LoginPageObject extends BasePage {
 	
 	// quản lý các hàm trong LoginPageObject , chứa những actions mình cần trong page Login 
 
-	public void clickToLoginButton() {
+	public HomePageObject clickToLoginButton() {
 		
 		waitForElementClickable(driver,LoginPageUI.LOGIN_BUTTON);
 		clickToElement(driver,LoginPageUI.LOGIN_BUTTON);
 		
+		HomePageObject h = PageGeneratorManager.getHomePage();
+		h.setDriver(driver);
+		
+		return h;
 	}
 
 	public String getErrMessageEmailTextbox() {

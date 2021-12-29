@@ -202,7 +202,7 @@ public class Level_03_Page_Object_02_Login {
 		homePageObject.setDriver(driver);
 		
 		//verify err confirm password
-		Assert.assertTrue(homePageObject.checkDisplayMyAccount());
+		Assert.assertTrue(homePageObject.checkDisplayMyAccountLink());
 		Assert.assertTrue(homePageObject.checkDisplayLogout());
 		
 		

@@ -15,6 +15,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import pageObjects.AddressPageObject;
+import pageObjects.MyProductReviewPageObject;
+import pageObjects.PageGeneratorManager;
+import pageObjects.RewardPointPageObject;
+import pageUIs.BasePageUI;
+
 public class BasePage {
 	
 	
@@ -488,6 +494,37 @@ public class BasePage {
 		
 	}
 	
+	// Switch Page UI
+	public AddressPageObject openAddressPage(WebDriver driver) {
+		
+		waitForElementClickable(driver, BasePageUI.ADDRESSES_LINK);
+		clickToElement(driver, BasePageUI.ADDRESSES_LINK);
+		
+		AddressPageObject a = PageGeneratorManager.getAddressPage(driver);
+		return a;
+		
+	}
+	
+	public RewardPointPageObject openRewardPointPage(WebDriver driver) {
+		
+		waitForElementClickable(driver, BasePageUI.REWARD_POINT_LINK);
+		clickToElement(driver, BasePageUI.REWARD_POINT_LINK);
+		
+		RewardPointPageObject r = PageGeneratorManager.getRewardPointPage(driver);
+		return r;
+		
+	}
+	
+	public MyProductReviewPageObject openMyProductReviewPage(WebDriver driver) {
+		
+		waitForElementClickable(driver, BasePageUI.MY_PRODUCT_REVIEW_LINK);
+		clickToElement(driver, BasePageUI.MY_PRODUCT_REVIEW_LINK);
+		
+		MyProductReviewPageObject m = PageGeneratorManager.getMyProductReviewPage(driver);
+		return m;
+		
+	}
+	
 	// Học cho biết pageFactory
 	// override method waitForElement , click  pageFactory
 	
@@ -528,4 +565,5 @@ public class BasePage {
 		element.sendKeys(textValue);
 		
 	}
+	
 }

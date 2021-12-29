@@ -203,7 +203,7 @@ public class Level_04_Multiple_Browser extends BaseTest {
 		homePageObject.setDriver(driver);
 		
 		//verify err confirm password
-		Assert.assertTrue(homePageObject.checkDisplayMyAccount());
+		Assert.assertTrue(homePageObject.checkDisplayMyAccountLink());
 		Assert.assertTrue(homePageObject.checkDisplayLogout());
 		
 		

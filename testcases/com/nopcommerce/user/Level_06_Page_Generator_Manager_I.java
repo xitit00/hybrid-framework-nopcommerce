@@ -203,7 +203,7 @@ public class Level_06_Page_Generator_Manager_I extends BaseTest {
 		homePageObject.setDriver(driver);
 		
 		//verify err confirm password
-		Assert.assertTrue(homePageObject.checkDisplayMyAccount());
+		Assert.assertTrue(homePageObject.checkDisplayMyAccountLink());
 		Assert.assertTrue(homePageObject.checkDisplayLogout());
 		
 		

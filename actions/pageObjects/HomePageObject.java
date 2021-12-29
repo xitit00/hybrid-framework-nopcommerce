@@ -39,7 +39,7 @@ public class HomePageObject extends BasePage {
 		return l;
 	}
 
-	public boolean checkDisplayMyAccount() {
+	public boolean checkDisplayMyAccountLink() {
 		
 		waitForElementVisible(driver,HomePageUI.MY_ACCOUNT_LINK);
 		return isElementDisplayed(driver,HomePageUI.MY_ACCOUNT_LINK);
@@ -56,6 +56,17 @@ public class HomePageObject extends BasePage {
 		
 		waitForElementClickable(driver,HomePageUI.MY_ACCOUNT_LINK);
 		clickToElement(driver, HomePageUI.MY_ACCOUNT_LINK);
+		
+	}
+	
+	public CustomerInfoPageObject clickToMyAccountLinkk() {
+		
+		waitForElementClickable(driver,HomePageUI.MY_ACCOUNT_LINK);
+		clickToElement(driver, HomePageUI.MY_ACCOUNT_LINK);
+		
+		CustomerInfoPageObject c = PageGeneratorManager.getCustomerInfoPage(driver);
+		
+		return c;
 		
 	}
 

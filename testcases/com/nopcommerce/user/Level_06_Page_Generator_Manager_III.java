@@ -70,16 +70,10 @@ public class Level_06_Page_Generator_Manager_III extends BaseTest {
 		//Verify success message displayed
 		Assert.assertEquals(registerPageObject.getTextRegisterSuccessMess(), "Your registration completed");
 		
-		//Click to log out
-		registerPageObject.clickToLogout();
-
 		//Register click log out to Home -> qua trang Home -> khởi tạo Home
-		homePageObject = PageGeneratorManager.getHomePage();
-		homePageObject.setDriver(driver);
-		
-		
+		homePageObject = registerPageObject.clickToLogout();
+
 	}
-	
 
 	@Test
 	public void Login_01_Empty_Data() {
@@ -175,15 +169,11 @@ public class Level_06_Page_Generator_Manager_III extends BaseTest {
 		loginPageObject.inputEmail(emailExisting);
 		loginPageObject.inputPassword(password);
 
-		//Click to register button
-		loginPageObject.clickToLoginButton();
-		
 		//Login Sucessfull -> Home
-		homePageObject = PageGeneratorManager.getHomePage();
-		homePageObject.setDriver(driver);
+		homePageObject = loginPageObject.clickToLoginButton();
 		
 		//verify err confirm password
-		Assert.assertTrue(homePageObject.checkDisplayMyAccount());
+		Assert.assertTrue(homePageObject.checkDisplayMyAccountLink());
 		Assert.assertTrue(homePageObject.checkDisplayLogout());
 		
 		

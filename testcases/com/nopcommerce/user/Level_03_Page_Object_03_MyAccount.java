@@ -128,7 +128,7 @@ public class Level_03_Page_Object_03_MyAccount {
 		homePageObject.setDriver(driver);
 
 		// verify err confirm password
-		Assert.assertTrue(homePageObject.checkDisplayMyAccount());
+		Assert.assertTrue(homePageObject.checkDisplayMyAccountLink());
 				
 		
 	}
@@ -193,7 +193,7 @@ public class Level_03_Page_Object_03_MyAccount {
 		homePageObject.setDriver(driver);
 
 		// verify login successfull with My Accout display
-		Assert.assertTrue(homePageObject.checkDisplayMyAccount());
+		Assert.assertTrue(homePageObject.checkDisplayMyAccountLink());
 		
 	}
 
@@ -289,7 +289,7 @@ public class Level_03_Page_Object_03_MyAccount {
 		homePageObject.setDriver(driver);
 
 		// verify login successfull with My Accout display
-		Assert.assertTrue(homePageObject.checkDisplayMyAccount());
+		Assert.assertTrue(homePageObject.checkDisplayMyAccountLink());
 		
 	}
 	@Test
