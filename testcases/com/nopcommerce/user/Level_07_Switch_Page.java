@@ -142,6 +142,7 @@ public class Level_07_Switch_Page extends BaseTest {
 	public void User_05_Switch_Role() {
 		
 		//Switch Role
+		
 		System.out.println("Switch Role");
 	}
 
