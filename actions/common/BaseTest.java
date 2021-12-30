@@ -1,6 +1,7 @@
 package common;
 
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,7 +21,7 @@ public class BaseTest {
 	private String projectPath = System.getProperty("user.dir");
 	private WebDriver driverBaseTest;
 	
-	protected WebDriver getBrowserDriver(String browserName) {
+	protected WebDriver getBrowserDriver(String browserName, String environment) {
 		
 		switch (browserName) {
 		
@@ -105,7 +106,46 @@ public class BaseTest {
 			break;
 		}
 		
+		// Set timeout tim element
+		driverBaseTest.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		
+		// open URL 
+		
+		driverBaseTest.get(getEnvironmentUrl(environment));
+		
 		return driverBaseTest;
+	}
+	
+	private String getEnvironmentUrl(String environment) {
+		
+		String url = "";
+		
+		switch (environment) {
+		case "DEV":
+			
+			url = GlobalConstants.DEV_PORTAL_PAGE_URL;
+			break;
+			
+		case "STG":
+			
+			url = GlobalConstants.STG_PORTAL_PAGE_URL;
+			break;
+		
+		case "TEST":
+			
+			url = GlobalConstants.TEST_PORTAL_PAGE_URL;
+			break;
+			
+		case "PRO":
+			
+			url = GlobalConstants.PRO_PORTAL_PAGE_URL;
+			break;
+
+		default:
+			break;
+		}
+		
+		return url;
 	}
 	
 	protected int generateFakeNumber() {

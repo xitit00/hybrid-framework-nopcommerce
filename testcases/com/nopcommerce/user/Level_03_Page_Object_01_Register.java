@@ -12,8 +12,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import common.BasePage;
-import pageObjects.HomePageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
 
 public class Level_03_Page_Object_01_Register {
 	
@@ -26,8 +26,8 @@ public class Level_03_Page_Object_01_Register {
 	private String password = "123456";
 	
 	
-	private HomePageObject homePageObject;
-	private RegisterPageObject registerPageObject;
+	private UserHomePageObject homePageObject;
+	private UserRegisterPageObject registerPageObject;
 	
 	@BeforeClass
 	public void beforeClass() {
@@ -41,11 +41,11 @@ public class Level_03_Page_Object_01_Register {
 	
 		// khoi tao homePageObject = cach gan ngc lai doi tuong class da dc khoi tao truoc ben trong class , sau do set gia tri 
 		// cho driver
-		homePageObject = HomePageObject.getHomePageObject();
+		homePageObject = UserHomePageObject.getHomePageObject();
 		homePageObject.setDriver(driver);
 		
 		// khoi tao registerPageObject = cach override ham constructor
-		registerPageObject = new RegisterPageObject(driver);
+		registerPageObject = new UserRegisterPageObject(driver);
 		
 		// Set timeout tim element
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);

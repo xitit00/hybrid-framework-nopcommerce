@@ -8,8 +8,8 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 import common.BasePage;
-import pageObjects.RegisterPageObject;
-import pageUIs.HomePageUI;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
+import pageUIs.nopCommerce.user.UserHomePageUI;
 
 public class HomePageObject extends BasePage {
 	

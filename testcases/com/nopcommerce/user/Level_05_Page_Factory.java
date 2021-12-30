@@ -35,12 +35,12 @@ public class Level_05_Page_Factory extends BaseTest {
 	private RegisterPageObject registerPageObject;
 	
 
-	@Parameters ("browser")
+	@Parameters ({"browser","environment"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
+	public void beforeClass(String browserName, String environment) {
 
 		// run multiple browser and return driver from BaseTest
-		driver = getBrowserDriver(browserName);
+		driver = getBrowserDriver(browserName, environment);
 		
 		// Set timeout tim element
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);

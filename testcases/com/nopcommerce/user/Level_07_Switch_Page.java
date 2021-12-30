@@ -14,15 +14,15 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import common.BaseTest;
-import pageObjects.CustomerInfoPageObject;
-import pageObjects.AddressPageObject;
-import pageObjects.RewardPointPageObject;
-import pageObjects.MyProductReviewPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.MyAccountPageObject;
-import pageObjects.PageGeneratorManager;
-import pageObjects.RegisterPageObject;
+import common.PageGeneratorManager;
+import pageObjects.nopCommerce.user.UserAddressPageObject;
+import pageObjects.nopCommerce.user.UserCustomerInfoPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserLoginPageObject;
+import pageObjects.nopCommerce.user.UserMyAccountPageObject;
+import pageObjects.nopCommerce.user.UserMyProductReviewPageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
+import pageObjects.nopCommerce.user.UserRewardPointPageObject;
 
 public class Level_07_Switch_Page extends BaseTest {
 	
@@ -35,19 +35,19 @@ public class Level_07_Switch_Page extends BaseTest {
 	private String password = "123456";
 	
 	
-	private LoginPageObject loginPageObject;
-	private HomePageObject homePageObject;
-	private RegisterPageObject registerPageObject;
-	private CustomerInfoPageObject customerInfoPageObject;
-	private AddressPageObject addressPageObject;
-	private RewardPointPageObject rewardPointPageObject;
-	private MyProductReviewPageObject myProductReviewPageObject;
+	private UserLoginPageObject loginPageObject;
+	private UserHomePageObject homePageObject;
+	private UserRegisterPageObject registerPageObject;
+	private UserCustomerInfoPageObject customerInfoPageObject;
+	private UserAddressPageObject addressPageObject;
+	private UserRewardPointPageObject rewardPointPageObject;
+	private UserMyProductReviewPageObject myProductReviewPageObject;
 	
-	@Parameters("browser")
+	@Parameters({"browser","environment"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
+	public void beforeClass(String browserName, String environment) {
 
-		driver = getBrowserDriver(browserName);
+		driver = getBrowserDriver(browserName, browserName);
 		
 		// Set timeout tim element
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -59,7 +59,7 @@ public class Level_07_Switch_Page extends BaseTest {
 		
 
 		// open URL -> Home : khoi tao Home 
-		homePageObject = PageGeneratorManager.getHomePage();
+		homePageObject = PageGeneratorManager.getUserHomePage();
 		homePageObject.setDriver(driver);		
 
 	}
@@ -100,7 +100,7 @@ public class Level_07_Switch_Page extends BaseTest {
 
 		// Login Sucessfull -> Home
 		homePageObject = loginPageObject.clickToLoginButton();
-				
+		
 		//verify err confirm password
 		Assert.assertTrue(homePageObject.checkDisplayMyAccountLink());
 	}
@@ -108,7 +108,7 @@ public class Level_07_Switch_Page extends BaseTest {
 	@Test
 	public void User_03_My_Account() {
 		
-		customerInfoPageObject = homePageObject.clickToMyAccountLinkk();
+		customerInfoPageObject = homePageObject.openMyAccountPage();
 		Assert.assertTrue(customerInfoPageObject.checkDisplayCustomerInfoPage());
 	}
 	

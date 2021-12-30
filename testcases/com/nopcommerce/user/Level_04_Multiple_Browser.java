@@ -14,9 +14,9 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import common.BaseTest;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserLoginPageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
 
 public class Level_04_Multiple_Browser extends BaseTest {
 	
@@ -30,15 +30,15 @@ public class Level_04_Multiple_Browser extends BaseTest {
 	private String password = "123456";
 	
 	
-	private LoginPageObject loginPageObject;
-	private HomePageObject homePageObject;
-	private RegisterPageObject registerPageObject;
+	private UserLoginPageObject loginPageObject;
+	private UserHomePageObject homePageObject;
+	private UserRegisterPageObject registerPageObject;
 	
-	@Parameters("browser")
+	@Parameters({"browser","environment"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
+	public void beforeClass(String browserName, String environment) {
 
-		driver = getBrowserDriver(browserName);
+		driver = getBrowserDriver(browserName, environment);
 		
 		// Set timeout tim element
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -50,14 +50,14 @@ public class Level_04_Multiple_Browser extends BaseTest {
 		emailNotFound = "anhBTC" + generateFakeNumber() + "@mail.com";
 
 		// open URL -> Home : khoi tao Home 
-		homePageObject = HomePageObject.getHomePageObject();
+		homePageObject = UserHomePageObject.getHomePageObject();
 		homePageObject.setDriver(driver);
 		
 		//Click to register link
 		homePageObject.clickToRegisterLink();
 		
 		//Home click Register Link -> qua trang Register -> khởi tạo Register
-		registerPageObject = new RegisterPageObject(driver);
+		registerPageObject = new UserRegisterPageObject(driver);
 		
 		//Input to required fields
 		registerPageObject.inputFirstName(firstName);
@@ -76,7 +76,7 @@ public class Level_04_Multiple_Browser extends BaseTest {
 		registerPageObject.clickToLogout();
 
 		//Register click log out to Home -> qua trang Home -> khởi tạo Home
-		homePageObject = HomePageObject.getHomePageObject();
+		homePageObject = UserHomePageObject.getHomePageObject();
 		homePageObject.setDriver(driver);
 		
 		
@@ -90,7 +90,7 @@ public class Level_04_Multiple_Browser extends BaseTest {
 		//Click to login link
 		homePageObject.clickToLoginLink();
 		
-		loginPageObject = new LoginPageObject(driver);
+		loginPageObject = new UserLoginPageObject(driver);
 		
 		//Click to login button
 		loginPageObject.clickToLoginButton();
@@ -106,7 +106,7 @@ public class Level_04_Multiple_Browser extends BaseTest {
 		homePageObject.clickToLoginLink();
 		
 		//Home click Login Link -> qua trang Login -> khởi tạo login lại 
-		loginPageObject = new LoginPageObject(driver);
+		loginPageObject = new UserLoginPageObject(driver);
 		
 		//Input to required fields
 		loginPageObject.inputEmail(emailInvalid);
@@ -126,7 +126,7 @@ public class Level_04_Multiple_Browser extends BaseTest {
 		homePageObject.clickToLoginLink();
 		
 		//Home click Login Link -> qua trang Login -> khởi tạo login lại 
-		loginPageObject = new LoginPageObject(driver);
+		loginPageObject = new UserLoginPageObject(driver);
 		
 		//Input to required fields
 		loginPageObject.inputEmail(emailNotFound);
@@ -146,7 +146,7 @@ public class Level_04_Multiple_Browser extends BaseTest {
 		homePageObject.clickToLoginLink();
 		
 		//Home click Login Link -> qua trang Login -> khởi tạo login lại 
-		loginPageObject = new LoginPageObject(driver);
+		loginPageObject = new UserLoginPageObject(driver);
 		
 		//Input to required fields
 		loginPageObject.inputEmail(emailExisting);
@@ -167,7 +167,7 @@ public class Level_04_Multiple_Browser extends BaseTest {
 		homePageObject.clickToLoginLink();
 		
 		//Home click Login Link -> qua trang Login -> khởi tạo login lại 
-		loginPageObject = new LoginPageObject(driver);
+		loginPageObject = new UserLoginPageObject(driver);
 		
 		//Input to required fields
 		loginPageObject.inputEmail(emailExisting);
@@ -189,7 +189,7 @@ public class Level_04_Multiple_Browser extends BaseTest {
 		homePageObject.clickToLoginLink();
 
 		// Home click Login Link -> qua trang Login -> khởi tạo login lại
-		loginPageObject = new LoginPageObject(driver);
+		loginPageObject = new UserLoginPageObject(driver);
 		
 		// Input to required fields
 		loginPageObject.inputEmail(emailExisting);
@@ -199,7 +199,7 @@ public class Level_04_Multiple_Browser extends BaseTest {
 		loginPageObject.clickToLoginButton();
 		
 		//Login Sucessfull -> Home
-		homePageObject = HomePageObject.getHomePageObject();
+		homePageObject = UserHomePageObject.getHomePageObject();
 		homePageObject.setDriver(driver);
 		
 		//verify err confirm password

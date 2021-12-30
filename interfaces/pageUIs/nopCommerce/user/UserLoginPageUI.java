@@ -1,6 +1,6 @@
-package pageUIs;
+package pageUIs.nopCommerce.user;
 
-public class LoginPageUI {
+public class UserLoginPageUI {
 
 	// quản lý UI/HTML/Locator của page Login 
 	

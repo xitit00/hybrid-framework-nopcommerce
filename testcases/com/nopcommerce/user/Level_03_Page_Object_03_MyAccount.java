@@ -10,14 +10,14 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import pageObjects.ComputersPageObject;
-import pageObjects.DesktopsPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.MyAccountPageObject;
-import pageObjects.ProductPageObject;
-import pageObjects.ProductReviewPageObject;
-import pageObjects.RegisterPageObject;
+import pageObjects.nopCommerce.user.UserComputersPageObject;
+import pageObjects.nopCommerce.user.UserDesktopsPageObject;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserLoginPageObject;
+import pageObjects.nopCommerce.user.UserMyAccountPageObject;
+import pageObjects.nopCommerce.user.UserProductPageObject;
+import pageObjects.nopCommerce.user.UserProductReviewPageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
 
 public class Level_03_Page_Object_03_MyAccount {
 	
@@ -52,14 +52,14 @@ public class Level_03_Page_Object_03_MyAccount {
 	//good => 4 => 80%
 	private String reviewRating = "80%;";
 	
-	private LoginPageObject loginPageObject;
-	private HomePageObject homePageObject;
-	private RegisterPageObject registerPageObject;
-	private MyAccountPageObject myAccountPageObject;
-	private ComputersPageObject computersPageObject;
-	private DesktopsPageObject desktopsPageObject;
-	private ProductPageObject productPageObject;
-	private ProductReviewPageObject productReviewPageObject;
+	private UserLoginPageObject loginPageObject;
+	private UserHomePageObject homePageObject;
+	private UserRegisterPageObject registerPageObject;
+	private UserMyAccountPageObject myAccountPageObject;
+	private UserComputersPageObject computersPageObject;
+	private UserDesktopsPageObject desktopsPageObject;
+	private UserProductPageObject productPageObject;
+	private UserProductReviewPageObject productReviewPageObject;
 	
 	@BeforeClass
 	public void beforeClass() {
@@ -81,14 +81,14 @@ public class Level_03_Page_Object_03_MyAccount {
 		addressEmail = "anhautomation" + generateFakeNumber() + "@gmail.com";
 		
 		// open URL -> Home : khoi tao Home 
-		homePageObject = HomePageObject.getHomePageObject();
+		homePageObject = UserHomePageObject.getHomePageObject();
 		homePageObject.setDriver(driver);
 		
 		//Click to register link
 		homePageObject.clickToRegisterLink();
 		
 		//Home click Register Link -> qua trang Register -> khởi tạo Register
-		registerPageObject = new RegisterPageObject(driver);
+		registerPageObject = new UserRegisterPageObject(driver);
 		
 		//Input to required fields
 		registerPageObject.inputFirstName(firstName);
@@ -107,14 +107,14 @@ public class Level_03_Page_Object_03_MyAccount {
 		registerPageObject.clickToLogout();
 
 		//Register click log out to Home -> qua trang Home -> khởi tạo Home
-		homePageObject = HomePageObject.getHomePageObject();
+		homePageObject = UserHomePageObject.getHomePageObject();
 		homePageObject.setDriver(driver);
 		
 		//Click to login link
 		homePageObject.clickToLoginLink();
 		
 		// Home click Login Link -> qua trang Login -> khởi tạo login lại
-		loginPageObject = new LoginPageObject(driver);
+		loginPageObject = new UserLoginPageObject(driver);
 				
 		// Input to required fields
 		loginPageObject.inputEmail(email);
@@ -124,7 +124,7 @@ public class Level_03_Page_Object_03_MyAccount {
 		loginPageObject.clickToLoginButton();
 
 		// Login Sucessfull -> Home
-		homePageObject = HomePageObject.getHomePageObject();
+		homePageObject = UserHomePageObject.getHomePageObject();
 		homePageObject.setDriver(driver);
 
 		// verify err confirm password
@@ -142,7 +142,7 @@ public class Level_03_Page_Object_03_MyAccount {
 		homePageObject.clickToMyAccountLink();
 		
 		// Home click MyAccount link -> qua MyAccountPage -> khoi tao 
-		myAccountPageObject = new MyAccountPageObject(driver);
+		myAccountPageObject = new UserMyAccountPageObject(driver);
 		
 		// input firstname , lastname , email , company  , click radiobtn Gener , select dropdown DateOFBirth 
 		myAccountPageObject.clickToGender(); //Male
@@ -172,14 +172,14 @@ public class Level_03_Page_Object_03_MyAccount {
 		registerPageObject.clickToLogout();
 		
 		// Register click log out to Home -> qua trang Home -> khởi tạo Home
-		homePageObject = HomePageObject.getHomePageObject();
+		homePageObject = UserHomePageObject.getHomePageObject();
 		homePageObject.setDriver(driver);
 
 		// Click to login link
 		homePageObject.clickToLoginLink();
 
 		// Home click Login Link -> qua trang Login -> khởi tạo login lại
-		loginPageObject = new LoginPageObject(driver);
+		loginPageObject = new UserLoginPageObject(driver);
 
 		// Input to required fields
 		loginPageObject.inputEmail(updatedEmail);
@@ -189,7 +189,7 @@ public class Level_03_Page_Object_03_MyAccount {
 		loginPageObject.clickToLoginButton();
 
 		// Login Sucessfull -> Home
-		homePageObject = HomePageObject.getHomePageObject();
+		homePageObject = UserHomePageObject.getHomePageObject();
 		homePageObject.setDriver(driver);
 
 		// verify login successfull with My Accout display
@@ -204,7 +204,7 @@ public class Level_03_Page_Object_03_MyAccount {
 		homePageObject.clickToMyAccountLink();
 		
 		// Home click MyAccount link -> qua MyAccountPage -> khoi tao 
-		myAccountPageObject = new MyAccountPageObject(driver);
+		myAccountPageObject = new UserMyAccountPageObject(driver);
 		
 		//click to Address Link
 		myAccountPageObject.clickToAddressLink();
@@ -268,14 +268,14 @@ public class Level_03_Page_Object_03_MyAccount {
 		registerPageObject.clickToLogoutByJS();
 		
 		// Register click log out to Home -> qua trang Home -> khởi tạo Home
-		homePageObject = HomePageObject.getHomePageObject();
+		homePageObject = UserHomePageObject.getHomePageObject();
 		homePageObject.setDriver(driver);
 
 		// Click to login link
 		homePageObject.clickToLoginLink();
 
 		// Home click Login Link -> qua trang Login -> khởi tạo login lại
-		loginPageObject = new LoginPageObject(driver);
+		loginPageObject = new UserLoginPageObject(driver);
 
 		// Input to required fields
 		loginPageObject.inputEmail(updatedEmail);
@@ -285,7 +285,7 @@ public class Level_03_Page_Object_03_MyAccount {
 		loginPageObject.clickToLoginButton();
 
 		// Login Sucessfull -> Home
-		homePageObject = HomePageObject.getHomePageObject();
+		homePageObject = UserHomePageObject.getHomePageObject();
 		homePageObject.setDriver(driver);
 
 		// verify login successfull with My Accout display
@@ -299,25 +299,25 @@ public class Level_03_Page_Object_03_MyAccount {
 		homePageObject.clickToComputersLink();
 				
 		//Home click Computers link -> qua ComputersPage -> khoi tao 
-		computersPageObject = new ComputersPageObject(driver);
+		computersPageObject = new UserComputersPageObject(driver);
 		
 		//click to Desktops link
 		computersPageObject.clickToDesktopsLink();
 		
 		//Computers page -> Desktops page -> khoi tao
-		desktopsPageObject = new DesktopsPageObject(driver);
+		desktopsPageObject = new UserDesktopsPageObject(driver);
 		
 		//click to product item
 		desktopsPageObject.clickToProductItem();
 		
 		//Desktops page -> Product page -> khoi tao iep
-		productPageObject = new ProductPageObject(driver);
+		productPageObject = new UserProductPageObject(driver);
 		
 		//click to product review
 		productPageObject.clickToProductReview();
 		
 		//Product page -> product review -> khoi tao
-		productReviewPageObject = new ProductReviewPageObject(driver);
+		productReviewPageObject = new UserProductReviewPageObject(driver);
 		
 		//input required fields 
 		productReviewPageObject.inputReviewTitle(reviewTitle);
@@ -338,7 +338,7 @@ public class Level_03_Page_Object_03_MyAccount {
 		homePageObject.clickToMyAccountLink();
 		
 		// Home click MyAccount link -> qua MyAccountPage -> khoi tao 
-		myAccountPageObject = new MyAccountPageObject(driver);
+		myAccountPageObject = new UserMyAccountPageObject(driver);
 		
 		myAccountPageObject.clickToMyProductReviewsLink();
 		

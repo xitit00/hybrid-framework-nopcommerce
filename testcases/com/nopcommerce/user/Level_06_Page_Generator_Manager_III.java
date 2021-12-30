@@ -14,10 +14,10 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import common.BaseTest;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
-import pageObjects.PageGeneratorManager;
-import pageObjects.RegisterPageObject;
+import common.PageGeneratorManager;
+import pageObjects.nopCommerce.user.UserHomePageObject;
+import pageObjects.nopCommerce.user.UserLoginPageObject;
+import pageObjects.nopCommerce.user.UserRegisterPageObject;
 
 public class Level_06_Page_Generator_Manager_III extends BaseTest {
 	
@@ -31,15 +31,15 @@ public class Level_06_Page_Generator_Manager_III extends BaseTest {
 	private String password = "123456";
 	
 	
-	private LoginPageObject loginPageObject;
-	private HomePageObject homePageObject;
-	private RegisterPageObject registerPageObject;
+	private UserLoginPageObject loginPageObject;
+	private UserHomePageObject homePageObject;
+	private UserRegisterPageObject registerPageObject;
 	
-	@Parameters("browser")
+	@Parameters({"browser","environment"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
+	public void beforeClass(String browserName, String environment) {
 
-		driver = getBrowserDriver(browserName);
+		driver = getBrowserDriver(browserName, environment);
 		
 		// Set timeout tim element
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -51,7 +51,7 @@ public class Level_06_Page_Generator_Manager_III extends BaseTest {
 		emailNotFound = "anhBTC" + generateFakeNumber() + "@mail.com";
 
 		// open URL -> Home : khoi tao Home 
-		homePageObject = PageGeneratorManager.getHomePage();
+		homePageObject = PageGeneratorManager.getUserHomePage();
 		homePageObject.setDriver(driver);		
 		
 		//Home click Register Link -> qua trang Register -> khởi tạo Register

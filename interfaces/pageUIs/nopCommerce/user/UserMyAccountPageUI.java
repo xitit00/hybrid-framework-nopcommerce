@@ -1,6 +1,6 @@
-package pageUIs;
+package pageUIs.nopCommerce.user;
 
-public class MyAccountPageUI {
+public class UserMyAccountPageUI {
 	
 	public static final String MY_ACCOUNT_LINK = "//a[@class='ico-account']";
 	public static final String GENDER_RADIO_BUTTON = "//input[@value='M']";
