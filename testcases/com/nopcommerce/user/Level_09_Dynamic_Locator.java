@@ -24,7 +24,7 @@ import pageObjects.nopCommerce.user.UserMyProductReviewPageObject;
 import pageObjects.nopCommerce.user.UserRegisterPageObject;
 import pageObjects.nopCommerce.user.UserRewardPointPageObject;
 
-public class Level_07_Switch_Page extends BaseTest {
+public class Level_09_Dynamic_Locator extends BaseTest {
 	
 	private WebDriver driver;
 	private String email;
@@ -65,7 +65,7 @@ public class Level_07_Switch_Page extends BaseTest {
 	}
 
 	@Test
-	public void User_01_Register() {
+	public void User_01_Register_And_Login() {
 
 		// Home click Register Link -> qua trang Register -> khởi tạo Register
 		registerPageObject = homePageObject.clickToRegisterLink();
@@ -86,11 +86,6 @@ public class Level_07_Switch_Page extends BaseTest {
 		// Register click log out to Home -> qua trang Home -> khởi tạo Home
 		homePageObject = registerPageObject.clickToLogout();
 		
-	}
-
-	@Test
-	public void User_02_Login() {
-		
 		// Home click Login Link -> qua trang Login -> khởi tạo login lại
 		loginPageObject = homePageObject.clickToLoginLink();
 
@@ -100,23 +95,19 @@ public class Level_07_Switch_Page extends BaseTest {
 
 		// Login Sucessfull -> Home
 		homePageObject = loginPageObject.clickToLoginButton();
-		
-		//verify err confirm password
+
+		// verify err confirm password
 		Assert.assertTrue(homePageObject.checkDisplayMyAccountLink());
 	}
 	
 	@Test
-	public void User_03_My_Account() {
+	public void User_02_Open_My_Account_And_Switch_Page() {
 		
 		customerInfoPageObject = homePageObject.openMyAccountPage();
 		Assert.assertTrue(customerInfoPageObject.checkDisplayCustomerInfoPage());
-	}
-	
-	@Test
-	public void User_04_Switch_Page() {
 		
 		// Knowledge cua3 Page Object:
-		// Một page A khi chuyển qua page B thì phải viết 1 hàm 
+		// Một page A khi chuyển qua page B thì phải viết 1 hàm
 		// Thay vì tạo ra hàm lặp lại nhiều lần ở page đa chiều thì gom lại các hàm openPage viết ở 1 chỗ là BasePage để dễ quản lý 
 		// sau đó ở testcase thì nhờ việc các pageObject đều kế thừa basePage , nên tại pageObject đang đứng có thể gọi thẳng ra pageObject 
 		// muốn chuyển tới vd : Customer Info -> Address - addressPageObject = customerInfoPageObject.openAddressPage(driver);
@@ -142,12 +133,38 @@ public class Level_07_Switch_Page extends BaseTest {
 	}
 	
 	@Test
-	public void User_05_Switch_Role() {
-		//Switch Role
-		System.out.println("Switch Role");
-	}
-
 	
+	//Down casting là dạng kiểu chuyển 1 đối tượng là 1 thể hiện của lớp cha xuống thành đối tượng là thể hiện của lớp con trong quan hệ kế thừa 
+	//Down casting 1 page Object cụ thể có kiểu AbstractPage mà không xảy ra vấn đề trong quá trình biên dịch và thực thi 
+	
+	public void User_03_Dynamic_Page_01() {
+		
+		// My Product Preview -> Address
+		addressPageObject = (UserAddressPageObject) myProductReviewPageObject.openPagesAtMyAccountByName(driver, "account-navigation", "Addresses");
+		
+		// Address -> Reward point 
+		rewardPointPageObject = (UserRewardPointPageObject) addressPageObject.openPagesAtMyAccountByName(driver, "account-navigation", "Reward points");
+		
+		// Reward point -> My product review 
+		myProductReviewPageObject = (UserMyProductReviewPageObject) rewardPointPageObject.openPagesAtMyAccountByName(driver, "account-navigation", "My product reviews");
+		
+	}
+	
+	@Test
+	public void User_04_Dynamic_Page_02() {
+		
+		// My Product Preview -> Address
+		myProductReviewPageObject.openPagesAtMyAccountByPageName(driver, "account-navigation", "Addresses");
+	    addressPageObject = PageGeneratorManager.getUserAddressPage(driver);
+		
+		// Address -> Reward point 
+	    addressPageObject.openPagesAtMyAccountByPageName(driver, "account-navigation", "Reward points");
+	    rewardPointPageObject = PageGeneratorManager.getUserRewardPointPage(driver);
+		
+		// Reward point -> My product review 
+		rewardPointPageObject.openPagesAtMyAccountByPageName(driver, "account-navigation", "My product reviews");
+		myProductReviewPageObject = PageGeneratorManager.getUserMyProductReviewPage(driver);
+	}
 
 	public void sleepInSecond(long timeoutInSec){
 		
