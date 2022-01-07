@@ -1,6 +1,6 @@
 package javaOOP;
 
-public class Topic_02_Method {
+public class Topic_03_Method {
 	
 	// Non static method
 	public void display() {
@@ -19,11 +19,11 @@ public class Topic_02_Method {
 
 		
 		//Non static method buộc mình phải khởi tạo object , rồi mới gọi hàm
-		Topic_02_Method t = new Topic_02_Method();
+		Topic_03_Method t = new Topic_03_Method();
 		t.display();
 		
 		//Static method thông qua class gọi 
-		Topic_02_Method.showABC();
+		Topic_03_Method.showABC();
 	}
 
 }

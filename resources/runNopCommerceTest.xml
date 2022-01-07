@@ -4,7 +4,6 @@
 
 <suite parallel="false" name="NopCommerce">
 
-
 	<parameter name="environment" value="DEV" />
 	<test name="Run On Firefox">
 	
