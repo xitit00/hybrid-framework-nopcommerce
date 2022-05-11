@@ -3,6 +3,7 @@ package common;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -152,7 +153,7 @@ public class BaseTest {
 //	}
 	
 	//Enum 
-	protected WebDriver getBrowserDriver(String browserName, String environment) {
+	protected WebDriver getBrowserDriver(String browserName, String environmentName) {
 		
 		BrowserList browserList = BrowserList.valueOf(browserName.toUpperCase());
 		
@@ -214,7 +215,7 @@ public class BaseTest {
 		case SAFARI:
 			
 			driverBaseTest = new SafariDriver();
-			driverBaseTest.manage().window().maximize();
+			
 		
 		break;
 		
@@ -243,8 +244,9 @@ public class BaseTest {
 		driverBaseTest.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		
 		// open URL 
+		driverBaseTest.get(getEnvironmentUrl(environmentName));
 		
-		driverBaseTest.get(getEnvironmentUrl(environment));
+		driverBaseTest.manage().window().setSize(new Dimension(414, 896));
 		
 		return driverBaseTest;
 	}
