@@ -15,7 +15,6 @@ public class Topic_07_Overloading {
 		this.fisrtNumber = firstNum;
 		this.secNumber = secNum;
 		
-		
 		System.out.print(this.fisrtNumber + this.secNumber);
 	}
 	
