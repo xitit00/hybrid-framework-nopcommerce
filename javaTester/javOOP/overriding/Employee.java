@@ -1,6 +1,6 @@
 package javOOP.overriding;
 
-import javaOOP.Testing;
+import javaOOP.knowledge.Testing;
 
 public class Employee extends Person implements IWork {
 

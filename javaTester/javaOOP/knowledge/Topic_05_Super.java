@@ -1,8 +1,10 @@
-package javaOOP;
+package javaOOP.knowledge;
 
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+
+import javaOOP.BaseOOP;
 
 public class Topic_05_Super extends BaseOOP {
 	
