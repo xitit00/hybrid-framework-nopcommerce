@@ -24,5 +24,29 @@ public class Laptop extends Computer {
 		
 	}
 
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setName(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getAddress() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setAddress(String Address) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }

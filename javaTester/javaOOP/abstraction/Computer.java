@@ -13,15 +13,14 @@ public abstract class Computer implements IAnimal , ICity {
 	
 	// interface thì only public 
 	// nhưng abstract class thì nhiều access modifier đc 
-	
-	protected abstract String abc ();
-	private void showGPU() {
-		
-		
-	}
-	void getGPU() {
-		
-		
-	}
+//	protected abstract String abc ();
+//	private void showGPU() {
+//		
+//		
+//	}
+//	void getGPU() {
+//		
+//		
+//	}
 	
 }
