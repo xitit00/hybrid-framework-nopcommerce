@@ -206,7 +206,16 @@ public class BaseTest {
 			// truyền version vào là sẽ tải đc version như mong muốn để run Cốc cốc , vd : 91.0.4472.101
 			WebDriverManager.chromedriver().driverVersion("").setup();
 			ChromeOptions options2 = new ChromeOptions();
-			options2.setBinary("/Applications/Cốc Cốc.app");
+			if (GlobalConstants.OS_NAME.startsWith("Mac")) {
+				
+				//MAC
+				options2.setBinary("/Applications/Cốc Cốc.app");
+			}
+			else {
+				
+				//Windows
+				options2.setBinary("C:\\Program Files (x86)\\CocCoc\\Browser\\Application\\browser.exe");
+			}
 			driverBaseTest = new ChromeDriver(options2);
 			
 		break;
