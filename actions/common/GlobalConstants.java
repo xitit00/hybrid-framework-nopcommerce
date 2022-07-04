@@ -58,7 +58,7 @@ public class GlobalConstants {
 	
 	// Biến timeout gán cho từng class 
 	public static final long SHORT_TIME_OUT = 5;
-	public static final long LONG_TIME_OUT = 10;
+	public static final long LONG_TIME_OUT = 15;
 	
 	// Số lần retry lại test failed
 	public static final long RETRY_TEST_ALL =  3;

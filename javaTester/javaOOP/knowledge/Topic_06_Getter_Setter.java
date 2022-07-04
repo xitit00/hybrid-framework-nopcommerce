@@ -1,7 +1,5 @@
 package javaOOP.knowledge;
 
-import org.apache.commons.lang.ObjectUtils.Null;
-
 public class Topic_06_Getter_Setter {
 	
 	private String personName;
