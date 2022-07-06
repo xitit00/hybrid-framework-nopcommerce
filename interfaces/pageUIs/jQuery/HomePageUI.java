@@ -13,4 +13,19 @@ public class HomePageUI {
 	
 	// Get All Column Country , tương tự Female , Male , Total
 	public static final String ALL_ROW_EACH_PAGE_COUNTRY = "xpath=//tbody/tr/td[@data-key='country']";
+	
+	// Index của cái cột mà mình cần enter/ click / select vào
+	
+	public static final String COLUMN_INDEX_BY_NAME = "xpath=//tr/td[text()='%s']/preceding-sibling::td"; 
+	
+	public static final String TEXTBOX_BY_COLUMN_INDEX_AND_ROW_INDEX = "xpath=//tbody/tr[%s]/td[%s]/input"; 
+	
+	public static final String DROPDOWN_BY_COLUMN_INDEX_AND_ROW_INDEX = "xpath=//tbody/tr[%s]/td[%s]/select";
+	
+	public static final String LOAD_BUTTON = "css=button#btnLoad";
+	
+	public static final String CHECKBOX_BY_COLUMN_INDEX_AND_ROW_INDEX = "xpath=//tbody/tr[%s]/td[%s]/input[@type='checkbox']"; 
+	
+	public static final String ICON_NAME_BY_ROW_NUMBER = "xpath=//tbody/tr[%s]/td/button[@title='%s']";
+	
 }

@@ -41,6 +41,8 @@ public class Level_10_DataTable_DataGrid extends BaseTest {
 		homePageObject = PageGeneratorManager.getHomePageObject(driver);
 	}
 	
+	//Handle_DataTable_DataGrid_Part1
+	
 	//@Test
 	public void Table_01_Paging() {
 		
@@ -66,14 +68,25 @@ public class Level_10_DataTable_DataGrid extends BaseTest {
 	public void Table_02_Enter_To_Header() {
 		
 		// sau khi chạy xong Table_01 action và verify việc phân trang 
-		// ở Table_02 ta sẽ check việc search = cách input text and enter xem có hiệu quả ko nhé 
+		// 
+		// ở Table_02 ta sẽ check việc search = cách input text and enter xem có hiệu quả ko nhé , nhớ refresh lại page 1
 		
 		homePageObject.refreshCurrentPage(driver);
+		
 		homePageObject.enterToHeaderTextboxByLabel("Country","Argentina");
+		homePageObject.enterToHeaderTextboxByLabel("Females","338282");
+		homePageObject.enterToHeaderTextboxByLabel("Males","349238");
+		homePageObject.enterToHeaderTextboxByLabel("Total","687522");
+		sleepInSecond(2);
+		
+		homePageObject.enterToHeaderTextboxByLabel("Country","Afghanistan");
+		homePageObject.enterToHeaderTextboxByLabel("Females","384187");
+		homePageObject.enterToHeaderTextboxByLabel("Males","407124");
+		homePageObject.enterToHeaderTextboxByLabel("Total","791312");
 		sleepInSecond(2);
 	}
 	
-	@Test
+	//@Test
 	public void Table_03_Get_All_Row_Each_Page() {
 		
 		// Đọc dữ liệu file country.txt ra 
@@ -96,7 +109,86 @@ public class Level_10_DataTable_DataGrid extends BaseTest {
 		System.out.print("Actual size : " + actualAllCountryValueAllPage.size());
 		Assert.assertEquals(actualAllCountryValueAllPage, expectedAllCountryValueAllPage);
 	}
-
+	
+	//Handle_DataTable_DataGrid_Part2
+	//@Test
+	public void Table_04_Action_At_Any_Row() {
+		
+		// khi chạy TC số 4 cho việc click icon thì đóng @Test ở TC_03 vs TC_02
+		
+		// click btnLoadDemo
+		homePageObject.clickToLoadButton();
+		sleepInSecond(2);
+		
+		// dựa vào index column , row -> cell ( cái mình sẽ thao tác )
+		// Column name: ( dùng tên column để phân biệt column mình muốn nhập ) - tham số 1 -> lấy ra đc column index
+		// row number: tại row nào , ex : nhập vào textbox tại dòng 1 , 5 hoặc 7 - tham số 2
+		// value để nhập liệu - tham số 3
+		homePageObject.enterToTextBoxByColumnNameAtRowNumber("Album","2","Michael 97");
+		sleepInSecond(2);
+		
+		homePageObject.enterToTextBoxByColumnNameAtRowNumber("Artist","4","Micheal Jackson");
+		sleepInSecond(2);
+		
+		homePageObject.enterToTextBoxByColumnNameAtRowNumber("Year","3","1997");
+		sleepInSecond(2);
+		
+		homePageObject.enterToTextBoxByColumnNameAtRowNumber("Price","1","500");
+		sleepInSecond(2);
+		
+		// select dropdown 
+		
+		homePageObject.selectDropDownByColumnNameAtRowNumber("Origin","5","Japan");
+		sleepInSecond(2);
+		
+		// checkbox 
+		
+		homePageObject.checkToCheckBoxByColumnNameAtRowNumber("With Poster?","3");
+		homePageObject.checkToCheckBoxByColumnNameAtRowNumber("With Poster?","5");
+		
+		homePageObject.uncheckToCheckBoxByColumnNameAtRowNumber("With Poster?","1");
+		homePageObject.uncheckToCheckBoxByColumnNameAtRowNumber("With Poster?","2");
+		homePageObject.uncheckToCheckBoxByColumnNameAtRowNumber("With Poster?","4");
+		
+	}
+	
+	@Test
+	public void Table_05_Action_At_Any_Row_II () {
+		
+		// khi chạy TC số 5 cho việc click icon thì đóng @Test ở TC_04
+		
+		homePageObject.clickToLoadButton();
+		sleepInSecond(2);
+		
+		// icon click 
+		homePageObject.clickToIconByRowNumber("1","Remove Current Row");
+		homePageObject.sleepInSecond(2);
+		
+		homePageObject.clickToIconByRowNumber("1","Insert Row Above");
+		homePageObject.sleepInSecond(2);
+		
+		homePageObject.clickToIconByRowNumber("3","Move Up");
+		homePageObject.sleepInSecond(2);
+		
+		homePageObject.clickToIconByRowNumber("2","Move Down");
+		homePageObject.sleepInSecond(2);
+		
+		homePageObject.clickToIconByRowNumber("5","Remove Current Row");
+		homePageObject.sleepInSecond(2);
+		
+		homePageObject.clickToIconByRowNumber("4","Remove Current Row");
+		homePageObject.sleepInSecond(2);
+		
+		homePageObject.clickToIconByRowNumber("3","Remove Current Row");
+		homePageObject.sleepInSecond(2);
+		
+		homePageObject.clickToIconByRowNumber("2","Remove Current Row");
+		homePageObject.sleepInSecond(2);
+		
+		homePageObject.clickToIconByRowNumber("1","Remove Current Row");
+		homePageObject.sleepInSecond(2);
+	}
+	
 	public void sleepInSecond(long timeoutInSec){
 		
 		try {

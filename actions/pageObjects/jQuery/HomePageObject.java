@@ -109,6 +109,65 @@ public class HomePageObject extends BasePage {
 			e.printStackTrace();
 		}
 	}
+
+	public void enterToTextBoxByColumnNameAtRowNumber(String columnName, String rowNumber, String value) {
+		// column index dựa vào tên cột
+		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
+		
+		// sendkey vào dòng nào
+		waitForElementVisible(driver, HomePageUI.TEXTBOX_BY_COLUMN_INDEX_AND_ROW_INDEX, rowNumber, String.valueOf(columnIndex));
+		sendkeyToElement(driver, HomePageUI.TEXTBOX_BY_COLUMN_INDEX_AND_ROW_INDEX, value, rowNumber, String.valueOf(columnIndex));
+		
+		
+	}
+
+	public void selectDropDownByColumnNameAtRowNumber(String columnName, String rowNumber, String textValue) {
+		
+		// column index dựa vào tên cột
+		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
+		
+		// select dropdown tại item nào
+		waitForElementClickable(driver,HomePageUI.DROPDOWN_BY_COLUMN_INDEX_AND_ROW_INDEX , rowNumber, String.valueOf(columnIndex));
+		selectItemByTextInDefaultDropdown(driver, HomePageUI.DROPDOWN_BY_COLUMN_INDEX_AND_ROW_INDEX, textValue, rowNumber, String.valueOf(columnIndex));
+	}
+
+	public void clickToLoadButton() {
+		// TODO Auto-generated method stub
+		waitForElementClickable(driver, HomePageUI.LOAD_BUTTON);
+		clickToElement(driver, HomePageUI.LOAD_BUTTON);
+		
+	}
+
+	public void checkToCheckBoxByColumnNameAtRowNumber(String columnName, String rowNumber) {
+		// TODO Auto-generated method stub
+		// column index dựa vào tên cột
+		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
+		
+		// checkbox 
+		waitForElementClickable(driver, HomePageUI.CHECKBOX_BY_COLUMN_INDEX_AND_ROW_INDEX, rowNumber, String.valueOf(columnIndex));
+		checkToDefaultCheckboxRadio(driver, HomePageUI.CHECKBOX_BY_COLUMN_INDEX_AND_ROW_INDEX, rowNumber, String.valueOf(columnIndex));
+	}
+
+	public void uncheckToCheckBoxByColumnNameAtRowNumber(String columnName, String rowNumber) {
+		// TODO Auto-generated method stub
+		// column index dựa vào tên cột
+		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
+		
+		// checkbox 
+		waitForElementClickable(driver, HomePageUI.CHECKBOX_BY_COLUMN_INDEX_AND_ROW_INDEX, rowNumber, String.valueOf(columnIndex));
+		uncheckToDefaultCheckboxRadio(driver, HomePageUI.CHECKBOX_BY_COLUMN_INDEX_AND_ROW_INDEX, rowNumber, String.valueOf(columnIndex));
+		
+	}
+
+	public void clickToIconByRowNumber( String rowNumber, String titleValue) {
+		// TODO Auto-generated method stub
+		
+		//action click
+		waitForElementClickable(driver, HomePageUI.ICON_NAME_BY_ROW_NUMBER, rowNumber , titleValue);
+		clickToElement(driver, HomePageUI.ICON_NAME_BY_ROW_NUMBER, rowNumber , titleValue);
+	}
+
+
 	
 	
 }
