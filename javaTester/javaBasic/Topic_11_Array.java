@@ -3,6 +3,8 @@ package javaBasic;
 import java.util.ArrayList;
 import java.util.List;
 
+import common.GlobalConstants;
+
 
 public class Topic_11_Array {
 	
@@ -47,6 +49,7 @@ public class Topic_11_Array {
 		TC_05();
 		TC_06();
 		TC_07();
+		TC_08();
 	}
 
 	public void TC_01() {
@@ -194,6 +197,23 @@ public class Topic_11_Array {
 		System.out.println("Tong cac pt: " + tong);
 		System.out.println("Tb cong: " + tb);
 
+	}
+	
+	public static void TC_08() {
+		
+		String[] fileNames = {"CSharp.png","Java.png","Python.png"};
+		
+		String filePath = GlobalConstants.UPLOAD_FILE;
+		
+		String fullFileName = "";
+		for (String file : fileNames) {
+		
+			fullFileName = fullFileName + filePath + file + "\n";
+			
+		}
+		fullFileName = fullFileName.trim();
+		
+		System.out.println(fullFileName);
 	}
 
 }

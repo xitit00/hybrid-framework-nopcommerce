@@ -29,8 +29,9 @@ public class GlobalConstants {
 	public static final String OS_NAME = System.getProperty("os.name");
 	
 	// File.separator giúp việc lấy node "/" hay "\\" MAC / LINUX / WINDOW	
-	// /Users/anhnguyen/Documents/Selenium/03-Hybrid Automation Framework/uploadFiles
-	public static final String UPLOAD_FILE = PROJECT_PATH + File.separator + "uploadFiles";
+	// /Users/anhnguyen/Documents/Selenium/03-Hybrid Automation Framework/uploadFiles/...
+	// Thêm File.separator sau "up"oadFiles" vì upload file sẽ có thêm tên File đằng sau nữa 
+	public static final String UPLOAD_FILE = PROJECT_PATH + File.separator + "uploadFiles" + File.separator;
 	
 	// Trỏ về 1 thư mục mặc định của User 
 	// Windows hay Mac gì cũng có Downloads , nếu gắn vào Downloads của máy để check việc download files thì đầu tiên sẽ phải xoá 

@@ -1,4 +1,4 @@
-package com.jquery.datatable;
+package com.jquery;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,8 +20,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import common.BaseTest;
-import pageObjects.jQuery.HomePageObject;
-import pageObjects.jQuery.PageGeneratorManager;
+import pageObjects.jQuery.dataTable.HomePageObject;
+import pageObjects.jQuery.dataTable.PageGeneratorManager;
 
 
 

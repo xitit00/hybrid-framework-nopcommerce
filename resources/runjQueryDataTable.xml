@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="jQuery">
+<suite name="jQuery DataTable">
 
 <!-- // Handle Data_Table , Data_Grid Part I -->
 <!-- <parameter name="url" value="https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/" /> -->
@@ -11,9 +11,10 @@
 	
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="com.jquery.datatable.Level_10_DataTable_DataGrid" />
+			<class name="com.jquery.Level_10_DataTable_DataGrid" />
 		</classes>
 		
   </test> <!-- Test -->
+  
   
 </suite> <!-- Suite -->

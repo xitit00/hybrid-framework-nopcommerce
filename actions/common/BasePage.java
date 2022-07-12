@@ -21,6 +21,8 @@ import pageObjects.nopCommerce.user.UserAddressPageObject;
 import pageObjects.nopCommerce.user.UserHomePageObject;
 import pageObjects.nopCommerce.user.UserMyProductReviewPageObject;
 import pageObjects.nopCommerce.user.UserRewardPointPageObject;
+import pageUIs.jQuery.uploadFile.BasePageJQueryUI;
+import pageUIs.nopCommerce.user.BasePageNopCommerceUI;
 
 public class BasePage {
 	
@@ -494,8 +496,57 @@ public class BasePage {
 	}
 	
 	//Upload đợi học trong phần Framework tiếp theo 
+	// Ko xài File.separator 
+//	public void uploadMultipleFiles(WebDriver driver, String... fileNames) {
+//	
+//		String filePath = "";
+//		
+//		if (GlobalConstants.OS_NAME.startsWith("Window")) {
+//			
+//			// Window 
+//			filePath = System.getProperty("user.dir") + "\\uploadFiles\\";
+//		}
+//		else {
+//			
+//			// Mac , Linux
+//			
+//			filePath = System.getProperty("user.dir") + "/uploadFiles/";
+//		}
+//		
+//		String fullFileName = "";
+//		for (String file : fileNames) {
+//			
+//			fullFileName = fullFileName + filePath + file + "\n";
+//			
+//		}
+//		fullFileName = fullFileName.trim();
+//		getWebElement(driver, BasePageJQueryUI.UPLOAD_FILE).sendKeys(fullFileName);
+//	
+//	}
 	
-	//...
+	// Xài File.separator
+	public void uploadMultipleFiles(WebDriver driver, String... fileNames) {
+		
+		//  Đường dẫn thư mục uploadFile: Windows / MAC / Linux
+		String filePath = GlobalConstants.UPLOAD_FILE;
+		
+		// Đường dẫn của tất cả các file (fileNames)
+		// 1 file : Java.png
+		// nhiều file : String[] fileNames = {"CSharp.png","Java.png","Python.png"}
+		String fullFileName = "";
+		for (String file : fileNames) {
+			
+			// "" + /Users/anhnguyen/Documents/Selenium/03-Hybrid Automation Framework/uploadFiles/ + Java.png + "\n"
+			fullFileName = fullFileName + filePath + file + "\n";
+			
+		}
+		// dùng trim để xoá kí tự khoảng trắng / tab / xuống dòng của 1 chuỗi , ở đây là "\n" 
+		// => cuối cùng lấy ra 1 chuỗi để sendKeys 1 file , ở đây là fullFileName 
+		fullFileName = fullFileName.trim();
+		
+		getWebElement(driver, BasePageJQueryUI.UPLOAD_FILE).sendKeys(fullFileName);
+	
+	}
 	
 	//JsExecutor
 
@@ -580,6 +631,19 @@ public class BasePage {
 	public boolean isImageLoaded(WebDriver driver, String locatorType) {
 		
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		boolean status = (boolean) jsExecutor.executeScript(
+				"return arguments[0].complete && typeof arguments[0].naturalWidth != 'undefined' && arguments[0].naturalWidth > 0",
+				getWebElement(driver, locatorType));
+		if (status) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isImageLoaded(WebDriver driver, String locatorType, String...restValues) {
+		
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		locatorType = getDynamicXpath(locatorType, restValues);
 		boolean status = (boolean) jsExecutor.executeScript(
 				"return arguments[0].complete && typeof arguments[0].naturalWidth != 'undefined' && arguments[0].naturalWidth > 0",
 				getWebElement(driver, locatorType));
@@ -679,8 +743,8 @@ public class BasePage {
 	// Tối ưu ở bài học Level_07_Switch_Page / Switch Page UI
 	public UserAddressPageObject openAddressPage(WebDriver driver) {
 		
-		waitForElementClickable(driver, BasePageUI.ADDRESSES_LINK);
-		clickToElement(driver, BasePageUI.ADDRESSES_LINK);
+		waitForElementClickable(driver, BasePageNopCommerceUI.ADDRESSES_LINK);
+		clickToElement(driver, BasePageNopCommerceUI.ADDRESSES_LINK);
 		
 		UserAddressPageObject a = PageGeneratorManager.getUserAddressPage(driver);
 		return a;
@@ -689,8 +753,8 @@ public class BasePage {
 	
 	public UserRewardPointPageObject openRewardPointPage(WebDriver driver) {
 		
-		waitForElementClickable(driver, BasePageUI.REWARD_POINT_LINK);
-		clickToElement(driver, BasePageUI.REWARD_POINT_LINK);
+		waitForElementClickable(driver, BasePageNopCommerceUI.REWARD_POINT_LINK);
+		clickToElement(driver, BasePageNopCommerceUI.REWARD_POINT_LINK);
 		
 		UserRewardPointPageObject r = PageGeneratorManager.getUserRewardPointPage(driver);
 		return r;
@@ -699,8 +763,8 @@ public class BasePage {
 	
 	public UserMyProductReviewPageObject openMyProductReviewPage(WebDriver driver) {
 		
-		waitForElementClickable(driver, BasePageUI.MY_PRODUCT_REVIEW_LINK);
-		clickToElement(driver, BasePageUI.MY_PRODUCT_REVIEW_LINK);
+		waitForElementClickable(driver, BasePageNopCommerceUI.MY_PRODUCT_REVIEW_LINK);
+		clickToElement(driver, BasePageNopCommerceUI.MY_PRODUCT_REVIEW_LINK);
 		
 		UserMyProductReviewPageObject m = PageGeneratorManager.getUserMyProductReviewPage(driver);
 		return m;
@@ -711,8 +775,8 @@ public class BasePage {
 	// cách này dùng cho ít page: 10 - 20 pages
 	public BasePage openPagesAtMyAccountByName(WebDriver driver, String areaName , String pageName) {
 		
-		waitForElementClickable(driver, BasePageUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_AREA, areaName, pageName);
-		clickToElement(driver, BasePageUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_AREA, areaName, pageName);
+		waitForElementClickable(driver, BasePageNopCommerceUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_AREA, areaName, pageName);
+		clickToElement(driver, BasePageNopCommerceUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_AREA, areaName, pageName);
 		
 		switch (pageName) {
 		
@@ -738,15 +802,15 @@ public class BasePage {
 	// cách này dùng cho nhiều page , vd : 15 - 20 page trở lên 
 	public void openPagesAtMyAccountByPageName(WebDriver driver, String areaName , String pageName) {
 		
-		waitForElementClickable(driver,BasePageUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_AREA, areaName, pageName);
-		clickToElement(driver, BasePageUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_AREA, areaName, pageName);
+		waitForElementClickable(driver,BasePageNopCommerceUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_AREA, areaName, pageName);
+		clickToElement(driver, BasePageNopCommerceUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_AREA, areaName, pageName);
 	}
 	
 	// Level_08_Switch_Role 
 	public UserHomePageObject clickToLogoutLinkAtUserPage(WebDriver driver) {
 		
-		waitForElementClickable(driver, BasePageUI.LOGOUT_LINK_AT_USER);
-		clickToElement(driver, BasePageUI.LOGOUT_LINK_AT_USER);
+		waitForElementClickable(driver, BasePageNopCommerceUI.LOGOUT_LINK_AT_USER);
+		clickToElement(driver, BasePageNopCommerceUI.LOGOUT_LINK_AT_USER);
 		
 		UserHomePageObject u = PageGeneratorManager.getUserHomePage();
 		u.setDriver(driver);
@@ -755,8 +819,8 @@ public class BasePage {
 	
 	public AdminLoginPageObject clickToLogoutLinkAtAdminPage(WebDriver driver) {
 		
-		waitForElementClickable(driver, BasePageUI.LOGOUT_LINK_AT_ADMIN);
-		clickToElement(driver, BasePageUI.LOGOUT_LINK_AT_ADMIN);
+		waitForElementClickable(driver, BasePageNopCommerceUI.LOGOUT_LINK_AT_ADMIN);
+		clickToElement(driver, BasePageNopCommerceUI.LOGOUT_LINK_AT_ADMIN);
 		
 		AdminLoginPageObject a = PageGeneratorManager.getAdminLoginPage(driver);
 		return a;
