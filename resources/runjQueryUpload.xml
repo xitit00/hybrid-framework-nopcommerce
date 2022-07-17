@@ -2,6 +2,11 @@
 <suite name="jQuery Upload">
 
 <parameter name="url" value="https://blueimp.github.io/jQuery-File-Upload/" />
+
+	<listeners>
+	
+		<listener class-name="common.MethodListener" />
+	</listeners>
 	
 	<test name="Run On Chrome">
 	
@@ -28,6 +33,6 @@
 			<class name="com.jquery.Level_11_Upload_Files" />
 		</classes>
 		
-  </test> <!-- Test -->
+  </test> <!-- Test --> 
   
 </suite> <!-- Suite -->
