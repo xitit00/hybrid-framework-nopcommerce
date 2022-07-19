@@ -1,12 +1,15 @@
 package common;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -442,9 +445,88 @@ public class BasePage {
 	
 	// Displayed  , Enabled , Selected
 	
+	// cách này dùng đc chỉ cho mỗi TH2 : element not displayed but in DOM , ko check đc TH3  
+	
+//	public boolean isElementUnDisplayed(WebDriver driver , String locatorType, String... restValues) {
+//		
+//		boolean status = true;
+//		
+//		if (getWebElement(driver, getDynamicXpath(locatorType, restValues)).isDisplayed()) {
+//			
+//			status = false;
+//		}
+//		
+//		return status;
+//	}
+//	
+//	public boolean isElementUnDisplayed(WebDriver driver , String locatorType) { 
+//		
+//		boolean status = true; 
+//		
+//		if (getWebElement(driver, locatorType).isDisplayed()) {
+//			
+//			status = false;
+//		}
+//		
+//		return status;
+//	}
+	
 	public boolean isElementDisplayed(WebDriver driver , String locatorType) {
 		
-		return getWebElement(driver, locatorType).isDisplayed();
+		try {
+			// Tìm thấy element: 
+			// Case 1 - Displayed - trả về true 
+			// Case 2 - Undisplayed - trả về false 
+			return getWebElement(driver, locatorType).isDisplayed();
+		} catch (NoSuchElementException e) {
+		
+			// Ko tìm thấy element 
+			// Case 3 - Undisplayed - Nó sẽ trả về exception khi nãy : 
+			// NoSuchElementException: no such element: Unable to locate element ...  - trả về false
+			
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	// cách này dùng đc cả cho TH2 vs TH3 
+	public boolean isElementUndisplayed(WebDriver driver, String locator) {
+		
+		System.out.println("Start time = " + new Date().toString());
+		
+		// Gán 5s để find element NOT in DOM 
+		overrideGlobalTimeout(driver, shortTimeout);
+		List<WebElement> elements = getListWebElement(driver, locator);
+		
+		// Nếu như mình gán = 5s apply cho tất cả các step về sau đó: findElement / findElements thì sẽ ko đủ time page load và UI render
+		// => gán lại = 30s find element in DOM 
+		overrideGlobalTimeout(driver, longTimeout);
+		
+		if (elements.size() == 0) {
+			
+			System.out.println("Case 3 - Element ko có trong DOM");
+			System.out.println("End time = " + new Date().toString());
+			return true; 
+		}
+		else if (elements.size() > 0 && !elements.get(0).isDisplayed()) {
+			
+			System.out.println("Case 2 - Element có trong DOM nhưng ko visible/ displayed");
+			System.out.println("End time = " + new Date().toString());
+			return true; 
+			
+		}
+		else {
+			
+			System.out.println("Case 1 - Element có trong DOM và display");
+			return false;
+		}
+		
+	}
+	
+	// override lại time out implicit wait theo ý mình 
+	public void overrideGlobalTimeout(WebDriver driver, long timeOut) {
+		
+		driver.manage().timeouts().implicitlyWait(timeOut, TimeUnit.SECONDS);
 	}
 	
 	public boolean isElementDisplayed(WebDriver driver , String locatorType, String... restValues) {
@@ -457,9 +539,19 @@ public class BasePage {
 		return getWebElement(driver, locatorType).isEnabled();
 	}
 	
+	public boolean isElementEnabled(WebDriver driver , String locatorType, String... restValues) {
+		
+		return getWebElement(driver, getDynamicXpath(locatorType, restValues)).isEnabled();
+	}
+	
 	public boolean isElementSelected(WebDriver driver , String locatorType) {
 		
 		return getWebElement(driver, locatorType).isSelected();
+	}
+	
+	public boolean isElementSelected(WebDriver driver , String locatorType, String... restValues) {
+		
+		return getWebElement(driver, getDynamicXpath(locatorType, restValues)).isSelected();
 	}
 	
 	// Frame , Iframe
@@ -690,6 +782,20 @@ public class BasePage {
 		
 	}
 	
+	/* 
+	 *  Wait for element undisplayed in DOM or not in DOM and override implicit timeout 
+	 *  Kết hợp giữa implicit và explicit ở bài Wait để findElement , xem lại bài Wait để hiểu rõ thêm
+	 */
+	public void waitForElementUndisplayed(WebDriver driver, String typeLocator) {
+		
+		WebDriverWait explicitWait = new WebDriverWait(driver,shortTimeout);
+		overrideGlobalTimeout(driver, shortTimeout);
+		System.out.println("Start time for wait undisplayed =" + new Date().toString());
+		explicitWait.until(ExpectedConditions.invisibilityOfElementLocated(getByLocator(typeLocator)));
+		overrideGlobalTimeout(driver, longTimeout);
+		System.out.println("End time for wait undisplayed =" + new Date().toString());
+	}
+	
 	public void waitForElementInVisible(WebDriver driver, String typeLocator, String... restValues) {
 		
 		WebDriverWait explicitWait = new WebDriverWait(driver,30);
@@ -867,5 +973,8 @@ public class BasePage {
 		element.sendKeys(textValue);
 		
 	}
+	
+	private long longTimeout = GlobalConstants.LONG_TIME_OUT;
+	private long shortTimeout = GlobalConstants.SHORT_TIME_OUT;
 	
 }

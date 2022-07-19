@@ -256,7 +256,8 @@ public class BaseTest {
 			
 		}
 		
-		// Set timeout tim element
+		// Set timeout tim element 
+		// Mình chỉ cần set implicit wait 1 lần để sét time out cho tất cả element trong class TC.
 		driverBaseTest.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		
 		// open URL 

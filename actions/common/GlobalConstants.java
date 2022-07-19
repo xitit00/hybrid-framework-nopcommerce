@@ -59,7 +59,8 @@ public class GlobalConstants {
 	
 	// Biến timeout gán cho từng class 
 	public static final long SHORT_TIME_OUT = 5;
-	public static final long LONG_TIME_OUT = 15;
+	// mặc định Long time out = 10s là ko đủ , nên là 30s đủ để page load xong / element đc render ra
+	public static final long LONG_TIME_OUT = 30; 
 	
 	// Số lần retry lại test failed
 	public static final long RETRY_TEST_ALL =  3;

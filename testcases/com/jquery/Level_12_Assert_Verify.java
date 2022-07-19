@@ -56,7 +56,7 @@ public class Level_12_Assert_Verify extends BaseTest {
 		homePageObject.uploadMultipleFiles(driver, pythonFileName);
 		
 		// verify tên file display là load thành công , nhưng đây mới chỉ là load file chưa phải là upload , vậy upload kiểu gì ?
-		verifyTrue(homePageObject.isFileLoadedByName(pythonFileName)); 
+		Assert.assertTrue(homePageObject.isFileLoadedByName(pythonFileName)); 
 		
 		// click Btn start để upload , nhưng để ý là sẽ có multiple files cùng nút upload , vậy thì làm thế nào để click Btn Start để toàn bộ file upload 
 		// = cách duyệt qua vòng lặp element lấy ra các nút upload và click 
@@ -64,13 +64,13 @@ public class Level_12_Assert_Verify extends BaseTest {
 		
 		// Sau khi click Btn Start và upload thành công thì mình sẽ verify 2 cái
 		// 1/ link file hình uploaded thành công 
-		verifyTrue(homePageObject.isFileLinkUpLoadedByName(pythonFileName));
+		Assert.assertTrue(homePageObject.isFileLinkUpLoadedByName(pythonFileName));
 		
 		// 2/ nếu là hình upload lên thì xem nó phải là cái hình hay ko , vì nếu là hình thì nó sẽ có chiều rộng cao ( dùng javascript để check natural width vs complete) 
 		// lưu ý : 1/ là chỉ có thẻ img mới check đc , vậy phải trỏ đến thẻ /img thì mới check đc 
 		//		   2/ Nhưng cũng có khả năng là hình nó bị vỡ ko upload lên đc thì khi chạy isImageLoaded => false 
 		//		   3/ Cũng có thể chạy test thử ở console , nếu thành công => true , ngc lại => false
-		verifyTrue(homePageObject.isFileImageUpLoadedByName(pythonFileName));
+		Assert.assertTrue(homePageObject.isFileImageUpLoadedByName(pythonFileName));
 		
 		
 	}
@@ -87,25 +87,25 @@ public class Level_12_Assert_Verify extends BaseTest {
 		homePageObject.uploadMultipleFiles(driver, multipleFile);
 		
 		// Step 02 - Verify multiple file loaded success
-		verifyTrue(homePageObject.isFileLoadedByName(pythonFileName));
-		verifyTrue(homePageObject.isFileLoadedByName(cSharpFileName));
-		verifyTrue(homePageObject.isFileLoadedByName(javaFileName));
-		verifyTrue(homePageObject.isFileLoadedByName(rubyFileName));
+		Assert.assertTrue(homePageObject.isFileLoadedByName(pythonFileName));
+		Assert.assertTrue(homePageObject.isFileLoadedByName(cSharpFileName));
+		Assert.assertTrue(homePageObject.isFileLoadedByName(javaFileName));
+		Assert.assertTrue(homePageObject.isFileLoadedByName(rubyFileName));
 		
 		// Step 03 - Click to start button
 		homePageObject.clickToStartButton();
 		
 		// Step 04 - Verify multiple file link uploaded success
-		verifyTrue(homePageObject.isFileLinkUpLoadedByName(pythonFileName));
-		verifyTrue(homePageObject.isFileLinkUpLoadedByName(cSharpFileName));
-		verifyTrue(homePageObject.isFileLinkUpLoadedByName(javaFileName));
-		verifyTrue(homePageObject.isFileLinkUpLoadedByName(rubyFileName));
+		Assert.assertTrue(homePageObject.isFileLinkUpLoadedByName(pythonFileName));
+		Assert.assertTrue(homePageObject.isFileLinkUpLoadedByName(cSharpFileName));
+		Assert.assertTrue(homePageObject.isFileLinkUpLoadedByName(javaFileName));
+		Assert.assertTrue(homePageObject.isFileLinkUpLoadedByName(rubyFileName));
 		
 		// Step 05 - Verify multiple file image uploaded success
-		verifyTrue(homePageObject.isFileImageUpLoadedByName(pythonFileName));
-		verifyTrue(homePageObject.isFileImageUpLoadedByName(cSharpFileName));
-		verifyTrue(homePageObject.isFileImageUpLoadedByName(javaFileName));
-		verifyTrue(homePageObject.isFileImageUpLoadedByName(rubyFileName));
+		Assert.assertTrue(homePageObject.isFileImageUpLoadedByName(pythonFileName));
+		Assert.assertTrue(homePageObject.isFileImageUpLoadedByName(cSharpFileName));
+		Assert.assertTrue(homePageObject.isFileImageUpLoadedByName(javaFileName));
+		Assert.assertTrue(homePageObject.isFileImageUpLoadedByName(rubyFileName));
 		
 	}
 	
