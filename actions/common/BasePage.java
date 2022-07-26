@@ -288,9 +288,21 @@ public class BasePage {
 		select.selectByValue(textItem);
 	}
 	
+	public void selectItemByValueInDefaultDropdown(WebDriver driver, String locatorType, String textItem) {
+		
+		Select select = new Select(getWebElement(driver, locatorType));
+		select.selectByValue(textItem);
+	}
+	
 	public void selectItemByTextInDefaultDropdown(WebDriver driver, String locatorType, String textItem, String... restValues) {
 		
 		locatorType = getDynamicXpath(locatorType, restValues);
+		Select select = new Select(getWebElement(driver, locatorType));
+		select.selectByVisibleText(textItem);
+	}
+	
+	public void selectItemByTextInDefaultDropdown(WebDriver driver, String locatorType, String textItem) {
+		
 		Select select = new Select(getWebElement(driver, locatorType));
 		select.selectByVisibleText(textItem);
 	}
@@ -302,9 +314,21 @@ public class BasePage {
 		return select.getFirstSelectedOption().getText();
 	}
 	
+	public String getSelectedItemDefaultDropdown(WebDriver driver, String locatorType) {
+		
+		Select select = new Select(getWebElement(driver, locatorType));
+		return select.getFirstSelectedOption().getText();
+	}
+	
 	public boolean isDropdownMultiple(WebDriver driver, String locatorType , String... restValues) {
 		
 		locatorType = getDynamicXpath(locatorType, restValues);
+		Select select = new Select(getWebElement(driver, locatorType));
+		return select.isMultiple();
+	}
+	
+	public boolean isDropdownMultiple(WebDriver driver, String locatorType) {
+		
 		Select select = new Select(getWebElement(driver, locatorType));
 		return select.isMultiple();
 	}

@@ -5,7 +5,7 @@
 <!-- <parameter name="url" value="https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/" /> -->
 
 <!-- // Handle Data_Table , Data_Grid Part II -->
-<parameter name="url" value="https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/" />
+<parameter name="url" value="https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/" /> 
 	
 	<test name="Run On Chrome">
 	

@@ -71,7 +71,7 @@ public class Level_10_DataTable_DataGrid extends BaseTest {
 		// 
 		// ở Table_02 ta sẽ check việc search = cách input text and enter xem có hiệu quả ko nhé , nhớ refresh lại page 1
 		
-		homePageObject.refreshCurrentPage(driver);
+		//homePageObject.refreshCurrentPage(driver);
 		
 		homePageObject.enterToHeaderTextboxByLabel("Country","Argentina");
 		homePageObject.enterToHeaderTextboxByLabel("Females","338282");
@@ -83,6 +83,11 @@ public class Level_10_DataTable_DataGrid extends BaseTest {
 		homePageObject.enterToHeaderTextboxByLabel("Females","384187");
 		homePageObject.enterToHeaderTextboxByLabel("Males","407124");
 		homePageObject.enterToHeaderTextboxByLabel("Total","791312");
+		sleepInSecond(2);
+		
+		// search key "zzz" and verify no data
+		homePageObject.enterToHeaderTextboxByLabel("Country","zzz");
+		verifyTrue(homePageObject.isElementRowUnDisplayed());
 		sleepInSecond(2);
 	}
 	
@@ -107,11 +112,12 @@ public class Level_10_DataTable_DataGrid extends BaseTest {
 		actualAllCountryValueAllPage = homePageObject.getValueEachRowAtAllPage();
 		System.out.print("Expected size : " + expectedAllCountryValueAllPage.size());
 		System.out.print("Actual size : " + actualAllCountryValueAllPage.size());
+		
 		Assert.assertEquals(actualAllCountryValueAllPage, expectedAllCountryValueAllPage);
 	}
 	
 	//Handle_DataTable_DataGrid_Part2
-	//@Test
+	@Test
 	public void Table_04_Action_At_Any_Row() {
 		
 		// khi chạy TC số 4 cho việc click icon thì đóng @Test ở TC_03 vs TC_02
@@ -140,19 +146,29 @@ public class Level_10_DataTable_DataGrid extends BaseTest {
 		
 		homePageObject.selectDropDownByColumnNameAtRowNumber("Origin","5","Japan");
 		sleepInSecond(2);
+		String actualText = homePageObject.getActualText("Origin","5");
+		System.out.println("Actual text: " + actualText);
+		verifyEquals(actualText , "Japan");
 		
 		// checkbox 
 		
 		homePageObject.checkToCheckBoxByColumnNameAtRowNumber("With Poster?","3");
 		homePageObject.checkToCheckBoxByColumnNameAtRowNumber("With Poster?","5");
 		
+		verifyTrue(homePageObject.isCheckBoxSelected("With Poster?","3"));
+		verifyTrue(homePageObject.isCheckBoxSelected("With Poster?","5"));
+		
 		homePageObject.uncheckToCheckBoxByColumnNameAtRowNumber("With Poster?","1");
 		homePageObject.uncheckToCheckBoxByColumnNameAtRowNumber("With Poster?","2");
 		homePageObject.uncheckToCheckBoxByColumnNameAtRowNumber("With Poster?","4");
 		
+		verifyFalse(homePageObject.isCheckBoxNotSelected("With Poster?","1"));
+		verifyFalse(homePageObject.isCheckBoxNotSelected("With Poster?","2"));
+		verifyFalse(homePageObject.isCheckBoxNotSelected("With Poster?","4"));
+		
 	}
 	
-	@Test
+	//@Test
 	public void Table_05_Action_At_Any_Row_II () {
 		
 		// khi chạy TC số 5 cho việc click icon thì đóng @Test ở TC_04

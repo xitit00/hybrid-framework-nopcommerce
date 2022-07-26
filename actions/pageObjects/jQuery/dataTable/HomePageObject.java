@@ -57,13 +57,21 @@ public class HomePageObject extends BasePage {
 			clickToElement(driver, HomePageUI.PAGINATION_PAGE_BY_INDEX, String.valueOf(i));
 			sleepInSecond(1);
 			
-			List<WebElement> allRowValueEachPage = getListWebElement(driver, HomePageUI.ALL_ROW_EACH_PAGE_COUNTRY);
+			List<WebElement> allRowValueEachPage = getListWebElement(driver, HomePageUI.ALL_ROW_EACH_PAGE);
 			
 			// Duyệt qua tất cả row của mỗi page
 			for (WebElement eachRow : allRowValueEachPage) {
 				
-				// get text của tất cả row và add vào ArrayList
-				allRowValuesAllPage.add(eachRow.getText());
+				// get text của tất cả row của 1 category thì ko cần if/else và add vào ArrayList 
+				//allRowValuesAllPage.add(eachRow.getText());
+				
+				// get text của tất cả row ( all data ) nhưng bỏ đi cột đầu tiên của mỗi dòng ? 
+				// vì sao ? vì cột đầu tiên ko có text , mà 4 cột còn lại thì có text , kiểm tra eachRow.getText khác rỗng thì add vào
+				
+				if (eachRow.getText().length() > 0) {
+					
+					allRowValuesAllPage.add(eachRow.getText());
+				}
 				
 				// lấy index của each Row ra
 //				int index = allRowValueEachPage.indexOf(eachRow);
@@ -89,7 +97,7 @@ public class HomePageObject extends BasePage {
 		for (String value : allRowValuesAllPage) {
 			
 			
-//			System.out.println("-----");
+			//System.out.println("-----");
 			System.out.println(value);
 		
 		}
@@ -165,6 +173,45 @@ public class HomePageObject extends BasePage {
 		//action click
 		waitForElementClickable(driver, HomePageUI.ICON_NAME_BY_ROW_NUMBER, rowNumber , titleValue);
 		clickToElement(driver, HomePageUI.ICON_NAME_BY_ROW_NUMBER, rowNumber , titleValue);
+	}
+
+	public boolean isElementRowUnDisplayed() {
+		// TODO Auto-generated method stub
+		
+		return isElementUndisplayed(driver, HomePageUI.TABLE_ROW);
+
+	}
+
+	public String getActualText(String columnName, String rowNumber) {
+		// TODO Auto-generated method stub
+		
+		// column index dựa vào tên cột
+		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
+		
+		// get Item Selected 
+		return getSelectedItemDefaultDropdown(driver, HomePageUI.DROPDOWN_BY_COLUMN_INDEX_AND_ROW_INDEX, rowNumber, String.valueOf(columnIndex));
+		
+	}
+
+	public boolean isCheckBoxSelected(String columnName, String rowNumber) {
+		// TODO Auto-generated method stub
+		
+		// column index dựa vào tên cột
+		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
+		
+		// checkbox selected 
+		return isElementSelected(driver, HomePageUI.CHECKBOX_BY_COLUMN_INDEX_AND_ROW_INDEX, rowNumber, String.valueOf(columnIndex));
+		
+	}
+
+	public boolean isCheckBoxNotSelected(String columnName, String rowNumber) {
+		// TODO Auto-generated method stub
+		
+		// column index dựa vào tên cột
+		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
+		
+		// checkbox not selected
+		return isElementSelected(driver, HomePageUI.CHECKBOX_BY_COLUMN_INDEX_AND_ROW_INDEX, rowNumber, String.valueOf(columnIndex));
 	}
 
 
