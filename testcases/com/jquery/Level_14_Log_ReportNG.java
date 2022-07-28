@@ -24,10 +24,11 @@ import pageObjects.jQuery.uploadFile.HomePageObject;
 import pageObjects.jQuery.uploadFile.PageGeneratorManager;
 
 
-public class Level_12_Assert_Verify extends BaseTest {
+public class Level_14_Log_ReportNG extends BaseTest {
 	
 	private WebDriver driver;
 	private HomePageObject homePageObject;
+	
 	
 	// one File 
 	String cSharpFileName = "CSharp.png";
@@ -51,25 +52,19 @@ public class Level_12_Assert_Verify extends BaseTest {
 	@Test
 	public void Upload_01_One_File_Per_Time () {
 		
-		// đừng thắc mắc tại sao ko implement uploadMultipleFiles ở homePage như thói quen , đơn giản là vì nó có hàm uploadFile gọi đc ở tất cả site app và kế thừa BasePage.
-		// load 1 File lên rồi verify kiểu gì ? 
+		log.info("Upload_File - Step 01: Load A File" + pythonFileName);
 		homePageObject.uploadMultipleFiles(driver, pythonFileName);
 		
-		// verify tên file display là load thành công , nhưng đây mới chỉ là load file chưa phải là upload , vậy upload kiểu gì ?
+		log.info("Upload_File - Step 02: Verify A File Loaded Successfully" + pythonFileName);
 		verifyTrue(homePageObject.isFileLoadedByName(pythonFileName)); 
 		
-		// click Btn start để upload , nhưng để ý là sẽ có multiple files cùng nút upload , vậy thì làm thế nào để click Btn Start để toàn bộ file upload 
-		// = cách duyệt qua vòng lặp element lấy ra các nút upload và click 
+		log.info("Upload_File - Step 03: Click Btn Start");
 		homePageObject.clickToStartButton();
 		
-		// Sau khi click Btn Start và upload thành công thì mình sẽ verify 2 cái
-		// 1/ link file hình uploaded thành công 
+		log.info("Upload_File - Step 04: Verify Link File Uploaded Successfully" + pythonFileName);
 		verifyTrue(homePageObject.isFileLinkUpLoadedByName(pythonFileName));
 		
-		// 2/ nếu là hình upload lên thì xem nó phải là cái hình hay ko , vì nếu là hình thì nó sẽ có chiều rộng cao ( dùng javascript để check natural width vs complete) 
-		// lưu ý : 1/ là chỉ có thẻ img mới check đc , vậy phải trỏ đến thẻ /img thì mới check đc 
-		//		   2/ Nhưng cũng có khả năng là hình nó bị vỡ ko upload lên đc thì khi chạy isImageLoaded => false 
-		//		   3/ Cũng có thể chạy test thử ở console , nếu thành công => true , ngc lại => false
+		log.info("Upload_File - Step 05: Verify Image File Uploaded Successfully" + pythonFileName);
 		verifyTrue(homePageObject.isFileImageUpLoadedByName(pythonFileName));
 		
 		
@@ -79,32 +74,58 @@ public class Level_12_Assert_Verify extends BaseTest {
 	public void Upload_02_Multiple_File_Per_Time () {
 		
 		// refresh lại trang ( bỏ đi hành động của Upload_01)
+		log.info("Upload_Multiple_File - Step 01: Refresh Current Page '" + pythonFileName + "'");
 		homePageObject.refreshCurrentPage(driver);
 		
 		// đừng thắc mắc tại sao ko implement uploadMultipleFiles ở homePage như thói quen , đơn giản là vì nó có hàm uploadFile gọi đc ở tất cả site app và kế thừa BasePage.
 		// ở multiple File thì có bao nhiêu file upload lên thì verify hết 
 		// Step 01 - Load mutilple file
+		log.info("Upload_Multiple_File - Step 02: Load Multiple File '" + multipleFile + "'");
 		homePageObject.uploadMultipleFiles(driver, multipleFile);
 		
 		// Step 02 - Verify multiple file loaded success
+		log.info("Upload_Multiple_File - Step 03: Verify Python File Loaded Successfully '" + pythonFileName + "'");
 		verifyTrue(homePageObject.isFileLoadedByName(pythonFileName));
+		
+		log.info("Upload_Multiple_File - Step 04: Verify CSharp File Loaded Successfully '" + cSharpFileName + "'");
 		verifyTrue(homePageObject.isFileLoadedByName(cSharpFileName));
+		
+		log.info("Upload_Multiple_File - Step 05: Verify Java File Loaded Successfully '" + javaFileName + "'");
 		verifyTrue(homePageObject.isFileLoadedByName(javaFileName));
+		
+		log.info("Upload_Multiple_File - Step 06: Verify Ruby File Loaded Successfully '" + rubyFileName + "'");
 		verifyTrue(homePageObject.isFileLoadedByName(rubyFileName));
 		
 		// Step 03 - Click to start button
+		log.info("Upload_Multiple_File - Step 07: Click Btn Start");
 		homePageObject.clickToStartButton();
 		
 		// Step 04 - Verify multiple file link uploaded success
+		
+		log.info("Upload_Multiple_File - Step 01: Verify Link File Uploaded Successfully '" + pythonFileName + "'");
 		verifyTrue(homePageObject.isFileLinkUpLoadedByName(pythonFileName));
+		
+		log.info("Upload_Multiple_File - Step 02: Verify Link File Uploaded Successfully '" + cSharpFileName + "'");
 		verifyTrue(homePageObject.isFileLinkUpLoadedByName(cSharpFileName));
+		
+		log.info("Upload_Multiple_File - Step 03: Verify Link File Uploaded Successfully '" + javaFileName + "'");
 		verifyTrue(homePageObject.isFileLinkUpLoadedByName(javaFileName));
+		
+		log.info("Upload_Multiple_File - Step 04: Verify Link File Uploaded Successfully '" + rubyFileName + "'");
 		verifyTrue(homePageObject.isFileLinkUpLoadedByName(rubyFileName));
 		
 		// Step 05 - Verify multiple file image uploaded success
+		
+		log.info("Upload_Multiple_File - Step 05: Verify Image File Uploaded Successfully" + pythonFileName);
 		verifyTrue(homePageObject.isFileImageUpLoadedByName(pythonFileName));
+		
+		log.info("Upload_File - Step 07: Verify Image File Uploaded Successfully" + cSharpFileName);
 		verifyTrue(homePageObject.isFileImageUpLoadedByName(cSharpFileName));
+		
+		log.info("Upload_File - Step 08: Verify Image File Uploaded Successfully" + javaFileName);
 		verifyTrue(homePageObject.isFileImageUpLoadedByName(javaFileName));
+		
+		log.info("Upload_File - Step 09: Verify Image File Uploaded Successfully" + rubyFileName);
 		verifyTrue(homePageObject.isFileImageUpLoadedByName(rubyFileName));
 		
 	}

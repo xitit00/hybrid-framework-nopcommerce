@@ -1,0 +1,35 @@
+[INFO ] [2022-07-27 18:13:25,160] Upload_File - Step 01: Load A FilePython.png
+[INFO ] [2022-07-27 18:13:25,218] Upload_File - Step 02: Verify A File Loaded SuccessfullyPython.png
+[INFO ] [2022-07-27 18:13:25,335]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-07-27 18:13:25,336] Upload_File - Step 03: Click Btn Start
+[INFO ] [2022-07-27 18:13:27,397] Upload_File - Step 04: Verify Link File Uploaded SuccessfullyPython.png
+[INFO ] [2022-07-27 18:13:27,447]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-07-27 18:13:27,447] Upload_File - Step 05: Verify Image File Uploaded SuccessfullyPython.png
+[INFO ] [2022-07-27 18:13:27,491]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-07-27 18:13:27,496] Upload_Multiple_File - Step 01: Refresh Current Page 'Python.png'
+[INFO ] [2022-07-27 18:13:28,076] Upload_Multiple_File - Step 02: Load Multiple File '[Ljava.lang.String;@15cea7b0'
+[INFO ] [2022-07-27 18:13:28,118] Upload_Multiple_File - Step 03: Verify Python File Loaded Successfully 'Python.png'
+[INFO ] [2022-07-27 18:13:28,239]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-07-27 18:13:28,239] Upload_Multiple_File - Step 04: Verify CSharp File Loaded Successfully 'CSharp.png'
+[INFO ] [2022-07-27 18:13:28,284]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-07-27 18:13:28,284] Upload_Multiple_File - Step 05: Verify Java File Loaded Successfully 'Java.png'
+[INFO ] [2022-07-27 18:13:28,325]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-07-27 18:13:28,326] Upload_Multiple_File - Step 06: Verify Ruby File Loaded Successfully 'Ruby.png'
+[INFO ] [2022-07-27 18:13:28,366]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-07-27 18:13:28,366] Upload_Multiple_File - Step 07: Click Btn Start
+[INFO ] [2022-07-27 18:13:36,520] Upload_Multiple_File - Step 01: Verify Link File Uploaded Successfully 'Python.png'
+[INFO ] [2022-07-27 18:13:36,563]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-07-27 18:13:36,563] Upload_Multiple_File - Step 02: Verify Link File Uploaded Successfully 'CSharp.png'
+[INFO ] [2022-07-27 18:13:36,606]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-07-27 18:13:36,607] Upload_Multiple_File - Step 03: Verify Link File Uploaded Successfully 'Java.png'
+[INFO ] [2022-07-27 18:13:36,651]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-07-27 18:13:36,651] Upload_Multiple_File - Step 04: Verify Link File Uploaded Successfully 'Ruby.png'
+[INFO ] [2022-07-27 18:13:36,692]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-07-27 18:13:36,692] Upload_Multiple_File - Step 05: Verify Image File Uploaded SuccessfullyPython.png
+[INFO ] [2022-07-27 18:13:36,726]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-07-27 18:13:36,726] Upload_File - Step 07: Verify Image File Uploaded SuccessfullyCSharp.png
+[INFO ] [2022-07-27 18:13:36,761]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-07-27 18:13:36,761] Upload_File - Step 08: Verify Image File Uploaded SuccessfullyJava.png
+[INFO ] [2022-07-27 18:13:36,797]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-07-27 18:13:36,798] Upload_File - Step 09: Verify Image File Uploaded SuccessfullyRuby.png
+[INFO ] [2022-07-27 18:13:36,836]  -------------------------- PASSED -------------------------- 
