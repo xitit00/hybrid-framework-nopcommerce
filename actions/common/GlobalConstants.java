@@ -45,6 +45,9 @@ public class GlobalConstants {
 	public static final String DRAG_DROP = PROJECT_PATH + File.separator + "dragAndDrop";
 	public static final String IT_AUTO_SCRIPT = PROJECT_PATH + File.separator + "autoIT";
 	
+	// Attach screenshot to ReportNG / Extent Report version 2
+	public static final String REPORTNG_SCREENSHOT  = PROJECT_PATH + File.separator + "ReportNGImages" + File.separator;
+	
 	// Database Account / User / Pass / Port
 	// Phần jenkins sẽ học set up web local + DB local = database testing + Selenium
 	public static final String DB_DEV_URL = "32.18.252.185:9860";

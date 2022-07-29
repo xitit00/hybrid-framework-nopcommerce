@@ -5,6 +5,11 @@
 
 	<listeners>
 		<listener class-name="common.MethodListener" />
+		<!-- <listener class-name="reportConfig.ReportNGListener"/>  -->
+		<!--  extent only report , no attach screenshot  -->
+		<!-- <listener class-name="reportConfig.ExtentReportListenerV2"/> -->
+		<!--  extent report and screenshot  -->
+		<listener class-name="reportConfig.ExtentTestListenerV2"/>
 		<listener class-name="org.uncommons.reportng.HTMLReporter"/>
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
 	</listeners>
@@ -15,7 +20,9 @@
 		<classes>
 			<!-- <class name="com.jquery.Level_11_Upload_Files" /> -->
 			<!-- <class name="com.jquery.Level_12_Assert_Verify" /> -->
-			<class name="com.jquery.Level_14_Log_ReportNG" />
+			<!-- <class name="com.jquery.Level_14_Log_ReportNG" /> -->
+			<!-- <class name="com.jquery.Level_15_ReportNG_Screenshot" /> -->
+			<class name="com.jquery.Level_15_ExtentV2_Screenshot" />
 		</classes>
 		
   </test> <!-- Test -->

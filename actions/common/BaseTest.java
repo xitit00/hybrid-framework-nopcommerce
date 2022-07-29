@@ -41,6 +41,12 @@ public class BaseTest {
 		log = LogFactory.getLog(getClass());
 	}
 	
+	// vì driver đc tạo khi TC gọi vào BaseTest , cho nên tạo 1 hàm trả về WebDriver cho việc take screenShot 
+	public WebDriver getDriverInstance() {
+		
+		return this.driverBaseTest;
+	}
+	
 	//Multiple browser
 //	protected WebDriver getBrowserDriver(String browserName, String environment) {
 //		
