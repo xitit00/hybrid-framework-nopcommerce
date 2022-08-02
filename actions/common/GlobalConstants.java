@@ -25,8 +25,11 @@ public class GlobalConstants {
 	// đường dẫn tương đối đến 1 file nào đó
 	public static final String PROJECT_PATH = System.getProperty("user.dir");
 	
-	// lấy ra os name của hệ điều hành MAC / LINUX / WINDOW	
+	// lấy ra java version 
 	public static final String OS_NAME = System.getProperty("os.name");
+	
+	// lấy ra os name của hệ điều hành MAC / LINUX / WINDOW	
+	public static final String JAVA_VERSION = System.getProperty("java.version");
 	
 	// File.separator giúp việc lấy node "/" hay "\\" MAC / LINUX / WINDOW	
 	// /Users/anhnguyen/Documents/Selenium/03-Hybrid Automation Framework/uploadFiles/...

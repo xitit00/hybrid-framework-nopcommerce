@@ -6,10 +6,13 @@
 	<listeners>
 		<listener class-name="common.MethodListener" />
 		<!-- <listener class-name="reportConfig.ReportNGListener"/>  -->
-		<!--  extent only report , no attach screenshot  -->
+		<!--  extent v2 only report , no attach screenshot  -->
 		<!-- <listener class-name="reportConfig.ExtentReportListenerV2"/> -->
-		<!--  extent report and screenshot  -->
-		<listener class-name="reportConfig.ExtentTestListenerV2"/>
+		<!--  extent v2 report and screenshot  -->
+		<!--  <listener class-name="reportConfig.ExtentTestListenerV2"/> -->
+		<!--  <listener class-name="reportConfig.ExtentTestListenerV3"/> -->
+		<!--  <listener class-name="reportConfig.ExtentTestListenerV4"/> -->
+		<listener class-name="reportConfig.ExtentTestListenerV5"/>
 		<listener class-name="org.uncommons.reportng.HTMLReporter"/>
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
 	</listeners>
@@ -22,7 +25,10 @@
 			<!-- <class name="com.jquery.Level_12_Assert_Verify" /> -->
 			<!-- <class name="com.jquery.Level_14_Log_ReportNG" /> -->
 			<!-- <class name="com.jquery.Level_15_ReportNG_Screenshot" /> -->
-			<class name="com.jquery.Level_15_ExtentV2_Screenshot" />
+			<!-- <class name="com.jquery.Level_15_ExtentV2_Screenshot" /> -->
+			<!-- <class name="com.jquery.Level_15_ExtentV3_Screenshot" /> -->
+			<!-- <class name="com.jquery.Level_15_ExtentV4" /> -->
+			<class name="com.jquery.Level_15_ExtentV5_Screenshot" />
 		</classes>
 		
   </test> <!-- Test -->
