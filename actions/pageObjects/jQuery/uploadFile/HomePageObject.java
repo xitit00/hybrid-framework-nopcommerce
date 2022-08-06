@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import common.BasePage;
+import io.qameta.allure.Step;
 import pageUIs.jQuery.uploadFile.HomePageUI;
 
 
@@ -21,6 +22,9 @@ public class HomePageObject extends BasePage {
 		
 	}
 
+	// import io.qameta.allure.Step
+	// Add Step TC instead of log(...) 
+	@Step("Verify File Is Loaded By Name {0}")
 	public boolean isFileLoadedByName(String fileName) {
 		// TODO Auto-generated method stub
 		
@@ -29,6 +33,7 @@ public class HomePageObject extends BasePage {
 		
 	}
 	
+	@Step("Verify File Link Up Is Loaded By Name {0}")
 	public boolean isFileLinkUpLoadedByName(String fileName) {
 		// TODO Auto-generated method stub
 		
@@ -37,6 +42,7 @@ public class HomePageObject extends BasePage {
 		
 	}
 
+	@Step("Click to Start Button")
 	public void clickToStartButton() {
 		// TODO Auto-generated method stub
 		
@@ -59,6 +65,7 @@ public class HomePageObject extends BasePage {
 		
 	}
 
+	@Step("Verify File Img Is UpLoaded By Name {0}")
 	public boolean isFileImageUpLoadedByName(String fileName) {
 		// TODO Auto-generated method stub
 		waitForElementVisible(driver, HomePageUI.FILE_NAME_UPLOADED_IMG, fileName);
