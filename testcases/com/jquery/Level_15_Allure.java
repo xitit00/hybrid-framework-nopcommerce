@@ -63,8 +63,8 @@ public class Level_15_Allure extends BaseTest {
 		
 		Assert.assertTrue(homePageObject.isFileLoadedByName(pythonFileName)); 
 		
-		// Test Failed to test attach screenshot
-		homePageObject.clickToStartButton();
+		// skip clickToStartButton to fail TC
+		//homePageObject.clickToStartButton();
 		
 		Assert.assertTrue(homePageObject.isFileLinkUpLoadedByName(pythonFileName));
 		
@@ -80,8 +80,8 @@ public class Level_15_Allure extends BaseTest {
 		
 		homePageObject.refreshCurrentPage(driver);
 		
-		// Test Failed to test attach screenshot
-		homePageObject.uploadMultipleFiles(driver, multipleFile);
+		// skip uploadMultipleFiles to fail TC
+		//homePageObject.uploadMultipleFiles(driver, multipleFile);
 		
 		Assert.assertTrue(homePageObject.isFileLoadedByName(pythonFileName));
 		
@@ -92,8 +92,8 @@ public class Level_15_Allure extends BaseTest {
 		
 		Assert.assertTrue(homePageObject.isFileLoadedByName(rubyFileName));
 		
-		// Test Failed to test attach screenshot
-		homePageObject.clickToStartButton();
+		// skip clickToStartButton to fail TC
+		//homePageObject.clickToStartButton();
 		
 		Assert.assertTrue(homePageObject.isFileLinkUpLoadedByName(pythonFileName));
 		
