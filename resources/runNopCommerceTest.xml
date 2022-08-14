@@ -4,6 +4,28 @@
 
 <suite parallel="false" name="NopCommerce">
 
+	<parameter name="url" value="https://demo.nopcommerce.com/" />
+	
+	<listeners>
+		<listener class-name="common.MethodListener" />
+	</listeners>
+	
+	<test name="Run On Chrome">
+	
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<!-- Trigger Common Register run first  -->
+			<!-- <class name="com.nopcommerce.common.Common_01_Register_Account" />
+			<class name="com.nopcommerce.common.Level_16_Share_Data" /> -->
+			<!-- Trigger Common Register Cookie run first  -->
+			<class name="com.nopcommerce.common.Common_01_Register_Cookie" />
+			<class name="com.nopcommerce.common.Level_16_Share_Data_Cookie" />
+		</classes>
+		
+	</test>
+
+	<!-- // set up bài 09 và trc đó  --> 
+	<!--
 	<parameter name="environment" value="DEV" />
 	<test name="Run On Firefox">
 	
@@ -13,6 +35,7 @@
 		</classes>
 		
 	</test>
+	-->
 
 	<!-- // test name là mình chạy nó trên môi trường nào -->
 	
