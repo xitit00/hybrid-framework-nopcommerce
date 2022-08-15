@@ -96,6 +96,7 @@ public class Level_17_Custom_Close_Driver extends BaseTest {
 		//driver.quit();
 		// custom close browser để lúc nào cũng tắt browser driver đi ( dù có gặp bất kỳ vấn đề gì đi nữa ) 
 		closeBrowserAndDriver();
+		
 //		if (driver != null) {
 //			
 //			driver.quit();
