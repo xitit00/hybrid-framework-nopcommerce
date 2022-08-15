@@ -87,3 +87,11 @@
 [INFO ] [2022-07-29 13:00:20,241] Upload_File - Step 02: Verify A File Loaded SuccessfullyPython.png
 [INFO ] [2022-07-29 13:00:20,351] Upload_File - Step 03: Click Btn Start
 [INFO ] [2022-07-29 13:00:20,351] Upload_File - Step 04: Verify Link File Uploaded SuccessfullyPython.png
+[INFO ] [2022-08-15 11:40:34,512] Upload_File - Step 01: Load A FilePython.png
+[INFO ] [2022-08-15 11:40:34,576] Upload_File - Step 02: Verify A File Loaded SuccessfullyPython.png
+[INFO ] [2022-08-15 11:41:03,134] Upload_File - Step 01: Load A FilePython.png
+[INFO ] [2022-08-15 11:41:03,194] Upload_File - Step 02: Verify A File Loaded SuccessfullyPython.png
+[INFO ] [2022-08-15 11:48:50,831] Upload_File - Step 01: Load A FilePython.png
+[INFO ] [2022-08-15 11:48:50,920] Upload_File - Step 02: Verify A File Loaded SuccessfullyPython.png
+[INFO ] [2022-08-15 11:48:51,183] OS name = mac os x
+[INFO ] [2022-08-15 11:48:51,183] Driver instance name = chromedriver: chrome on mac (07fd455f42271ad458ec54e3b9d1d8c6)

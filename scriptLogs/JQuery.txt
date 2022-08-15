@@ -1,0 +1,4 @@
+[INFO ] [2022-08-15 11:48:50,831] Upload_File - Step 01: Load A FilePython.png
+[INFO ] [2022-08-15 11:48:50,920] Upload_File - Step 02: Verify A File Loaded SuccessfullyPython.png
+[INFO ] [2022-08-15 11:48:51,183] OS name = mac os x
+[INFO ] [2022-08-15 11:48:51,183] Driver instance name = chromedriver: chrome on mac (07fd455f42271ad458ec54e3b9d1d8c6)
