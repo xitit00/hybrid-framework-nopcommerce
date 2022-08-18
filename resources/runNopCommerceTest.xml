@@ -18,8 +18,11 @@
 			<!-- <class name="com.nopcommerce.common.Common_01_Register_Account" />
 			<class name="com.nopcommerce.common.Level_16_Share_Data" /> -->
 			<!-- Trigger Common Register Cookie run first  -->
-			<class name="com.nopcommerce.common.Common_01_Register_Cookie" />
-			<class name="com.nopcommerce.common.Level_16_Share_Data_Cookie" />
+			<!--<class name="com.nopcommerce.common.Common_01_Register_Cookie" />
+			<class name="com.nopcommerce.common.Level_16_Share_Data_Cookie" /> -->
+			
+			<!-- Pattern Object -->
+			<class name="com.nopcommerce.user.Level_18_Pattern_Object" />
 		</classes>
 		
 	</test>

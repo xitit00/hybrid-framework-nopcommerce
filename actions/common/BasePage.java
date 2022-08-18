@@ -407,6 +407,11 @@ public class BasePage {
 		return getWebElement(driver, locatorType).getAttribute(attributeName);
 	}
 	
+	public String getElementAttribute(WebDriver driver , String locatorType, String attributeName, String... restValues ) {
+		
+		return getWebElement(driver, getDynamicXpath(locatorType, restValues)).getAttribute(attributeName);
+	}
+	
 	public String getElementText(WebDriver driver , String locatorType) {
 		
 		return getWebElement(driver, locatorType).getText();
@@ -945,6 +950,7 @@ public class BasePage {
 	}
 	
 	// cách này dùng cho nhiều page , vd : 15 - 20 page trở lên 
+	// Pattern Object
 	public void openPagesAtMyAccountByPageName(WebDriver driver, String areaName , String pageName) {
 		
 		waitForElementClickable(driver,BasePageNopCommerceUI.DYNAMIC_PAGE_AT_MY_ACCOUNT_AREA, areaName, pageName);
@@ -1016,4 +1022,75 @@ public class BasePage {
 	private long longTimeout = GlobalConstants.LONG_TIME_OUT;
 	private long shortTimeout = GlobalConstants.SHORT_TIME_OUT;
 	
+	// Level_18_Pattern_Object 
+	// Java doc : quét tên method -> source -> generate element comment -> ra phần comment chi tiết màu xanh
+	/**
+	 * Enter to dynamic TEXTBOX by ID 
+	 * @author anhnguyen
+	 * @param driver
+	 * @param textboxID
+	 * @param value
+	 */
+	public void inputToTextboxByID(WebDriver driver, String textboxID, String value) {
+		
+		waitForElementVisible(driver, BasePageNopCommerceUI.DYNAMIC_TEXTBOX_BY_ID, textboxID);
+		sendkeyToElement(driver, BasePageNopCommerceUI.DYNAMIC_TEXTBOX_BY_ID, value, textboxID);
+	}
+	
+	/** 
+	 * Click to dynamic BUTTON by Text
+	 * @author anhnguyen
+	 * @param driver
+	 * @param buttonText
+	 */
+	public void clickToButtonByText(WebDriver driver, String buttonText) {
+		
+		waitForElementClickable(driver, BasePageNopCommerceUI.DYNAMIC_BUTTON_BY_TEXT, buttonText);
+		clickToElement(driver, BasePageNopCommerceUI.DYNAMIC_BUTTON_BY_TEXT,buttonText);
+	}
+	
+	
+	/**
+	 * Select item in DROPDOWN by Name
+	 * @author anhnguyen
+	 * @param driver
+	 * @param dropdownAttributeName
+	 * @param itemValue
+	 */
+	public void selectToDropdownByName(WebDriver driver, String dropdownAttributeName, String itemValue) {
+		
+		waitForElementClickable(driver, BasePageNopCommerceUI.DYNAMIC_DROPDOWN_BY_NAME, dropdownAttributeName);
+		selectItemByValueInDefaultDropdown(driver, BasePageNopCommerceUI.DYNAMIC_DROPDOWN_BY_NAME, itemValue, dropdownAttributeName);
+	}
+	
+	/**
+	 * Click dynamic RADIO BUTTON by  Label
+	 * @author anhnguyen
+	 * @param driver
+	 * @param radioButtonLabelName
+	 */
+	public void clickToRadioButtonByLabel(WebDriver driver, String radioButtonLabelName) {
+		
+		waitForElementClickable(driver, BasePageNopCommerceUI.DYNAMIC_RADIO_BUTTON_BY_LABEL, radioButtonLabelName);
+		checkToDefaultCheckboxRadio(driver, BasePageNopCommerceUI.DYNAMIC_RADIO_BUTTON_BY_LABEL, radioButtonLabelName);
+	}
+	
+	
+	/**
+	 * Click dynamic CHECK BOX by  Label
+	 * @author anhnguyen
+	 * @param driver
+	 * @param checkBoxLabelName
+	 */
+	public void clickToCheckBoxByLabel(WebDriver driver, String checkBoxLabelName) {
+		
+		waitForElementClickable(driver, BasePageNopCommerceUI.DYNAMIC_CHECK_BOX_BY_LABEL, checkBoxLabelName);
+		checkToDefaultCheckboxRadio(driver, BasePageNopCommerceUI.DYNAMIC_CHECK_BOX_BY_LABEL, checkBoxLabelName);
+	}
+	
+	public String getTextboxAttributeValueByID(WebDriver driver, String textboxID) {
+		
+		waitForElementVisible(driver, BasePageNopCommerceUI.DYNAMIC_TEXTBOX_BY_ID, textboxID);
+		return getElementAttribute(driver, BasePageNopCommerceUI.DYNAMIC_TEXTBOX_BY_ID, "value", textboxID);
+	}
 }
