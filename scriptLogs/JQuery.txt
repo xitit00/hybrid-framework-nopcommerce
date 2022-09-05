@@ -1,4 +1,25 @@
-[INFO ] [2022-08-15 11:48:50,831] Upload_File - Step 01: Load A FilePython.png
-[INFO ] [2022-08-15 11:48:50,920] Upload_File - Step 02: Verify A File Loaded SuccessfullyPython.png
-[INFO ] [2022-08-15 11:48:51,183] OS name = mac os x
-[INFO ] [2022-08-15 11:48:51,183] Driver instance name = chromedriver: chrome on mac (07fd455f42271ad458ec54e3b9d1d8c6)
+[INFO ] [2022-08-18 11:13:02,348] Register - Step 01: Navigate to 'Register' page
+[INFO ] [2022-08-18 11:13:03,124] Register - Step 02: Click to Radio Button
+[INFO ] [2022-08-18 11:13:03,220] Register - Step 03: Enter to Firstname textbox with value is 'anh'
+[INFO ] [2022-08-18 11:13:03,405] Register - Step 04: Enter to Lastname textbox with value is 'BTC'
+[INFO ] [2022-08-18 11:13:03,508] Register - Step 05: Select to dropdown DateOfBirthDay with value is '10'
+[INFO ] [2022-08-18 11:13:03,629] Register - Step 06: Select to dropdown DateOfBirthMonth with value is '8'
+[INFO ] [2022-08-18 11:13:03,729] Register - Step 07: Select to dropdown DateOfBirthYear with value is '1998'
+[INFO ] [2022-08-18 11:13:03,825] Register - Step 08: Enter to Email textbox with value is 'anhBTC36477@gmail.com'
+[INFO ] [2022-08-18 11:13:03,930] Register - Step 09: Enter to Password textbox with value is '123456'
+[INFO ] [2022-08-18 11:13:04,027] Register - Step 10: Enter to Confirm Password textbox with value is '123456'
+[INFO ] [2022-08-18 11:13:04,138] Register - Step 11: Click to Check Box
+[INFO ] [2022-08-18 11:13:14,186] Register - Step 12: Click to 'Register' button
+[INFO ] [2022-08-18 11:13:15,326] Register - Step 13: Verify register success message is displayed
+[INFO ] [2022-08-18 11:13:15,458] Login - Step 01: Navigate to 'Login' page
+[INFO ] [2022-08-18 11:13:17,030] Login - Step 02: Enter to Email textbox with value is 'anhBTC36477@gmail.com'
+[INFO ] [2022-08-18 11:13:17,131] Login - Step 03: Enter to Password textbox with value is '123456'
+[INFO ] [2022-08-18 11:13:17,228] Login - Step 04: Click to 'Login' button
+[INFO ] [2022-08-18 11:13:17,999] Login - Step 05: Verify login success message is displayed
+[INFO ] [2022-08-18 11:13:18,075] My Account - Step 01: Navigate to 'My Account' page
+[INFO ] [2022-08-18 11:13:19,106] My Account - Step 02: Verify 'Customer Info' page is displayed
+[INFO ] [2022-08-18 11:13:19,156] My Account- Step 03: Verify 'First Name' value is correctly
+[INFO ] [2022-08-18 11:13:19,207] My Account- Step 04: Verify 'Last Name' value is correctly
+[INFO ] [2022-08-18 11:13:19,247] My Account- Step 05: Verify 'Email' value is correctly
+[INFO ] [2022-08-18 11:13:19,297] OS name = mac os x
+[INFO ] [2022-08-18 11:13:19,297] Driver instance name = chromedriver: chrome on mac (dde2a4dbdddb4d2933bed4ae27d7aa8a)

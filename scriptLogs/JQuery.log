@@ -95,3 +95,140 @@
 [INFO ] [2022-08-15 11:48:50,920] Upload_File - Step 02: Verify A File Loaded SuccessfullyPython.png
 [INFO ] [2022-08-15 11:48:51,183] OS name = mac os x
 [INFO ] [2022-08-15 11:48:51,183] Driver instance name = chromedriver: chrome on mac (07fd455f42271ad458ec54e3b9d1d8c6)
+[INFO ] [2022-08-17 11:22:22,119] Register - Step 01: Navigate to 'Register' page
+[INFO ] [2022-08-17 11:22:23,178] Register - Step 02: Enter to Firstname textbox with value is 'anh'
+[INFO ] [2022-08-17 11:22:23,372] Register - Step 03: Enter to Lastname textbox with value is 'BTC'
+[INFO ] [2022-08-17 11:22:23,482] Register - Step 04: Enter to Email textbox with value is 'anhBTC87220@gmail.com'
+[INFO ] [2022-08-17 11:22:23,619] Register - Step 05: Enter to Password textbox with value is '123456'
+[INFO ] [2022-08-17 11:22:23,737] Register - Step 06: Enter to Confirm Password textbox with value is '123456'
+[INFO ] [2022-08-17 11:22:23,986] Register - Step 07: Click to 'Register' button
+[INFO ] [2022-08-17 11:22:25,720] Register - Step 08: Verify register success message is displayed
+[INFO ] [2022-08-17 11:22:25,855] Login - Step 01: Navigate to 'Login' page
+[INFO ] [2022-08-17 11:22:27,670] Register - Step 02: Enter to Email textbox with value is 'anhBTC87220@gmail.com'
+[INFO ] [2022-08-17 11:22:27,757] Register - Step 03: Enter to Password textbox with value is '123456'
+[INFO ] [2022-08-17 11:22:27,847] Register - Step 04: Click to 'Login' button
+[INFO ] [2022-08-17 11:22:28,916] Register - Step 05: Verify login success message is displayed
+[INFO ] [2022-08-17 16:25:13,999] Register - Step 01: Navigate to 'Register' page
+[INFO ] [2022-08-17 16:25:16,391] Register - Step 02: Enter to Firstname textbox with value is 'anh'
+[INFO ] [2022-08-17 16:25:46,983] Login - Step 01: Navigate to 'Login' page
+[INFO ] [2022-08-17 16:33:52,134] Register - Step 01: Navigate to 'Register' page
+[INFO ] [2022-08-17 16:33:53,086] Register - Step 02: Enter to Firstname textbox with value is 'anh'
+[INFO ] [2022-08-17 16:34:23,541] Login - Step 01: Navigate to 'Login' page
+[INFO ] [2022-08-17 16:34:53,599] OS name = mac os x
+[INFO ] [2022-08-17 16:34:53,600] Driver instance name = chromedriver: chrome on mac (4d7a1e03035e40c823ed14a3ddf07922)
+[INFO ] [2022-08-17 16:36:45,624] Register - Step 01: Navigate to 'Register' page
+[INFO ] [2022-08-17 16:36:46,470] Register - Step 02: Enter to Firstname textbox with value is 'anh'
+[INFO ] [2022-08-17 16:36:46,631] Register - Step 03: Enter to Lastname textbox with value is 'BTC'
+[INFO ] [2022-08-17 16:36:46,731] Register - Step 04: Enter to Email textbox with value is 'anhBTC50335@gmail.com'
+[INFO ] [2022-08-17 16:36:46,836] Register - Step 05: Enter to Password textbox with value is '123456'
+[INFO ] [2022-08-17 16:36:46,942] Register - Step 06: Enter to Confirm Password textbox with value is '123456'
+[INFO ] [2022-08-17 16:36:47,042] Register - Step 07: Click to 'Register' button
+[INFO ] [2022-08-17 16:36:48,140] Register - Step 08: Verify register success message is displayed
+[INFO ] [2022-08-17 16:36:48,246] Login - Step 01: Navigate to 'Login' page
+[INFO ] [2022-08-17 16:36:49,728] Login - Step 02: Enter to Email textbox with value is 'anhBTC50335@gmail.com'
+[INFO ] [2022-08-17 16:36:49,824] Login - Step 03: Enter to Password textbox with value is '123456'
+[INFO ] [2022-08-17 16:36:49,922] Login - Step 04: Click to 'Login' button
+[INFO ] [2022-08-17 16:36:50,715] Login - Step 05: Verify login success message is displayed
+[INFO ] [2022-08-17 16:36:50,725] OS name = mac os x
+[INFO ] [2022-08-17 16:36:50,725] Driver instance name = chromedriver: chrome on mac (1af8e0d847db803662f263d364ed3229)
+[INFO ] [2022-08-17 16:38:55,047] OS name = mac os x
+[INFO ] [2022-08-17 16:38:55,048] Cannot invoke "Object.toString()" because "this.driverBaseTest" is null
+[INFO ] [2022-08-17 16:39:08,353] Register - Step 01: Navigate to 'Register' page
+[INFO ] [2022-08-17 16:39:09,150] Register - Step 02: Enter to Firstname textbox with value is 'anh'
+[INFO ] [2022-08-17 16:39:09,304] Register - Step 03: Enter to Lastname textbox with value is 'BTC'
+[INFO ] [2022-08-17 16:39:09,410] Register - Step 04: Enter to Email textbox with value is 'anhBTC68123@gmail.com'
+[INFO ] [2022-08-17 16:39:09,522] Register - Step 05: Enter to Password textbox with value is '123456'
+[INFO ] [2022-08-17 16:39:09,627] Register - Step 06: Enter to Confirm Password textbox with value is '123456'
+[INFO ] [2022-08-17 16:39:09,732] Register - Step 07: Click to 'Register' button
+[INFO ] [2022-08-17 16:39:10,796] Register - Step 08: Verify register success message is displayed
+[INFO ] [2022-08-17 16:39:10,903] Login - Step 01: Navigate to 'Login' page
+[INFO ] [2022-08-17 16:39:12,517] Login - Step 02: Enter to Email textbox with value is 'anhBTC68123@gmail.com'
+[INFO ] [2022-08-17 16:39:12,614] Login - Step 03: Enter to Password textbox with value is '123456'
+[INFO ] [2022-08-17 16:39:12,709] Login - Step 04: Click to 'Login' button
+[INFO ] [2022-08-17 16:39:13,459] Login - Step 05: Verify login success message is displayed
+[INFO ] [2022-08-17 16:39:13,517] OS name = mac os x
+[INFO ] [2022-08-17 16:39:13,518] Driver instance name = chromedriver: chrome on mac (8accd51d3a4c7afe17772faec25f33d4)
+[INFO ] [2022-08-17 17:43:47,858] Register - Step 01: Navigate to 'Register' page
+[INFO ] [2022-08-17 17:43:48,689] Register - Step 02: Click to Radio Button
+[INFO ] [2022-08-17 17:43:48,779] Register - Step 03: Enter to Firstname textbox with value is 'anh'
+[INFO ] [2022-08-17 17:43:48,936] Register - Step 03: Enter to Lastname textbox with value is 'BTC'
+[INFO ] [2022-08-17 17:44:19,360] Login - Step 01: Navigate to 'Login' page
+[INFO ] [2022-08-17 17:44:49,407] OS name = mac os x
+[INFO ] [2022-08-17 17:44:49,407] Driver instance name = chromedriver: chrome on mac (c1bce16a16f7ae5ba7c88ab79dad709c)
+[INFO ] [2022-08-17 17:47:54,266] Register - Step 01: Navigate to 'Register' page
+[INFO ] [2022-08-17 17:47:55,045] Register - Step 02: Click to Radio Button
+[INFO ] [2022-08-17 17:47:55,135] Register - Step 03: Enter to Firstname textbox with value is 'anh'
+[INFO ] [2022-08-17 17:47:55,292] Register - Step 03: Enter to Lastname textbox with value is 'BTC'
+[INFO ] [2022-08-17 17:48:25,674] Login - Step 01: Navigate to 'Login' page
+[INFO ] [2022-08-17 17:48:55,740] OS name = mac os x
+[INFO ] [2022-08-17 17:48:55,741] Driver instance name = chromedriver: chrome on mac (42fd3455144afd4b29a076c38bb3f9b4)
+[INFO ] [2022-08-17 17:50:22,015] Register - Step 01: Navigate to 'Register' page
+[INFO ] [2022-08-17 17:50:23,012] Register - Step 02: Click to Radio Button
+[INFO ] [2022-08-17 17:50:23,105] Register - Step 03: Enter to Firstname textbox with value is 'anh'
+[INFO ] [2022-08-17 17:50:23,260] Register - Step 03: Enter to Lastname textbox with value is 'BTC'
+[INFO ] [2022-08-17 17:50:53,670] Login - Step 01: Navigate to 'Login' page
+[INFO ] [2022-08-17 17:50:58,178] Register - Step 01: Navigate to 'Register' page
+[INFO ] [2022-08-17 17:50:59,091] Register - Step 02: Click to Radio Button
+[INFO ] [2022-08-17 17:50:59,183] Register - Step 03: Enter to Firstname textbox with value is 'anh'
+[INFO ] [2022-08-17 17:50:59,344] Register - Step 03: Enter to Lastname textbox with value is 'BTC'
+[INFO ] [2022-08-17 17:50:59,654] Register - Step 04: Enter to Email textbox with value is 'anhBTC4123@gmail.com'
+[INFO ] [2022-08-17 17:50:59,768] Register - Step 05: Enter to Password textbox with value is '123456'
+[INFO ] [2022-08-17 17:50:59,868] Register - Step 06: Enter to Confirm Password textbox with value is '123456'
+[INFO ] [2022-08-17 17:50:59,966] Register - Step 02: Click to Check Box
+[INFO ] [2022-08-17 17:51:10,022] Register - Step 07: Click to 'Register' button
+[INFO ] [2022-08-17 17:51:11,207] Register - Step 08: Verify register success message is displayed
+[INFO ] [2022-08-17 17:51:11,311] Login - Step 01: Navigate to 'Login' page
+[INFO ] [2022-08-17 17:51:13,136] Login - Step 02: Enter to Email textbox with value is 'anhBTC4123@gmail.com'
+[INFO ] [2022-08-17 17:51:13,231] Login - Step 03: Enter to Password textbox with value is '123456'
+[INFO ] [2022-08-17 17:51:13,326] Login - Step 04: Click to 'Login' button
+[INFO ] [2022-08-17 17:51:14,112] Login - Step 05: Verify login success message is displayed
+[INFO ] [2022-08-17 17:51:14,163] OS name = mac os x
+[INFO ] [2022-08-17 17:51:14,164] Driver instance name = chromedriver: chrome on mac (3c74fd2f06121af8b83bf5bcae6296f0)
+[INFO ] [2022-08-17 17:51:14,466] OS name = mac os x
+[INFO ] [2022-08-17 17:51:14,467] Driver instance name = chromedriver: chrome on mac (fda29f4a55320490770e48c2906a6a2f)
+[INFO ] [2022-08-17 17:51:14,475] The driver server has unexpectedly died!
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'VL-HCM-LAP-MACVG3QC.local', ip: 'fe80:0:0:0:4fe:69e8:88f4:b504%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.16', java.version: '15.0.2'
+Driver info: driver.version: RemoteWebDriver
+[INFO ] [2022-08-17 17:52:38,255] Register - Step 01: Navigate to 'Register' page
+[INFO ] [2022-08-17 17:52:39,212] Register - Step 02: Click to Radio Button
+[INFO ] [2022-08-17 17:52:39,305] Register - Step 03: Enter to Firstname textbox with value is 'anh'
+[INFO ] [2022-08-17 17:52:39,458] Register - Step 03: Enter to Lastname textbox with value is 'BTC'
+[INFO ] [2022-08-17 17:52:39,848] Register - Step 04: Enter to Email textbox with value is 'anhBTC26993@gmail.com'
+[INFO ] [2022-08-17 17:52:39,958] Register - Step 05: Enter to Password textbox with value is '123456'
+[INFO ] [2022-08-17 17:52:40,058] Register - Step 06: Enter to Confirm Password textbox with value is '123456'
+[INFO ] [2022-08-17 17:52:40,161] Register - Step 02: Click to Check Box
+[INFO ] [2022-08-17 17:52:50,207] Register - Step 07: Click to 'Register' button
+[INFO ] [2022-08-17 17:52:52,149] Register - Step 08: Verify register success message is displayed
+[INFO ] [2022-08-17 17:52:52,255] Login - Step 01: Navigate to 'Login' page
+[INFO ] [2022-08-17 17:52:54,288] Login - Step 02: Enter to Email textbox with value is 'anhBTC26993@gmail.com'
+[INFO ] [2022-08-17 17:52:54,383] Login - Step 03: Enter to Password textbox with value is '123456'
+[INFO ] [2022-08-17 17:52:54,478] Login - Step 04: Click to 'Login' button
+[INFO ] [2022-08-17 17:52:55,330] Login - Step 05: Verify login success message is displayed
+[INFO ] [2022-08-17 17:52:55,382] OS name = mac os x
+[INFO ] [2022-08-17 17:52:55,383] Driver instance name = chromedriver: chrome on mac (3950148d0d346921845f36b5eea53071)
+[INFO ] [2022-08-18 11:13:02,348] Register - Step 01: Navigate to 'Register' page
+[INFO ] [2022-08-18 11:13:03,124] Register - Step 02: Click to Radio Button
+[INFO ] [2022-08-18 11:13:03,220] Register - Step 03: Enter to Firstname textbox with value is 'anh'
+[INFO ] [2022-08-18 11:13:03,405] Register - Step 04: Enter to Lastname textbox with value is 'BTC'
+[INFO ] [2022-08-18 11:13:03,508] Register - Step 05: Select to dropdown DateOfBirthDay with value is '10'
+[INFO ] [2022-08-18 11:13:03,629] Register - Step 06: Select to dropdown DateOfBirthMonth with value is '8'
+[INFO ] [2022-08-18 11:13:03,729] Register - Step 07: Select to dropdown DateOfBirthYear with value is '1998'
+[INFO ] [2022-08-18 11:13:03,825] Register - Step 08: Enter to Email textbox with value is 'anhBTC36477@gmail.com'
+[INFO ] [2022-08-18 11:13:03,930] Register - Step 09: Enter to Password textbox with value is '123456'
+[INFO ] [2022-08-18 11:13:04,027] Register - Step 10: Enter to Confirm Password textbox with value is '123456'
+[INFO ] [2022-08-18 11:13:04,138] Register - Step 11: Click to Check Box
+[INFO ] [2022-08-18 11:13:14,186] Register - Step 12: Click to 'Register' button
+[INFO ] [2022-08-18 11:13:15,326] Register - Step 13: Verify register success message is displayed
+[INFO ] [2022-08-18 11:13:15,458] Login - Step 01: Navigate to 'Login' page
+[INFO ] [2022-08-18 11:13:17,030] Login - Step 02: Enter to Email textbox with value is 'anhBTC36477@gmail.com'
+[INFO ] [2022-08-18 11:13:17,131] Login - Step 03: Enter to Password textbox with value is '123456'
+[INFO ] [2022-08-18 11:13:17,228] Login - Step 04: Click to 'Login' button
+[INFO ] [2022-08-18 11:13:17,999] Login - Step 05: Verify login success message is displayed
+[INFO ] [2022-08-18 11:13:18,075] My Account - Step 01: Navigate to 'My Account' page
+[INFO ] [2022-08-18 11:13:19,106] My Account - Step 02: Verify 'Customer Info' page is displayed
+[INFO ] [2022-08-18 11:13:19,156] My Account- Step 03: Verify 'First Name' value is correctly
+[INFO ] [2022-08-18 11:13:19,207] My Account- Step 04: Verify 'Last Name' value is correctly
+[INFO ] [2022-08-18 11:13:19,247] My Account- Step 05: Verify 'Email' value is correctly
+[INFO ] [2022-08-18 11:13:19,297] OS name = mac os x
+[INFO ] [2022-08-18 11:13:19,297] Driver instance name = chromedriver: chrome on mac (dde2a4dbdddb4d2933bed4ae27d7aa8a)
