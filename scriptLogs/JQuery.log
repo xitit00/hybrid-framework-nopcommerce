@@ -232,3 +232,44 @@ Driver info: driver.version: RemoteWebDriver
 [INFO ] [2022-08-18 11:13:19,247] My Account- Step 05: Verify 'Email' value is correctly
 [INFO ] [2022-08-18 11:13:19,297] OS name = mac os x
 [INFO ] [2022-08-18 11:13:19,297] Driver instance name = chromedriver: chrome on mac (dde2a4dbdddb4d2933bed4ae27d7aa8a)
+[INFO ] [2022-09-30 16:54:22,087] OS name = mac os x
+[INFO ] [2022-09-30 16:54:22,088] Cannot invoke "Object.toString()" because "this.driverBaseTest" is null
+[INFO ] [2022-09-30 16:55:08,282] OS name = mac os x
+[INFO ] [2022-09-30 16:55:08,283] Cannot invoke "Object.toString()" because "this.driverBaseTest" is null
+[INFO ] [2022-09-30 16:56:09,634] OS name = mac os x
+[INFO ] [2022-09-30 16:56:09,635] Cannot invoke "Object.toString()" because "this.driverBaseTest" is null
+[INFO ] [2022-10-03 15:21:15,794] Pre-Condition - Step 01: Open browser and admin Url
+[INFO ] [2022-10-03 15:21:24,078] Pre-Condition - Step 02: Enter to Username textbox with value: automationfc
+[INFO ] [2022-10-03 15:21:24,303] Pre-Condition - Step 03:  Enter to Username textbox with value: automationfc2022
+[INFO ] [2022-10-03 15:21:24,417] Pre-Condition - Step 04: Click to Login button
+[INFO ] [2022-10-03 15:21:28,154] Create Post - Step 01: Click to 'Posts' Menu Link
+[INFO ] [2022-10-03 15:21:29,920] Create Post - Step 02: Get 'Search Posts' page Url
+[INFO ] [2022-10-03 15:21:29,927] Create Post - Step 03: Click to 'Add New' button
+[INFO ] [2022-10-03 15:21:33,928] Create Post - Step 04: Enter to post title
+[INFO ] [2022-10-03 15:21:34,859] Create Post - Step 05: Enter to body
+[INFO ] [2022-10-03 15:21:37,081] Search Post - Step 01: Open 'Search Post' page
+[INFO ] [2022-10-03 15:21:37,168] OS name = mac os x
+[INFO ] [2022-10-03 15:21:37,169] Driver instance name = chromedriver: chrome on mac (315c4490c4f407b69c87058f98a9832c)
+[INFO ] [2022-10-03 15:21:37,269] unexpected alert open: {Alert text : }
+  (Session info: chrome=106.0.5249.91): {Alert text : 
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:25:53'
+System info: host: 'VL-HCM-LAP-MACVG3QC.local', ip: 'fe80:0:0:0:1cad:5951:d6fc:2029%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.16', java.version: '15.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 106.0.5249.91, chrome: {chromedriverVersion: 106.0.5249.61 (511755355844..., userDataDir: /var/folders/c7/pgg1_41n3n7...}, goog:chromeOptions: {debuggerAddress: localhost:59617}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 315c4490c4f407b69c87058f98a9832c
+[INFO ] [2022-10-03 15:22:37,511] Pre-Condition - Step 01: Open browser and admin Url
+[INFO ] [2022-10-03 15:22:43,814] Pre-Condition - Step 02: Enter to Username textbox with value: automationfc
+[INFO ] [2022-10-03 15:22:44,049] Pre-Condition - Step 03:  Enter to Username textbox with value: automationfc2022
+[INFO ] [2022-10-03 15:22:44,166] Pre-Condition - Step 04: Click to Login button
+[INFO ] [2022-10-03 15:22:47,988] Create Post - Step 01: Click to 'Posts' Menu Link
+[INFO ] [2022-10-03 15:22:49,999] Create Post - Step 02: Get 'Search Posts' page Url
+[INFO ] [2022-10-03 15:22:50,006] Create Post - Step 03: Click to 'Add New' button
+[INFO ] [2022-10-03 15:22:54,047] Create Post - Step 04: Enter to post title
+[INFO ] [2022-10-03 15:22:54,847] Create Post - Step 05: Enter to body
+[INFO ] [2022-10-03 15:22:55,998] Create Post - Step 06: Click to 'Publish' button
+[INFO ] [2022-10-03 15:22:56,590] Create Post - Step 07: Click to 'Pre Publish' button
+[INFO ] [2022-10-03 15:22:56,772] Create Post - Step 08: Verify 'Post published' message is displayed
+[INFO ] [2022-10-03 15:23:01,434]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-10-03 15:23:01,630] Search Post - Step 01: Open 'Search Post' page
+[INFO ] [2022-10-03 15:23:04,141] OS name = mac os x
+[INFO ] [2022-10-03 15:23:04,141] Driver instance name = chromedriver: chrome on mac (d21685896122da8e69a874b7bf1eafd4)

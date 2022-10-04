@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -333,6 +334,10 @@ public class BaseTest {
 
 		case FIREFOX:
 
+//			WebDriverManager.firefoxdriver().setup();
+//			FirefoxOptions firefoxSSL = new FirefoxOptions();
+//			// sét certificate SSL = true là hết lỗi "Your connection is not private"
+//			firefoxSSL.setAcceptInsecureCerts(true);
 			WebDriverManager.firefoxdriver().setup();
 			driverBaseTest = new FirefoxDriver();
 
@@ -340,6 +345,10 @@ public class BaseTest {
 
 		case CHROME:
 
+//			WebDriverManager.chromedriver().setup();
+//			ChromeOptions chromeSSL = new ChromeOptions();
+//			// sét certificate SSL = true là hết lỗi "Your connection is not private"
+//			chromeSSL.setAcceptInsecureCerts(true);
 			WebDriverManager.chromedriver().setup();
 			driverBaseTest = new ChromeDriver();
 
