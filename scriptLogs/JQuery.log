@@ -273,3 +273,19 @@ Session ID: 315c4490c4f407b69c87058f98a9832c
 [INFO ] [2022-10-03 15:23:01,630] Search Post - Step 01: Open 'Search Post' page
 [INFO ] [2022-10-03 15:23:04,141] OS name = mac os x
 [INFO ] [2022-10-03 15:23:04,141] Driver instance name = chromedriver: chrome on mac (d21685896122da8e69a874b7bf1eafd4)
+[INFO ] [2022-10-12 17:48:33,747] Pre-Condition - Step 01: Open browser and admin Url
+[INFO ] [2022-10-12 17:48:43,177] Pre-Condition - Step 02: Enter to Username textbox with value: automationfc
+[INFO ] [2022-10-12 17:48:43,414] Pre-Condition - Step 03:  Enter to Username textbox with value: automationfc2022
+[INFO ] [2022-10-12 17:48:43,538] Pre-Condition - Step 04: Click to Login button
+[INFO ] [2022-10-12 17:48:54,849] Create Post - Step 01: Click to 'Posts' Menu Link
+[INFO ] [2022-10-12 17:48:57,329] Create Post - Step 02: Get 'Search Posts' page Url
+[INFO ] [2022-10-12 17:48:57,338] Create Post - Step 03: Click to 'Add New' button
+[INFO ] [2022-10-12 17:49:01,899] Create Post - Step 04: Enter to post title
+[INFO ] [2022-10-12 17:49:03,331] Create Post - Step 05: Enter to body
+[INFO ] [2022-10-12 17:49:05,727] Create Post - Step 06: Click to 'Publish' button
+[INFO ] [2022-10-12 17:49:06,437] Create Post - Step 07: Click to 'Pre Publish' button
+[INFO ] [2022-10-12 17:49:06,900] Create Post - Step 08: Verify 'Post published' message is displayed
+[INFO ] [2022-10-12 17:49:12,536]  -------------------------- PASSED -------------------------- 
+[INFO ] [2022-10-12 17:49:12,648] Search Post - Step 01: Open 'Search Post' page
+[INFO ] [2022-10-12 17:49:14,865] OS name = mac os x
+[INFO ] [2022-10-12 17:49:14,865] Driver instance name = chromedriver: chrome on mac (9b319b06288160d2b569bf99581b52ba)

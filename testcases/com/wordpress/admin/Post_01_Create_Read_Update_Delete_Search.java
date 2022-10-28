@@ -14,11 +14,21 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import common.BaseTest;
-import pageObjects.wordpress.admin.AdminDashboardPO;
-import pageObjects.wordpress.admin.AdminLoginPO;
-import pageObjects.wordpress.admin.AdminPostAddNewPO;
-import pageObjects.wordpress.admin.AdminPostSearchPO;
-import pageObjects.wordpress.admin.PageGeneratorManager;
+import pageObjects.wordpress.AdminDashboardPO;
+import pageObjects.wordpress.AdminLoginPO;
+import pageObjects.wordpress.AdminPostAddNewPO;
+import pageObjects.wordpress.AdminPostSearchPO;
+import pageObjects.wordpress.PageGeneratorManager;
+import pageObjects.wordpress.UserHomePO;
+import pageObjects.wordpress.UserPostDetailPO;
+
+enum Type {
+	
+	TITLE,
+	AUTHOR,
+	BODY,
+	DATE
+}
 
 public class Post_01_Create_Read_Update_Delete_Search extends BaseTest {
 	
@@ -28,22 +38,27 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest {
 	private String adminPassword = "automationfc2022";
 	private String postTitleValue = "Live Coding Title" + generateFakeNumber();
 	private String postBodyValue =  "Live Coding Body" + generateFakeNumber();
+	private String authorName =  "automationfc";
+	private String adminUrl, endUserUrl;
+	private String currentDay = getCurrentDay();
 	
 	// khai báo biến viewPostUrl (copy url) để dùng đc cho nhiều TC 
 	String searchPostUrl = ""; 
 	
-	@Parameters({"browser","urlAdmin"})
+	@Parameters({"browser","urlAdmin","urlUser"})
 	@BeforeClass
-	public void beforeClass(String browserName, String adminUrl) {
+	public void beforeClass(String browserName, String adminUrl, String urlUser) {
 		
-		//c1 - dùng get , set để khởi tạo class và set Driver
+		// c1 - dùng get , set để khởi tạo class và set Driver
 //		adminLoginPO = AdminLoginPO.getAdminLoginPageObject();
 //		adminLoginPO.setDriver(driver);
 		
 		//c2 - new = cách này cũng đc , nhưng ko che dấu khởi tạo
 		//adminLoginPO = new AdminLoginPO(driver);
+		
+		this.endUserUrl = urlUser;
 
-		log.info("Pre-Condition - Step 01: Open browser and admin Url");
+		log.info("Pre-Condition - Step 01: Op en browser and admin Url");
 		driver = getBrowserDriverOnlyOneUrl(browserName, adminUrl);	
 		//c3 - che dấu khởi tạo với PageGeneratorManager
 		adminLoginPage = PageGeneratorManager.getAdminLoginPageObject(driver);
@@ -97,23 +112,50 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest {
 	}
 	
 	@Test
-	public void Post_02_Search_Post() {
+	public void Post_02_Search_And_View_Post() {
 
 		// Sau khi Create post success -> mình sẽ chuyển qua search post
 		// Open searchPostUrl
-		
 		log.info("Search Post - Step 01: Open 'Search Post' page");
-		
 		// mở search post page , trả về trang post search và gán lại luôn từ trang create post 
-		
 		adminPostSearchPage = adminPostAddNewPage.openSearchPostPageUrl(searchPostUrl);
-	
-	}
-	
-	@Test
-	public void Post_03_View_Post() {
 		
+		log.info("Search Post - Step 02: Enter to Search textbox");
+		adminPostSearchPage.enterToSearchTextbox(postTitleValue);
 		
+		log.info("Search Post - Step 03: Click to 'Search Posts' button");
+		adminPostSearchPage.clickToSearchPostButton();
+		
+		log.info("Search Post - Step 04: Verify Search table contains '" + postTitleValue + "'");
+		verifyTrue(adminPostSearchPage.isPostSearchTableDisplayed("title", postTitleValue));
+	
+		log.info("Search Post - Step 05: Verify Search table contains '" + authorName + "'");
+		verifyTrue(adminPostSearchPage.isPostSearchTableDisplayed("author", authorName));
+		
+		// *** lưu ý : việc chuyển site khi chuyển từ admin sang user , mình sẽ ko khai báo việc chuyển 
+		// ở riêng 1 trang nào hết vd: Search Post , vì sao -> vì mình muốn từ tất cả các page ( user , product , post, ... )
+		// tại admin của những trang đó mà muốn chuyển qua user = cách khai báo hàm chuyển site tại BasePage ( vd : Level_09_Dynamic_Locator ) 
+	
+		log.info("Search Post - Step 06: Open End User site And Move To User Home Page");
+		userHomePage = adminPostSearchPage.openEndUserSite(driver, this.endUserUrl);
+		
+		log.info("Search Post - Step 07: Verify Post info displayed at Home page");
+		//verify title , body , authorName , DateTime
+		//riêng Date Time thì mình phải setting trên admin về UTC +7 , nên làm riêng 1 TC cho phần này 
+		
+		verifyTrue(userHomePage.isPostTitleDisplayed(postTitleValue));
+		verifyTrue(userHomePage.isPostInfoDisplayed(postTitleValue,postBodyValue,"BODY"));
+		verifyTrue(userHomePage.isPostInfoDisplayed(postTitleValue,authorName,"AUTHOR"));
+		verifyTrue(userHomePage.isPostInfoDisplayed(postTitleValue,currentDay,"DATE"));
+		
+		log.info("Search Post - Step 08: Click to Post title and Move to User Post Detail Page");
+		userPostDetailPage = userHomePage.clickToPostTitle(postTitleValue);
+		
+		log.info("Search Post - Step 09: Verify Post info displayed at Post detail page");
+		verifyTrue(userPostDetailPage.isPostTitleDisplayed(postTitleValue));
+		verifyTrue(userPostDetailPage.isPostInfoDisplayed(postTitleValue, postBodyValue, "BODY"));
+		verifyTrue(userPostDetailPage.isPostInfoDisplayed(postTitleValue,authorName,"AUTHOR"));
+		verifyTrue(userPostDetailPage.isPostInfoDisplayed(postTitleValue,currentDay,"DATE"));
 		
 	}
 	
@@ -151,5 +193,7 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest {
 	AdminDashboardPO adminDashboardPage;
 	AdminPostSearchPO adminPostSearchPage;
 	AdminPostAddNewPO adminPostAddNewPage;
+	UserHomePO userHomePage;
+	UserPostDetailPO userPostDetailPage;
 
 }

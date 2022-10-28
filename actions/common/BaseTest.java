@@ -7,6 +7,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -576,4 +578,46 @@ public class BaseTest {
 			}
 		}
 	}
+	
+	protected String getCurrentDate() {
+		DateTime nowUTC = new DateTime(DateTimeZone.UTC);
+		int day = nowUTC.getDayOfMonth();
+		String dayValue = "";
+		// kiểm tra ngày < 10 thì thêm "0" vào cho đúng format 
+		if (day < 10) {
+			dayValue = "0" + day;
+		}
+		else {
+			
+			dayValue = String.valueOf(day);
+		}
+		return dayValue;
+	}
+
+	protected String getCurrentMonth() {
+		DateTime now = new DateTime(DateTimeZone.UTC);
+		int month = now.getMonthOfYear();
+		String monthValue = "";
+		// kiểm tra tháng < 10 thì thêm "0" vào cho đúng format 
+		if (month < 10) {
+			monthValue = "0" + month;
+		}
+		else {
+			
+			monthValue = String.valueOf(month);
+		}
+		return monthValue;
+	}
+
+	protected String getCurrentYear() {
+		DateTime now = new DateTime(DateTimeZone.UTC);
+		return String.valueOf(now.getYear());
+	}
+
+	protected String getCurrentDay() {
+		// tuỳ theo format của dự án mà mình sẽ return cho đúng (vd : mm/dd/yyyy hoặc dd/MM/yyyy) nha
+		return getCurrentDate() + "/" + getCurrentMonth() + "/" + getCurrentYear();
+	}
+
+	
 }

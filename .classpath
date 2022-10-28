@@ -58,5 +58,7 @@
 	<classpathentry kind="lib" path="libAllure/okhttp-3.11.0.jar"/>
 	<classpathentry kind="lib" path="libAllure/okio-1.14.1.jar"/>
 	<classpathentry kind="lib" path="libAllure/tika-core-1.20.jar"/>
+	<classpathentry kind="lib" path="libWebDriverManager/jcl-over-slf4j-1.7.30.jar"/>
+	<classpathentry kind="lib" path="libraries/joda-time-2.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
