@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import common.BasePage;
 import pageUIs.wordpress.UserHomePageUI;
+import pageUIs.wordpress.UserPostSearchPageUI;
 
 
 public class UserHomePO extends BasePage {
@@ -47,7 +48,6 @@ public class UserHomePO extends BasePage {
 		waitForElementVisible(driver, UserHomePageUI.POST_TITLE_TEXT, postTitleValue);
 		return isElementDisplayed(driver, UserHomePageUI.POST_TITLE_TEXT, postTitleValue);
 		
-		
 	}
 
 	public UserPostDetailPO clickToPostTitle(String postTitleValue) {
@@ -56,6 +56,32 @@ public class UserHomePO extends BasePage {
 		waitForElementClickable(driver, UserHomePageUI.POST_TITLE_TEXT, postTitleValue);
 		clickToElement(driver, UserHomePageUI.POST_TITLE_TEXT, postTitleValue);
 		return PageGeneratorManager.getUserPostDetailPO(driver);
+	}
+
+	public boolean isPostTitleUndisplayed(String postTitleUndisplayed) {
+		// TODO Auto-generated method stub
+		
+		// dùng invisible với Long Time out hiện tại quá lâu nhé nên mình ko xài nhé 
+		//waitForElementInVisible(driver, UserHomePageUI.POST_TITLE_TEXT, postTitleUndisplayed);
+		
+		return isElementUndisplayed(driver, UserHomePageUI.POST_TITLE_TEXT, postTitleUndisplayed);
+	}
+
+	public void enterToSearchTextbox(String editPostTitle) {
+		// TODO Auto-generated method stub
+		
+		waitForElementVisible(driver, UserHomePageUI.SEARCH_TEXTBOX, editPostTitle);
+		sendkeyToElement(driver, UserHomePageUI.SEARCH_TEXTBOX, editPostTitle);
+		
+	}
+
+	public UserPostSearchPO clickToSearchButton() {
+		// TODO Auto-generated method stub
+		waitForElementClickable(driver, UserHomePageUI.SEARCH_BUTTON);
+		clickToElement(driver, UserHomePageUI.SEARCH_BUTTON);
+		
+		return PageGeneratorManager.getUserPostSearchPO(driver);
+		
 	}
 
 }

@@ -47,8 +47,5 @@ public WebDriver driver;
 			
 		return b;
 	}
-	
-	
-
 
 }

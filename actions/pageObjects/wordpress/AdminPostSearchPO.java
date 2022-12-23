@@ -55,5 +55,48 @@ public class AdminPostSearchPO extends BasePage {
 		
 	}
 
+	public AdminPostAddNewPO clickToPostTitleLink(String postTitleValue) {
+		// TODO Auto-generated method stub
+
+		waitForElementClickable(driver, AdminPostSearchPageUI.ROW_TITLE_DETAIL_BY_NAME,postTitleValue);
+		clickToElement(driver, AdminPostSearchPageUI.ROW_TITLE_DETAIL_BY_NAME,postTitleValue);
+		
+		return PageGeneratorManager.getAdminPostAddNewPO(driver);
+
+	}
+
+	public void selectPostDetailCheckboxByTitle(String editPostTitle) {
+		// TODO Auto-generated method stub
+		
+		waitForElementClickable(driver, AdminPostSearchPageUI.ROW_CHECKBOX_BY_TITLE_NAME, editPostTitle);
+		checkToDefaultCheckboxRadio(driver, AdminPostSearchPageUI.ROW_CHECKBOX_BY_TITLE_NAME, editPostTitle);
+		
+	}
+
+	public void selectItemInActionDropdown(String dropDownItem) {
+		// TODO Auto-generated method stub
+		waitForElementClickable(driver, AdminPostSearchPageUI.ACTION_DROPDOWN);
+		selectItemByTextInDefaultDropdown(driver, AdminPostSearchPageUI.ACTION_DROPDOWN, dropDownItem);
+	}
+
+	public void clickToApplyButton() {
+		// TODO Auto-generated method stub
+		waitForElementClickable(driver, AdminPostSearchPageUI.APPLY_BUTTON);
+		clickToElement(driver, AdminPostSearchPageUI.APPLY_BUTTON);
+	}
+
+	public boolean isMoveToTrashMessageDisplayed(String moveToTrashMessage) {
+		// TODO Auto-generated method stub
+		
+		waitForElementVisible(driver, AdminPostSearchPageUI.MOVE_TO_TRASH_MESSAGE, moveToTrashMessage);
+		return isElementDisplayed(driver, AdminPostSearchPageUI.MOVE_TO_TRASH_MESSAGE, moveToTrashMessage);
+		
+	}
+
+	public boolean isNoPostsFoundMessageDisplayed(String noPostFoundMessage) {
+		// TODO Auto-generated method stub
+		waitForElementVisible(driver, AdminPostSearchPageUI.NO_POST_FOUND_MESSAGE, noPostFoundMessage);
+		return isElementDisplayed(driver, AdminPostSearchPageUI.NO_POST_FOUND_MESSAGE, noPostFoundMessage);
+	}
 
 }

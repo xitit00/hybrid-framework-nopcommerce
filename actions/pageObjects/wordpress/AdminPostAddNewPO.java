@@ -28,8 +28,13 @@ public class AdminPostAddNewPO extends BasePage {
 		waitForElementClickable(driver, AdminPostAddNewPageUI.BODY_BUTTON);
 		clickToElement(driver, AdminPostAddNewPageUI.BODY_BUTTON);
 		
-		//sendkey 
+		
 		waitForElementVisible(driver, AdminPostAddNewPageUI.BODY_DOCUMENT);
+		
+		//clear before sendkey
+		clearValueInElementByDeleteKey(driver, AdminPostAddNewPageUI.BODY_DOCUMENT);
+		
+		//sendkey 
 		sendkeyToElement(driver, AdminPostAddNewPageUI.BODY_DOCUMENT, postBodyValue);
 		
 	}
@@ -60,6 +65,12 @@ public class AdminPostAddNewPO extends BasePage {
 		// TODO Auto-generated method stub
 		waitForElementClickable(driver, AdminPostAddNewPageUI.PRE_PUBLISH_BUTTON);
 		clickToElement(driver,  AdminPostAddNewPageUI.PRE_PUBLISH_BUTTON);
+	}
+
+	public boolean isPostUpdatedMessageDisplayed(String postUpdatedMessage) {
+		// TODO Auto-generated method stub
+		waitForElementClickable(driver, AdminPostAddNewPageUI.PUBLISHED_MESSAGE, postUpdatedMessage);
+		return isElementDisplayed(driver, AdminPostAddNewPageUI.PUBLISHED_MESSAGE, postUpdatedMessage);
 	}
 
 }
