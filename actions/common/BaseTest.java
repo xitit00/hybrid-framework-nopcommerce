@@ -2,6 +2,10 @@ package common;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -18,6 +22,8 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
@@ -199,6 +205,9 @@ public class BaseTest {
 		
 		case FIREFOX:
 			
+		
+			
+			
 			WebDriverManager.firefoxdriver().setup();
 			driverBaseTest = new FirefoxDriver();
 		
@@ -341,7 +350,25 @@ public class BaseTest {
 //			// sét certificate SSL = true là hết lỗi "Your connection is not private"
 //			firefoxSSL.setAcceptInsecureCerts(true);
 			WebDriverManager.firefoxdriver().setup();
-			driverBaseTest = new FirefoxDriver();
+			
+			// Disable browser driver log
+			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"true");
+			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, GlobalConstants.PROJECT_PATH + "\\FirefoxLog.txt");
+			
+			FirefoxOptions options = new FirefoxOptions();
+			// localize language
+			options.addPreference("intl.accept_languages", "vi-vn, vi, en-us, en");
+			
+			// disable notifications popup
+			options.addArguments("--disable-notifications");
+			
+			//disable geolocation popup
+			options.addArguments("--disable-geolocation");
+			
+			// auto save / download in firefox later
+			
+			
+			driverBaseTest = new FirefoxDriver(options);
 
 			break;
 
@@ -352,7 +379,41 @@ public class BaseTest {
 //			// sét certificate SSL = true là hết lỗi "Your connection is not private"
 //			chromeSSL.setAcceptInsecureCerts(true);
 			WebDriverManager.chromedriver().setup();
-			driverBaseTest = new ChromeDriver();
+			
+			// Disable browser diver log 
+			System.setProperty("webdriver.chrome.args","--disable-loggin");
+			System.setProperty("webdriver.chrome.silenOutput", "true");
+			
+			ChromeOptions chromeOptions = new ChromeOptions();
+			
+			// localize language
+			chromeOptions.addArguments("--lang=vi");
+			
+			// disable notifications popup
+			chromeOptions.addArguments("--disable-notifications");
+			
+			//disable geolocation popup
+			chromeOptions.addArguments("--disable-geolocation");
+			
+			// automation info bar (Chrome latest)
+			chromeOptions.setExperimentalOption("useAutomationExtension", false);
+			chromeOptions.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+			
+			// disable Save password chrome
+			Map<String, Object> prefs = new HashMap<String,Object>();
+			prefs.put("credentials_enable_service", false);
+			prefs.put("profile.password_manager_enabled", false);
+			
+			
+			// auto save / download in chrome 
+			prefs.put("profile.default_content_settings.popups", 0);
+			prefs.put("download.default_directory", GlobalConstants.DOWNLOAD_FILE);
+			
+			// run file prefs "disable Save password" and "auto save/download"
+			chromeOptions.setExperimentalOption("prefs", prefs);
+			
+			
+			driverBaseTest = new ChromeDriver(chromeOptions);
 
 			break;
 
@@ -366,10 +427,10 @@ public class BaseTest {
 		case H_FIREFOX:
 
 			WebDriverManager.firefoxdriver().setup();
-			FirefoxOptions options = new FirefoxOptions();
-			options.addArguments("--headless");
-			options.addArguments("window-size=1920x1080");
-			driverBaseTest = new FirefoxDriver(options);
+			FirefoxOptions hOptions = new FirefoxOptions();
+			hOptions.addArguments("--headless");
+			hOptions.addArguments("window-size=1920x1080");
+			driverBaseTest = new FirefoxDriver(hOptions);
 
 			break;
 
@@ -619,5 +680,20 @@ public class BaseTest {
 		return getCurrentDate() + "/" + getCurrentMonth() + "/" + getCurrentYear();
 	}
 
-	
+	// show Browsers Log , khi đã login vào Home hoặc chuyển trang thì gọi hàm này ra 
+	protected void showBrowserConsoleLogs(WebDriver driver) {
+		
+		if (driver.toString().contains("chrome") || driver.toString().contains("edge")) {
+			
+			LogEntries logs = driver.manage().logs().get("browser");
+			List<LogEntry> logList = logs.getAll();
+			for (LogEntry logging:logList) {
+				
+				if (logging.getLevel().toString().toLowerCase().contains("error")) {
+					
+					log.info("---" + logging.getLevel().toString() + "--- \n" + logging.getMessage());
+				}
+			}
+		}
+	}
 }
