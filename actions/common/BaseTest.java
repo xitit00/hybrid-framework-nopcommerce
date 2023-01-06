@@ -205,8 +205,6 @@ public class BaseTest {
 		
 		case FIREFOX:
 			
-		
-			
 			
 			WebDriverManager.firefoxdriver().setup();
 			driverBaseTest = new FirefoxDriver();
@@ -467,9 +465,9 @@ public class BaseTest {
 			// ko ổn định 
 		case SAFARI:
 
+			 // khi setting safari driver cho MAC , mình có enable lên thì ko cần dòng setup() nữa nhé , thêm vào thì hơi dư
+			//WebDriverManager.safaridriver().setup();
 			driverBaseTest = new SafariDriver();
-
-
 			break;
 
 			// opera kéo driver vào đổi từ text edit -> .exe 
