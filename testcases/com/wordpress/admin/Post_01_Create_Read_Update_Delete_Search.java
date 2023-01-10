@@ -62,7 +62,7 @@ public class Post_01_Create_Read_Update_Delete_Search extends BaseTest {
 		this.endUserUrl = urlUser;
 		this.adminUrl = adminUrl;
 
-		log.info("Pre-Condition - Step 01: Op en browser and admin Url");
+		log.info("Pre-Condition - Step 01: Open browser and admin Url");
 		driver = getBrowserDriverOnlyOneUrl(browserName, adminUrl);	
 		//c3 - che dấu khởi tạo với PageGeneratorManager
 		adminLoginPage = PageGeneratorManager.getAdminLoginPageObject(driver);
