@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import common.BasePage;
 import common.PageGeneratorManager;
+import pageUIs.nopCommerce.user.UserLoginPageUI;
 import pageUIs.nopCommerce.user.UserRegisterPageUI;
 
 public class UserRegisterPageObject extends BasePage {
@@ -106,5 +107,13 @@ public class UserRegisterPageObject extends BasePage {
 	public void clickToTheMoon() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public UserLoginPageObject clickToLoginLink() {
+		// TODO Auto-generated method stub
+		waitForElementClickable(driver,UserRegisterPageUI.LOG_IN);
+		clickToElement(driver,UserRegisterPageUI.LOG_IN);
+		
+		return PageGeneratorManager.getUserLoginPage(driver);
 	}
 }

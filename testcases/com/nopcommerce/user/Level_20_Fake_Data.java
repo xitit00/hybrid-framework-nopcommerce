@@ -23,18 +23,19 @@ import pageObjects.nopCommerce.user.UserMyAccountPageObject;
 import pageObjects.nopCommerce.user.UserMyProductReviewPageObject;
 import pageObjects.nopCommerce.user.UserRegisterPageObject;
 import pageObjects.nopCommerce.user.UserRewardPointPageObject;
+import utilities.DataHelper;
 
-public class Level_18_Pattern_Object extends BaseTest {
+public class Level_20_Fake_Data extends BaseTest {
 	
 	private WebDriver driver;
 	private String email;
 
 	
-	private String firstName  = "anh";
-	private String lastName = "BTC";
-	private String password = "123456";
+	private String firstName;
+	private String lastName;
+	private String password;
 	
-	private String date  = "10";
+	private String date = "10";
 	private String month = "8";
 	private String year = "1998";
 	
@@ -42,6 +43,7 @@ public class Level_18_Pattern_Object extends BaseTest {
 	private UserHomePageObject homePageObject;
 	private UserRegisterPageObject registerPageObject;
 	private UserCustomerInfoPageObject customerInfoPageObject;
+	private DataHelper dataHelper;
 	
 	@Parameters({"browser","url"})
 	@BeforeClass
@@ -49,8 +51,15 @@ public class Level_18_Pattern_Object extends BaseTest {
 
 		driver = getBrowserDriverOnlyOneUrl(browserName, url);
 		
-		email = "anhBTC" + generateFakeNumber() + "@gmail.com"; 
-	
+		// new DataHelper class
+		dataHelper = DataHelper.getDataHelper();
+		
+		// use fake data by faker;
+		email = dataHelper.getEmail();
+		lastName = dataHelper.getLastName();
+		firstName = dataHelper.getFirstName();
+		password = dataHelper.getPassword();
+		
 		// open URL -> Home : khoi tao Home 
 		homePageObject = PageGeneratorManager.getUserHomePage();
 		homePageObject.setDriver(driver);		
