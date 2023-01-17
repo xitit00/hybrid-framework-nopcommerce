@@ -25,7 +25,13 @@
 			<!-- <class name="com.nopcommerce.user.Level_18_Pattern_Object" /> -->
 			
 			<!-- Fake Data -->
-			<class name="com.nopcommerce.user.Level_20_Fake_Data" /> 
+			<!-- <class name="com.nopcommerce.user.Level_20_Fake_Data" /> -->
+			
+			<!-- Manage_Data_Test -->
+			<!-- <class name="com.nopcommerce.user.Level_20_Manage_Data_Test" /> -->
+			
+			<!-- Manage_Data_Test_Json -->
+			<class name="com.nopcommerce.user.Level_20_Manage_Data_Test_Json" />
 			
 		</classes>
 		
