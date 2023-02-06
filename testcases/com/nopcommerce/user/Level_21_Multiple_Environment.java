@@ -3,6 +3,7 @@ package com.nopcommerce.user;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -26,8 +27,9 @@ import pageObjects.nopCommerce.user.UserMyAccountPageObject;
 import pageObjects.nopCommerce.user.UserMyProductReviewPageObject;
 import pageObjects.nopCommerce.user.UserRegisterPageObject;
 import pageObjects.nopCommerce.user.UserRewardPointPageObject;
+import utilities.Environment;
 
-public class Level_20_Manage_Data_Test_Json extends BaseTest {
+public class Level_21_Multiple_Environment extends BaseTest {
 	
 	private WebDriver driver;
 	private String email;
@@ -47,12 +49,29 @@ public class Level_20_Manage_Data_Test_Json extends BaseTest {
 	private UserCustomerInfoPageObject customerInfoPageObject;
 	
 	UserDataMapper userData;
+	Environment environment;
 	
-	@Parameters({"browser","url"})
+	@Parameters({"browser","environment"})
 	@BeforeClass
-	public void beforeClass(String browserName, String url) {
-
-		driver = getBrowserDriverOnlyOneUrl(browserName, url);
+	public void beforeClass(String browserName, String environmentName) {
+		
+		// no params , no dynamic environment
+//		environment = ConfigFactory.create(Environment.class);
+//		driver = getBrowserDriverOnlyOneUrl(browserName, environment.appUrl());
+		
+		// use key to dynamic environment 
+		ConfigFactory.setProperty("env", environmentName);
+		environment = ConfigFactory.create(Environment.class);
+		driver = getBrowserDriverOnlyOneUrl(browserName, environment.appUrl());
+		
+		System.out.print(environment.appUrl());
+		System.out.print(environment.appPass());
+		System.out.print(environment.appUser());
+		
+		System.out.print(environment.dbHost());
+		System.out.print(environment.dbUser());
+		System.out.print(environment.dbPass());
+		
 //		
 		userData = UserDataMapper.getUserData();
 //	

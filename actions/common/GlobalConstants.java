@@ -17,6 +17,10 @@ public class GlobalConstants {
 	//STG
 	public static final String STG_PORTAL_PAGE_URL = "https://demo.nopcommerce.com/";
 	public static final String STG_ADMIN_PAGE_URL = "https://admin-demo.nopcommerce.com";
+	
+	//PRE_PRD
+	public static final String PRE_PRD_PORTAL_PAGE_URL = "https://demo.nopcommerce.com/";
+	public static final String PRE_PRD_ADMIN_PAGE_URL = "https://admin-demo.nopcommerce.com";
 
 	//PRO
 	public static final String PRO_PORTAL_PAGE_URL = "https://demo.nopcommerce.com/";

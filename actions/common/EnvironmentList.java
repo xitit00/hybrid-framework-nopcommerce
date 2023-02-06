@@ -2,6 +2,6 @@ package common;
 
 public enum EnvironmentList {
 	
-	DEV, TESTING, STG, PRD
+	DEV, TESTING, STG, PRE_PRD , PRD
 
 }
