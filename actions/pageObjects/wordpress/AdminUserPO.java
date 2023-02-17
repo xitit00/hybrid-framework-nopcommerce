@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 
@@ -34,15 +36,14 @@ public class AdminUserPO extends BasePage {
 	}
 	
 	public int getUserNumberDB(){
-		
-	// TODO Auto-generated method stub
-		
 		// Lấy ra đối tượng Connection kết nối vào DB 
 		Connection conn = MySQLConnUtils.getMySQLConnection();
 		System.out.println("Opened connection: " + conn);
 		 
 		Statement statement;
 		int count = 0;
+//		List<Integer> totalUser = new ArrayList<Integer>();
+		
 		try {
 			statement = conn.createStatement();
 		
@@ -55,6 +56,7 @@ public class AdminUserPO extends BasePage {
 			while (rs.next()) {
 				
 				count++;
+//				totalUser.add(rs.getInt(1));
 				// Di chuyển con trỏ xuống bản ghi kế tiếp
 				
 				// getInt(1) hay getString(2) là lấy theo num cột.
@@ -73,7 +75,6 @@ public class AdminUserPO extends BasePage {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			
 			// Đóng kết nối 
 			try {
 				
@@ -87,9 +88,9 @@ public class AdminUserPO extends BasePage {
 				e.printStackTrace();
 			}
 			System.out.println("------------Closed connection-----------");
-			
 		}
 		return count;
+//		return totalUser.size();
 		
 	}
 	
