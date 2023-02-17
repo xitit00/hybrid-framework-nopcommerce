@@ -39,5 +39,10 @@ public class PageGeneratorManager {
 		
 		return new UserPostDetailPO(driver);
 	}
+	
+	public static AdminUserPO getAdminUserPO(WebDriver driver) {
+		
+		return new AdminUserPO(driver);
+	}
 
 }

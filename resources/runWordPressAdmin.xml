@@ -20,48 +20,51 @@
 			<class name="com.jquery.Post_01_Create_Read_Update_Delete_Search" />
 		</classes> -->
 		
-		<packages>	
- 			<package name ="com.wordpress.admin"/>
- 		</packages>
+		<classes>	
+ 			<class name ="com.wordpress.admin.User_01_View_User"/>
+ 		</classes>
 		
   	</test> 
   
- 	 <test name="Run On Edge">
+ 	<!-- <test name="Run On Edge">
 	
 		<parameter name="browser" value="edge" />
 		
-		<!-- <classes>
+		<classes>
 			<class name="com.jquery.Post_01_Create_Read_Update_Delete_Search" />
-		</classes> -->
+		</classes> 
 		
 		<packages>	
  			<package name ="com.wordpress.admin"/>
  		</packages>
 			
-  	</test> 
+  	</test> -->
   	
   	
- 	 <test name="Run On FireFox">
+ 	<!-- <test name="Run On FireFox">
 	
 		<parameter name="browser" value="firefox" />
 		
-		<!-- <classes>
+		<classes>
 			<class name="com.jquery.Post_01_Create_Read_Update_Delete_Search" />
-		</classes> -->
+		</classes>
 		
 		<packages>	
  			<package name ="com.wordpress.admin"/>
  		</packages>
 			
-  	</test> 
+  	</test> -->
   
-  	<test name="Run On Headless Chrome"> <!-- Test -->
+  	<!-- <test name="Run On Headless Chrome"> 
+  	
 	
 		<parameter name="browser" value="h_chrome" />
 		<classes>
-			<!-- <class name="com.jquery.Level_11_Upload_Files" /> -->
+			<class name="com.jquery.Level_11_Upload_Files" />
 		</classes>
 		
-  	</test> <!-- Test --> 
+  	</test> --> 
+  	
+  	<!-- Test --> 
   
 </suite> <!-- Suite -->
