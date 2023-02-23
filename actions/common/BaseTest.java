@@ -2,6 +2,8 @@ package common;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +27,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -530,6 +534,102 @@ public class BaseTest {
 			throw new RuntimeException("Browser name invalid");
 
 		}
+
+		// Set timeout tim element
+		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIME_OUT, TimeUnit.SECONDS);
+
+		// open URL 
+		driverBaseTest.get(appUrl);
+
+
+		driverBaseTest.manage().window().maximize();
+
+		return driverBaseTest;
+	}
+	
+	// Level_22_Browser_Stack ( Cloud Testing )
+	protected WebDriver getBrowserDriverBrowserStack(String browserName, String appUrl, String osName, String osVersion , String browserVersion) {
+
+		DesiredCapabilities capability = new DesiredCapabilities();
+		capability.setCapability("os", osName);
+		capability.setCapability("os_version", osVersion);
+		capability.setCapability("browser", browserName);
+		capability.setCapability("browser_version", browserVersion);
+		capability.setCapability("browserstack.debug", "true");
+		capability.setCapability("project", "NopCommerce");
+		capability.setCapability("resolution", "1920x1080");
+		capability.setCapability("name", "Run on" + osName + osVersion + "and" + browserName);
+		
+		// ko cần xác định rõ resolution cho từng loại os version khi xài browser stack nhé 
+//		if (osVersion.contains("Windows")) {
+//			
+//			capability.setCapability("resolution", "1920x1080");
+//		}
+//		else {
+//			
+//			capability.setCapability("resolution", "2560x1440");
+//		}
+
+		try {
+			
+			// từ lúc bắt đầu dùng Selenium_Grid và Cloud_Testing thì đều phải khởi tạo = RemoteWebDriver nhé.
+			driverBaseTest = new RemoteWebDriver(new URL(GlobalConstants.BROWSER_STACK_URL), capability);
+			
+			System.out.println("Driver: " + driverBaseTest);
+			
+		} catch (MalformedURLException e) {
+			
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+		// Set timeout tim element
+		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIME_OUT, TimeUnit.SECONDS);
+
+		// open URL 
+		driverBaseTest.get(appUrl);
+
+
+		driverBaseTest.manage().window().maximize();
+
+		return driverBaseTest;
+	}
+	
+	// Level_22_Sauce_Lab
+	protected WebDriver getBrowserDriverSauceLab(String browserName, String appUrl, String platForm, String browserVersion) {
+
+		DesiredCapabilities capability = new DesiredCapabilities();
+		capability.setCapability("platform", platForm);
+		capability.setCapability("browserName", browserName);
+		capability.setCapability("version", browserVersion);
+		capability.setCapability("name", "Run on" + platForm + "and" + browserName);
+		
+		Map<String, Object> sauceOptions = new HashMap<>();
+		if (platForm.contains("Windows")) {
+			
+			sauceOptions.put("screenResolution", "1920x1080");
+		}
+		else {
+			
+			sauceOptions.put("screenResolution", "1920x1440");
+		}
+		
+		capability.setCapability("sauce:options", sauceOptions);
+
+		try {
+			
+			// từ lúc bắt đầu dùng Selenium_Grid và Cloud_Testing thì đều phải khởi tạo = RemoteWebDriver nhé.
+			driverBaseTest = new RemoteWebDriver(new URL(GlobalConstants.SAUCE_STACK_URL), capability);
+			
+			System.out.println("Driver: " + driverBaseTest);
+			
+		} catch (MalformedURLException e) {
+			
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 
 		// Set timeout tim element
 		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIME_OUT, TimeUnit.SECONDS);

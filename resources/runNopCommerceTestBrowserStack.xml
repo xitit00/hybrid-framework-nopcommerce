@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- // suite name có thể chuyển thành project name , name = "Suite" -> name 
+	= "Nopcommerce" , parallel bỏ đi hoặc để đó cũng đc -->
+
+<suite parallel="false" name="NopCommerce">
+
+	<parameter name="url" value="https://demo.nopcommerce.com/" />
+	
+	<listeners>
+		<listener class-name="common.MethodListener" />
+		<listener class-name="reportConfig.ReportNGListener"/>
+		<!--<listener class-name="reportConfig.AllureTestListener"/>-->
+		<listener class-name="org.uncommons.reportng.HTMLReporter"/>
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+	</listeners>
+	
+	<test name="Run On Chrome">
+	
+		<parameter name="browser" value="chrome" />
+		<parameter name= "osName" value="Windows" />
+		<parameter name="osVersion" value="10" />
+		<parameter name="browserVersion" value="latest" />
+		
+		<classes>
+			<!-- BrowserStack Cloud Testing -->
+			<class name="com.nopcommerce.user.Level_22_Browser_Stack" />
+			
+		</classes>
+		
+	</test>
+	
+	<test name="Run On Firefox">
+	
+		<parameter name="browser" value="firefox" />
+		<parameter name= "osName" value="OS X" />
+		<parameter name="osVersion" value="Big Sur" />
+		<parameter name="browserVersion" value= "latest" />
+		
+		<classes>
+			<!-- BrowserStack Cloud Testing -->
+			<class name="com.nopcommerce.user.Level_22_Browser_Stack" />
+			
+		</classes>
+		
+	</test>
+
+	<!-- // set up bài 09 và trc đó  --> 
+	<!--
+	<parameter name="environment" value="DEV" />
+	<test name="Run On Firefox">
+	
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<class name="com.nopcommerce.user.Level_09_Dynamic_Locator" />
+		</classes>
+		
+	</test>
+	-->
+
+	<!-- // test name là mình chạy nó trên môi trường nào -->
+	
+	<!-- <test name="Run On Firefox">
+	
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<class name="com.nopcommerce.user.Level_04_Multiple_Browser" />
+		</classes>
+		
+	</test>
+
+	<test name="Run On Chrome">
+
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="com.nopcommerce.user.Level_04_Multiple_Browser" />
+		</classes>
+
+	</test>
+
+	<test name="Run On Edge">
+
+		<parameter name="browser" value="edge" />
+		<classes>
+			<class name="com.nopcommerce.user.Level_04_Multiple_Browser" />
+		</classes>
+
+	</test> -->
+	
+	<!-- //test Headless  -->
+<!--  	<test name="Run On H_Firefox">
+	
+		<parameter name="browser" value="h_firefox" />
+		<classes>
+			<class name="com.nopcommerce.user.Level_04_Multiple_Browser" />
+		</classes>
+		
+	</test> -->
+
+	<!-- <test name="Run On H_Chrome">
+
+		<parameter name="browser" value="h_chrome" />
+		<classes>
+			<class name="com.nopcommerce.user.Level_04_Multiple_Browser" />
+		</classes>
+
+	</test> -->
+	
+<!-- 	<test name="Run On Safari">
+	
+		<parameter name="browser" value="safari" />
+		<classes>
+			<class name="com.nopcommerce.user.Level_04_Multiple_Browser" />
+		</classes>
+		
+	</test> -->
+	
+	<!-- <test name="Run On CocCoc">
+	
+		<parameter name="browser" value="coccoc" />
+		<classes>
+			<class name="com.nopcommerce.user.Level_04_Multiple_Browser" />
+		</classes>
+		
+	</test> -->
+	
+	<!-- <test name="Run On Opera">
+	
+		<parameter name="browser" value="opera" />
+		<classes>
+			<class name="com.nopcommerce.user.Level_04_Multiple_Browser" />
+		</classes>
+		
+	</test> -->
+
+</suite> <!-- Suite -->

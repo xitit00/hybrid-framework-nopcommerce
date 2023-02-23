@@ -75,4 +75,21 @@ public class GlobalConstants {
 	// Số lần retry lại test failed
 	public static final long RETRY_TEST_ALL =  3;
 	
+	// Cloud Testing ( Browser Stack ) 
+	// username
+	public static final String BROWSER_USERNAME = "anhnguyen_arc2Tt";
+	// accesskey 
+	public static final String BROWSER_AUTOMATE_KEY = "vudEmSpBvPejoJByRrSL";
+	// stack_url = https://anhnguyen_arc2Tt:vudEmSpBvPejoJByRrSL@hub-cloud.browserstack.com/wd/hub
+	public static final String BROWSER_STACK_URL = "https://" + BROWSER_USERNAME + ":" + BROWSER_AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
+	
+	// SauceLab 
+	// username
+	public static final String SAUCE_USERNAME = "oauth-anh.nguyen-5b5df";
+	// accesskey 
+	public static final String SAUCE_AUTOMATE_KEY = "a47ad500-7be5-43f3-a740-27e1f28b0da2";
+	// stack_url = https://oauth-anh.nguyen-5b5df:a47ad500-7be5-43f3-a740-27e1f28b0da2.apac-southeast-1.saucelabs.com:443/wd/hub
+	public static final String SAUCE_STACK_URL = "https://" + SAUCE_USERNAME + ":" + SAUCE_AUTOMATE_KEY + "@ondemand.apac-southeast-1.saucelabs.com:443/wd/hub";
+
+	
 }
