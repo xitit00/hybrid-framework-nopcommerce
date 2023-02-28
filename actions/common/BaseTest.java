@@ -612,7 +612,7 @@ public class BaseTest {
 		}
 		else {
 			
-			sauceOptions.put("screenResolution", "1920x1440");
+			sauceOptions.put("screenResolution", "2880x1800");
 		}
 		
 		capability.setCapability("sauce:options", sauceOptions);
@@ -630,6 +630,52 @@ public class BaseTest {
 			e.printStackTrace();
 		}
 		
+
+		// Set timeout tim element
+		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIME_OUT, TimeUnit.SECONDS);
+
+		// open URL 
+		driverBaseTest.get(appUrl);
+
+
+		driverBaseTest.manage().window().maximize();
+
+		return driverBaseTest;
+	}
+	
+	// Level_22_Lambda_Test
+	protected WebDriver getBrowserDriverLambdaTest(String browserName, String appUrl, String osName, String browserVersion) {
+
+		DesiredCapabilities capability = new DesiredCapabilities();
+		capability.setCapability("platform", osName);
+		capability.setCapability("browserName", browserName);
+		capability.setCapability("version", browserVersion);
+		capability.setCapability("video",true);
+		capability.setCapability("visual",true);
+		capability.setCapability("name","Run on" + osName + "and" + browserName);
+
+		if (osName.contains("Windows")) {
+
+			capability.setCapability("screenResolution","1920x1080");
+		}
+		else {
+
+			capability.setCapability("screenResolution","2560x1440");
+		}
+
+		try {
+
+			// từ lúc bắt đầu dùng Selenium_Grid và Cloud_Testing thì đều phải khởi tạo = RemoteWebDriver nhé.
+			driverBaseTest = new RemoteWebDriver(new URL(GlobalConstants.LAMBDA_STACK_URL), capability);
+
+			System.out.println("Driver: " + driverBaseTest);
+
+		} catch (MalformedURLException e) {
+
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 
 		// Set timeout tim element
 		driverBaseTest.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIME_OUT, TimeUnit.SECONDS);

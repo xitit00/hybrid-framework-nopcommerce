@@ -90,6 +90,16 @@ public class GlobalConstants {
 	public static final String SAUCE_AUTOMATE_KEY = "a47ad500-7be5-43f3-a740-27e1f28b0da2";
 	// stack_url = https://oauth-anh.nguyen-5b5df:a47ad500-7be5-43f3-a740-27e1f28b0da2.apac-southeast-1.saucelabs.com:443/wd/hub
 	public static final String SAUCE_STACK_URL = "https://" + SAUCE_USERNAME + ":" + SAUCE_AUTOMATE_KEY + "@ondemand.apac-southeast-1.saucelabs.com:443/wd/hub";
-
+	
+	// Lambda Test 
+	// username
+	public static final String LAMBDA_USERNAME = "anh.nguyenvietlinkads";
+	// accesskey 
+	public static final String LAMBDA_AUTOMATE_KEY = "yCPizEGasmVKPBcK3vEMEk34085ijgkK5Rh9v5XdQMgz5uXQ8a";
+	// stack_url = https://anh.nguyenvietlinkads:yCPizEGasmVKPBcK3vEMEk34085ijgkK5Rh9v5XdQMgz5uXQ8a@hub.lambdatest.com/wd/hub
+	public static final String LAMBDA_STACK_URL = "https://" + LAMBDA_USERNAME + ":" + LAMBDA_AUTOMATE_KEY + "@hub.lambdatest.com/wd/hub";
+	
+	
+	
 	
 }
