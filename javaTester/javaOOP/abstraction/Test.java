@@ -1,12 +1,13 @@
 package javaOOP.abstraction;
 
+
 public class Test {
 
 	public static void main (String[] args) {
 		
 		// interface 
 		// Cannot instantiate the type IAnimal
-//		IAnimal ani = new IAnimal();
+		//IAnimal ani = new IAnimal();
 		
 		
 		// abstract class 
