@@ -5,14 +5,18 @@ import org.aeonbits.owner.Config.Sources;
 
 // đường dẫn trỏ vào properties
 
-//resources ( package ) 
+//source folder/ package  
 //@Sources({"classpath:dev.properties"}) 
 
 //folder 
 //@Sources({"file:environmentConfig/dev.properties"})
 
-//dynamic environment 
+//folder dynamic environment 
 @Sources({"file:environmentConfig/${env}.properties"})
+
+//source folder/ package dynamic environment 
+//@Sources({"classpath:environmentConfig/${env}.properties"})
+
 public interface Environment extends Config {
 	
 	// Hàm getter 

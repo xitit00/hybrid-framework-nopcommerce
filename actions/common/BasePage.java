@@ -746,11 +746,55 @@ public class BasePage {
 	}
 	
 	//JsExecutor
+	
+	public String getInnerText(WebDriver driver) {
+		
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		return (String) jsExecutor.executeScript("return document.documentElement.innerText;");
+	}
+	
+	public String getDomainPage(WebDriver driver) {
+		
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		return (String) jsExecutor.executeScript("return document.domain;");
+	}
+	
+	public String getURL(WebDriver driver) {
+		
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		return (String) jsExecutor.executeScript("return document.URL;");
+	}
+	
+	public String getTitle(WebDriver driver) {
+		
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		return (String) jsExecutor.executeScript("return document.title;");
+	}
+	
+	public void navigateToUrlByJS(WebDriver driver, String url) {
+		
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		jsExecutor.executeScript("window.location = '" + url + "'");
+	}
 
 	public void scrollToBottomPage(WebDriver driver) {
 		
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 		jsExecutor.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+	}
+	
+	public void hightlightElement(WebDriver driver, String locatorType) {
+		
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		
+		WebElement element = getWebElement(driver, locatorType);
+		String originalStyle = element.getAttribute("style");
+
+		jsExecutor.executeScript("arguments[0].setAttribute('style', arguments[1])", element,
+				"border: 2px solid red; border-style: dashed;");
+		sleepInSecond(1);
+
+		jsExecutor.executeScript("arguments[0].setAttribute('style', arguments[1])", element, originalStyle);
 	}
 	
 	public void hightlightElement(WebDriver driver, String locatorType , String...restValues) {
@@ -787,22 +831,63 @@ public class BasePage {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 		jsExecutor.executeScript("arguments[0].scrollIntoView(true);", getWebElement(driver, locatorType));
 	}
+	
+	public void scrollToElementOnTop(WebDriver driver, String locatorType, String...restValues) {
+		
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		locatorType = getDynamicXpath(locatorType, restValues);
+		jsExecutor.executeScript("arguments[0].scrollIntoView(true);", getWebElement(driver, locatorType));
+	}
 
 	public void scrollToElementOnDown(WebDriver driver, String locatorType) {
 		
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 		jsExecutor.executeScript("arguments[0].scrollIntoView(false);", getWebElement(driver, locatorType));
 	}
-
+	
+	public void scrollToElementOnDown(WebDriver driver, String locatorType, String...restValues) {
+		
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		locatorType = getDynamicXpath(locatorType, restValues);
+		jsExecutor.executeScript("arguments[0].scrollIntoView(false);", getWebElement(driver, locatorType));
+	}
+	
+	public void sendkeyToElementByJS(WebDriver driver, String locatorType, String value) {
+		
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		jsExecutor.executeScript("arguments[0].setAttribute('value', '" + value + "')", getWebElement(driver, locatorType));
+	}
+	
+	public void sendkeyToElementByJS(WebDriver driver, String locatorType, String value, String...restValues) {
+		
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		locatorType = getDynamicXpath(locatorType, restValues);
+		jsExecutor.executeScript("arguments[0].setAttribute('value', '" + value + "')", getWebElement(driver, locatorType));
+	}
+	
 	public void removeAttributeInDOM(WebDriver driver, String locatorType, String attributeRemove) {
 		
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		jsExecutor.executeScript("arguments[0].removeAttribute('" + attributeRemove + "');", getWebElement(driver, locatorType));
+	}
+	
+	public void removeAttributeInDOM(WebDriver driver, String locatorType, String attributeRemove, String...restValues) {
+		
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		locatorType = getDynamicXpath(locatorType, restValues);
 		jsExecutor.executeScript("arguments[0].removeAttribute('" + attributeRemove + "');", getWebElement(driver, locatorType));
 	}
 
 	public String getElementValidationMessage(WebDriver driver, String locatorType) {
 		
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		return (String) jsExecutor.executeScript("return arguments[0].validationMessage;", getWebElement(driver, locatorType));
+	}
+	
+	public String getElementValidationMessage(WebDriver driver, String locatorType, String...restValues) {
+		
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		locatorType = getDynamicXpath(locatorType, restValues);
 		return (String) jsExecutor.executeScript("return arguments[0].validationMessage;", getWebElement(driver, locatorType));
 	}
 	

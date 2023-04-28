@@ -2,8 +2,10 @@ package pageObjects.saucelab;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,6 +32,7 @@ public class ProductPageObject extends BasePage {
 	}
 
 	public boolean isProductNameSortByAscending() {
+		
 		
 		//B1: getText của all product name ra 
 		List<WebElement> elementList = getListWebElement(driver, ProductPageUI.INVENTORY_ITEM_NAME);
@@ -171,7 +174,7 @@ public class ProductPageObject extends BasePage {
 			
 			sortedList.add(price);
 		}
-		// sort asc
+//		// sort asc
 		Collections.sort(sortedList);
 		
 		for (float productSorted : sortedList) {

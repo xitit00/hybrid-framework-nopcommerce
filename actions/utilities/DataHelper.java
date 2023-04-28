@@ -18,6 +18,7 @@ public class DataHelper {
 	
 	
 	public Locale locale = new Locale("en");
+
 	public Faker faker = new Faker();
 	
 	public static DataHelper getDataHelper() {
